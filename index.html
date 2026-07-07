@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAA Digital — Web Design &amp; Development Studio</title>
+  <meta name="description" content="FAA Digital is a lean web design and development studio building fast, elegant websites and web apps for founders who refuse to ship anything average.">
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Custom cursor spotlight layer -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="siteNav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__brand">
+        <img src="images/Screenshot 2026-07-07 153441.png" alt="FAA Digital" width="75" height="75">
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="btn btn--sm btn--primary nav__cta">Start a project</a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HOME / HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="status-pill reveal" data-reveal>
+          <span class="status-pill__dot"></span>
+          Currently booking 2 project slots for Q3 2026
+        </div>
+
+        <h1 class="hero__title reveal" data-reveal>
+          Modern Websites <br>
+          QR Menu Solutions
+for Local Businesses
+        </h1>
+
+        <p class="hero__subtitle reveal" data-reveal>
+          FAA Digital builds professional websites,
+QR menus, and digital solutions for
+restaurants, hotels, gyms, cafés,
+shops, and local businesses.
+        </p>
+
+        <div class="hero__actions reveal" data-reveal>
+          <a href="#contact" class="btn btn--primary btn--lg">Get Free Consultation</a>
+          <a href="#portfolio" class="btn btn--ghost btn--lg">View our work</a>
+        </div>
+
+        <div class="hero__meta reveal" data-reveal>
+          <div class="hero__meta-item">
+            <span class="num" data-count="60">0</span><span class="suffix">+</span>
+            <p>Projects shipped</p>
+          </div>
+          <div class="hero__meta-item">
+            <span class="num" data-count="96">0</span><span class="suffix"></span>
+            <p>Avg. Lighthouse score</p>
+          </div>
+          <div class="hero__meta-item">
+            <span class="num" data-count="4">0</span><span class="suffix">.9/5</span>
+            <p>Average client rating</p>
+          </div>
+          <div class="hero__meta-item">
+            <span class="num" data-count="6">0</span><span class="suffix">yrs</span>
+            <p>Building on the web</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee strip -->
+    <div class="marquee">
+      <div class="marquee__track">
+        <span>SaaS</span><span>·</span><span>Fintech</span><span>·</span>
+        <span>E-commerce</span><span>·</span><span>Healthcare</span><span>·</span>
+        <span>Real Estate</span><span>·</span><span>Hospitality</span><span>·</span>
+        <span>Creative Studios</span><span>·</span>
+        <span>SaaS</span><span>·</span><span>Fintech</span><span>·</span>
+        <span>E-commerce</span><span>·</span><span>Healthcare</span><span>·</span>
+        <span>Real Estate</span><span>·</span><span>Hospitality</span><span>·</span>
+        <span>Creative Studios</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow reveal" data-reveal>About</p>
+        <h2 class="section__title reveal" data-reveal>A small studio, obsessed with the details.</h2>
+
+        <div class="about__grid">
+          <p class="about__lead reveal" data-reveal>
+            FAA Digital is a lean team of designers and engineers who partner
+            directly with founders and marketing teams — no account managers,
+            no bloated process, just people who care about pixels and
+            performance in equal measure.
+          </p>
+
+          <div class="about__body reveal" data-reveal>
+            <p>
+              We started FAA Digital to close the gap between "looks good"
+              and "works well." Most agencies hand you a beautiful mockup and
+              disappear once development starts. We stay in the build the
+              entire way — from the first wireframe to the last Lighthouse
+              audit — so nothing gets lost in translation.
+            </p>
+            <p>
+              Every project ships with clean, documented code, a design
+              system you actually own, and a team that answers the phone
+              after launch.
+            </p>
+          </div>
+        </div>
+
+        <div class="stat-row reveal" data-reveal>
+          <div class="stat-row__item">
+            <h3>60+</h3>
+            <p>Projects shipped since 2020</p>
+          </div>
+          <div class="stat-row__item">
+            <h3>96</h3>
+            <p>Average Lighthouse performance score</p>
+          </div>
+          <div class="stat-row__item">
+            <h3>4.9/5</h3>
+            <p>Average client satisfaction rating</p>
+          </div>
+          <div class="stat-row__item">
+            <h3>2 wks</h3>
+            <p>Typical time to first working prototype</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <p class="eyebrow reveal" data-reveal>Services</p>
+        <h2 class="section__title reveal" data-reveal>Everything you need to launch and grow online.</h2>
+        <p class="section__subtitle reveal" data-reveal>
+          Pick a single service or let us run the whole build end to end.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 8h18M3 8a2 2 0 012-2h14a2 2 0 012 2M3 8v10a2 2 0 002 2h14a2 2 0 002-2V8M7 5.5h.01M10 5.5h.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Web Design</h3>
+            <p>Custom interface systems built in Figma and tailored to your brand — never a recycled template.</p>
+          </article>
+
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Web Development</h3>
+            <p>Hand-coded, framework-driven builds on React and Next.js, optimized for speed and SEO from day one.</p>
+          </article>
+
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5L20 9l-4.2 4 1 6L12 16l-4.8 3 1-6L4 9l5.5-.5L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Brand Identity</h3>
+            <p>Logo, type, color and voice systems that hold up across every touchpoint your customers see.</p>
+          </article>
+
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18l-2 11H5L3 6zM3 6l-.5-2H1M8 10v4M12 10v4M16 10v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>E-commerce</h3>
+            <p>Conversion-focused stores on Shopify or headless commerce stacks, built to sell — not just look nice.</p>
+          </article>
+
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 21h8M12 18v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Web Applications</h3>
+            <p>Dashboards, client portals and internal tools built with modern frameworks and real-time data.</p>
+          </article>
+
+          <article class="service-card reveal" data-reveal>
+            <div class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2.1 2.1M15.6 15.6l2.1 2.1M6.3 17.7l2.1-2.1M15.6 8.4l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Care &amp; Maintenance</h3>
+            <p>Ongoing updates, uptime monitoring and performance tuning long after your site goes live.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <p class="eyebrow reveal" data-reveal>Portfolio</p>
+        <h2 class="section__title reveal" data-reveal>Recent work we're proud of.</h2>
+        <p class="section__subtitle reveal" data-reveal>
+          A selection of projects across product, commerce and brand.
+        </p>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-card portfolio-card--wide reveal" data-reveal>
+            <div class="portfolio-card__cover cover--1" aria-hidden="true"></div>
+            <div class="portfolio-card__info">
+              <span class="tag">Interior Design · Portfolio Site</span>
+              <h3>Nordic Studio</h3>
+              <p>Editorial-style portfolio for a Scandinavian interior design studio, built around a bento-grid gallery and smooth scroll transitions.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-reveal>
+            <div class="portfolio-card__cover cover--2" aria-hidden="true"></div>
+            <div class="portfolio-card__info">
+              <span class="tag">Fintech · Product Dashboard</span>
+              <h3>Loop Finance</h3>
+              <p>Onboarding flow and analytics dashboard for a payments startup, redesigned for clarity at a glance.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-reveal>
+            <div class="portfolio-card__cover cover--3" aria-hidden="true"></div>
+            <div class="portfolio-card__info">
+              <span class="tag">E-commerce · Headless Shopify</span>
+              <h3>Verdant</h3>
+              <p>Headless commerce build for a plant and home goods brand — checkout time down 40% after launch.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-reveal>
+            <div class="portfolio-card__cover cover--4" aria-hidden="true"></div>
+            <div class="portfolio-card__info">
+              <span class="tag">Healthcare · Web App</span>
+              <h3>Atlas Health</h3>
+              <p>Appointment booking web app with real-time calendar sync across multiple clinic locations.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card portfolio-card--wide reveal" data-reveal>
+            <div class="portfolio-card__cover cover--5" aria-hidden="true"></div>
+            <div class="portfolio-card__info">
+              <span class="tag">DTC Brand · Identity &amp; Store</span>
+              <h3>Kiln Coffee</h3>
+              <p>Full brand identity paired with a Shopify storefront designed to feel as warm as the product itself.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="section section--alt" id="pricing">
+      <div class="container">
+        <p class="eyebrow reveal" data-reveal>Pricing</p>
+        <h2 class="section__title reveal" data-reveal>Simple pricing, no surprise invoices.</h2>
+        <p class="section__subtitle reveal" data-reveal>
+          Every project is scoped up front. These are our typical starting points.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal" data-reveal>
+            <h3>Starter</h3>
+            <p class="price-card__desc">For landing pages and simple marketing sites.</p>
+            <p class="price-card__price">₹7,999 <span>onwards</span></p>
+            <ul class="price-card__list">
+              <li>Up to 5 sections, single page</li>
+              <li>Mobile-first responsive build</li>
+              <li>Basic on-page SEO setup</li>
+              <li>1 round of revisions</li>
+              <li>2 week delivery</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--full">Get started</a>
+          </article>
+
+          <article class="price-card price-card--featured reveal" data-reveal>
+            <span class="price-card__badge">Most popular</span>
+            <h3>Growth</h3>
+            <p class="price-card__desc">For multi-page sites that need to convert.</p>
+            <p class="price-card__price">₹14,999 <span>onwards</span></p>
+            <ul class="price-card__list">
+              <li>Up to 8 pages, custom design</li>
+              <li>CMS integration for easy edits</li>
+              <li>Technical &amp; on-page SEO setup</li>
+              <li>3 rounds of revisions</li>
+              <li>4 week delivery</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--full">Get started</a>
+          </article>
+
+          <article class="price-card reveal" data-reveal>
+            <h3>Scale</h3>
+            <p class="price-card__desc">For web apps, e-commerce and custom builds.</p>
+            <p class="price-card__price">Custom <span>quote</span></p>
+            <ul class="price-card__list">
+              <li>Web app or e-commerce platform</li>
+              <li>Custom features &amp; integrations</li>
+              <li>Dedicated project lead</li>
+              <li>Unlimited revisions during build</li>
+              <li>Ongoing retainer available</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--full">Talk to us</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <p class="eyebrow reveal" data-reveal>FAQ</p>
+        <h2 class="section__title reveal" data-reveal>Questions we hear a lot.</h2>
+
+        <div class="accordion reveal" data-reveal>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              How long does a typical project take?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Landing pages usually take 2 weeks from kickoff to launch. Full marketing sites take 3–4 weeks, and web apps or e-commerce builds typically run 6–10 weeks depending on scope. We'll give you an exact timeline after our first scoping call.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Do you work with clients outside India?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Yes — most of our clients are remote. We run projects async with weekly check-in calls, and we're comfortable working across time zones in the US, UK and Middle East.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              What's included in the price?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Design, development, copywriting support, basic SEO setup and a launch checklist are included in every package. Hosting, domain and third-party tools (like a CMS or payment gateway) are billed separately at cost.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Do you offer maintenance after launch?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Yes. Our Care &amp; Maintenance plans cover updates, security patches, performance monitoring and small content changes on a monthly retainer, so your site keeps running well long after handoff.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Can you redesign my existing site instead of building from scratch?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>Definitely. We start with a short audit of your current site — performance, structure and content — and recommend whether a redesign or a rebuild will get you the better result.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              What do you need from me to get started?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>A short brief of your goals, any brand assets you already have (logo, colors, fonts) and examples of sites you like. We'll handle the rest and fill in gaps together during kickoff.</p>
+            </div>
+          </div>
+
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false">
+              Do you build on WordPress or custom code?
+              <span class="accordion__icon"></span>
+            </button>
+            <div class="accordion__panel">
+              <p>We default to hand-coded builds on modern frameworks like Next.js for speed and long-term flexibility. If you specifically need WordPress or another CMS for your team's workflow, we can build there too.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <p class="eyebrow reveal" data-reveal>Contact</p>
+        <h2 class="section__title reveal" data-reveal>Let's build something you're proud of.</h2>
+        <p class="section__subtitle reveal" data-reveal>
+          Tell us a little about your project and we'll reply within one business day.
+        </p>
+
+        <div class="contact-grid">
+          <form class="contact-form reveal" data-reveal id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="name" placeholder="Jordan Blake" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email address</label>
+                <input type="email" id="email" name="email" placeholder="jordan@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="project">Project type</label>
+                <select id="project" name="project" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option>Marketing website</option>
+                  <option>E-commerce store</option>
+                  <option>Web application</option>
+                  <option>Brand identity</option>
+                  <option>Maintenance &amp; support</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="budget">Estimated budget</label>
+                <select id="budget" name="budget" required>
+                  <option value="" disabled selected>Select a range</option>
+                  <option>Under ₹50,000</option>
+                  <option>₹50,000 – ₹1,50,000</option>
+                  <option>₹1,50,000 – ₹5,00,000</option>
+                  <option>₹5,00,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Project details</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals, timeline and anything else we should know." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--lg btn--full">Send message</button>
+            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="contact-side reveal" data-reveal>
+            <div class="contact-side__block">
+              <h3>Email</h3>
+              <a href="mailto:hello@faadigital.com">hello@faadigital.com</a>
+            </div>
+            <div class="contact-side__block">
+              <h3>Phone / WhatsApp</h3>
+              <a href="tel:+919999999999">+91 99999 99999</a>
+            </div>
+            <div class="contact-side__block">
+              <h3>Studio hours</h3>
+              <p>Monday – Saturday<br>10:00 AM – 7:00 PM IST</p>
+            </div>
+            <div class="contact-side__block">
+              <h3>Follow along</h3>
+              <div class="social-links">
+                <a href="#" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" aria-label="Behance">Behance</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="images/logo.svg" alt="FAA Digital" width="130" height="30">
+        <p>A lean web design and development studio, building fast digital experiences for founders who care about the details.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Sitemap</h4>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Studio</h4>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get in touch</h4>
+        <a href="mailto:hello@faadigital.com">hello@faadigital.com</a>
+        <a href="tel:+919999999999">+91 99999 99999</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> FAA Digital. All rights reserved.</p>
+      <p>Designed &amp; built in-house.</p>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+  <a
+    href="https://wa.me/919999999999?text=Hi%20FAA%20Digital%2C%20I%27d%20like%20to%20talk%20about%20a%20project."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat with us on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.7.44 3.35 1.28 4.81L2 22l5.42-1.37a9.9 9.9 0 0 0 4.62 1.17h.01c5.46 0 9.9-4.45 9.9-9.9C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.25.68-1.24 1.28-1.72 1.35-.44.06-1 .09-1.62-.1-.37-.12-.85-.28-1.46-.55-2.57-1.11-4.25-3.7-4.38-3.87-.13-.17-1.04-1.38-1.04-2.64 0-1.25.66-1.87.9-2.12.24-.25.52-.31.7-.31h.5c.16 0 .38-.02.58.44.25.6.85 2.06.92 2.21.07.15.12.32.02.5-.1.19-.15.31-.3.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.3.15.47.13.64-.08.17-.2.72-.83.92-1.12.2-.28.4-.24.66-.14.27.09 1.7.8 1.99.95.3.15.49.22.56.34.08.13.08.71-.17 1.39Z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
