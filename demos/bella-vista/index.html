@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Vista Ristorante — Authentic Italian Dining</title>
+<meta name="description" content="Bella Vista Ristorante — authentic Italian dining in the heart of the city. Reserve your table, explore our menu, and taste tradition.">
+<meta name="theme-color" content="#0b0906">
+<link rel="icon" href="data:,">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:ital@1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="container nav__inner">
+    <a href="#home" class="nav__brand">Bella <span>Vista</span></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#chef">Chef</a>
+      <a href="#dishes">Dishes</a>
+      <a href="#menu">Menu</a>
+      <a href="#reserve">Reserve</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#reserve" class="btn btn--gold nav__cta">Reserve a Table</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__inner container">
+      <div class="hero__emblem" aria-hidden="true">
+        <span class="hero__emblem-mark">BV</span>
+      </div>
+      <p class="hero__tagline reveal" data-reveal>Ristorante Italiano · Est. 2012</p>
+      <h1 class="hero__title reveal" data-reveal>Authentic Italian Dining<br>in the Heart of the City</h1>
+      <p class="hero__subtitle reveal" data-reveal>
+        Slow-cooked traditions, wood-fired classics, and a wine list built to
+        linger over. Bella Vista brings Rome's trattoria warmth to your table.
+      </p>
+      <div class="hero__actions reveal" data-reveal>
+        <a href="#reserve" class="btn btn--gold">Reserve a Table</a>
+        <a href="#menu" class="btn btn--ghost">View Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__visual reveal" data-reveal aria-hidden="true">
+          <div class="about__visual-frame"></div>
+        </div>
+        <div>
+          <span class="eyebrow reveal" data-reveal>Our Story</span>
+          <h2 class="section__title reveal" data-reveal>A family kitchen, three generations in the making.</h2>
+          <div class="about__body reveal" data-reveal>
+            <p>Bella Vista opened its doors in 2012 with a simple promise: every
+              plate would taste like it came from a nonna's kitchen in Puglia.
+              Fifteen years later, that promise hasn't changed — even as the
+              menu has grown to celebrate the whole of Italy's coastline and
+              countryside.</p>
+            <p>We import our '00 flour and San Marzano tomatoes directly from
+              Campania, cure our own salumi in-house, and hand-roll every ball
+              of dough on the day it's served. <strong>Nothing here is
+              frozen, and nothing is rushed.</strong></p>
+          </div>
+          <div class="about__stats reveal" data-reveal>
+            <div><h3>12+</h3><p>Years of Service</p></div>
+            <div><h3>40+</h3><p>Signature Dishes</p></div>
+            <div><h3>4.9★</h3><p>Guest Rating</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CHEF ============ -->
+  <section class="section section--alt" id="chef">
+    <div class="container">
+      <div class="chef">
+        <div class="chef__portrait reveal" data-reveal aria-hidden="true"></div>
+        <div>
+          <span class="eyebrow reveal" data-reveal>Meet the Chef</span>
+          <p class="chef__quote reveal" data-reveal>
+            "Cooking Italian food isn't about following a recipe — it's about
+            respecting where the ingredient came from."
+          </p>
+          <p class="chef__name reveal" data-reveal>Alessandro Moretti</p>
+          <p class="chef__title reveal" data-reveal>Executive Head Chef</p>
+          <div class="chef__bio reveal" data-reveal>
+            <p>Trained in Bologna and seasoned across kitchens in Florence and
+              Naples, Chef Alessandro leads our kitchen with an obsession for
+              seasonal produce and technique passed down rather than
+              invented. Every tasting menu begins with a walk through the
+              morning market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED DISHES ============ -->
+  <section class="section" id="dishes">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Featured Dishes</span>
+      <h2 class="section__title reveal" data-reveal>Chef's picks this season.</h2>
+      <p class="section__subtitle reveal" data-reveal>The dishes our regulars order again and again.</p>
+
+      <div class="dishes-grid stagger">
+        <article class="dish-card reveal" data-reveal>
+          <div class="dish-card__cover cover--1">
+            <span class="dish-card__price">₹799</span>
+          </div>
+          <div class="dish-card__info">
+            <h3>Truffle Alfredo Pasta</h3>
+            <p>Fresh tagliatelle in a black truffle cream sauce, finished with aged parmesan.</p>
+          </div>
+        </article>
+        <article class="dish-card reveal" data-reveal>
+          <div class="dish-card__cover cover--2">
+            <span class="dish-card__price">₹1099</span>
+          </div>
+          <div class="dish-card__info">
+            <h3>Seafood Risotto</h3>
+            <p>Carnaroli rice slow-stirred with prawns, mussels and a saffron-white wine reduction.</p>
+          </div>
+        </article>
+        <article class="dish-card reveal" data-reveal>
+          <div class="dish-card__cover cover--3">
+            <span class="dish-card__price">₹999</span>
+          </div>
+          <div class="dish-card__info">
+            <h3>Grilled Herb Chicken</h3>
+            <p>Free-range chicken marinated in rosemary and lemon, char-grilled and rested to order.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FULL MENU ============ -->
+  <section class="section section--alt" id="menu">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Full Menu</span>
+      <h2 class="section__title reveal" data-reveal>Every course, priced honestly.</h2>
+      <p class="section__subtitle reveal" data-reveal>From starters to something sweet — browse the full table.</p>
+
+      <div class="menu-tabs reveal" data-reveal role="tablist" aria-label="Menu categories">
+        <button class="menu-tab is-active" data-tab="starters" role="tab" aria-selected="true">Starters</button>
+        <button class="menu-tab" data-tab="mains" role="tab" aria-selected="false">Main Course</button>
+        <button class="menu-tab" data-tab="desserts" role="tab" aria-selected="false">Desserts</button>
+        <button class="menu-tab" data-tab="drinks" role="tab" aria-selected="false">Drinks</button>
+      </div>
+
+      <div class="menu-panel is-active" id="panel-starters" role="tabpanel">
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Bruschetta Classica</p><p class="menu-item__desc">Toasted sourdough, vine tomatoes, basil, garlic oil</p></div>
+            <p class="menu-item__price">₹349</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Creamy Mushroom Soup</p><p class="menu-item__desc">Wild mushroom velouté, truffle oil, crostini</p></div>
+            <p class="menu-item__price">₹299</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Garlic Bread Supreme</p><p class="menu-item__desc">House focaccia, roasted garlic butter, herbs</p></div>
+            <p class="menu-item__price">₹249</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-mains" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Margherita Pizza</p><p class="menu-item__desc">San Marzano tomato, fior di latte, basil, wood-fired</p></div>
+            <p class="menu-item__price">₹699</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Truffle Alfredo Pasta</p><p class="menu-item__desc">Tagliatelle, black truffle cream, aged parmesan</p></div>
+            <p class="menu-item__price">₹799</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Grilled Herb Chicken</p><p class="menu-item__desc">Rosemary-lemon marinade, char-grilled</p></div>
+            <p class="menu-item__price">₹999</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Seafood Risotto</p><p class="menu-item__desc">Carnaroli rice, prawns, mussels, saffron</p></div>
+            <p class="menu-item__price">₹1099</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-desserts" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Classic Tiramisu</p><p class="menu-item__desc">Espresso-soaked savoiardi, mascarpone cream</p></div>
+            <p class="menu-item__price">₹399</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Chocolate Lava Cake</p><p class="menu-item__desc">Warm dark chocolate cake, molten centre, vanilla gelato</p></div>
+            <p class="menu-item__price">₹449</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Vanilla Panna Cotta</p><p class="menu-item__desc">Madagascar vanilla, seasonal berry compote</p></div>
+            <p class="menu-item__price">₹399</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-drinks" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Espresso</p></div>
+            <p class="menu-item__price">₹129</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Cappuccino</p></div>
+            <p class="menu-item__price">₹199</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Fresh Lime Soda</p></div>
+            <p class="menu-item__price">₹149</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Fresh Orange Juice</p></div>
+            <p class="menu-item__price">₹249</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Sparkling Water</p></div>
+            <p class="menu-item__price">₹99</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESERVATION ============ -->
+  <section class="section" id="reserve">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Reservations</span>
+      <h2 class="section__title reveal" data-reveal>Book your table.</h2>
+      <p class="section__subtitle reveal" data-reveal>Walk-ins are always welcome, but a reservation guarantees your favourite spot.</p>
+
+      <div class="reserve-grid">
+        <form class="reserve-form reveal" data-reveal id="reserveForm" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="r-name">Full name</label>
+              <input type="text" id="r-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-field">
+              <label for="r-phone">Phone number</label>
+              <input type="tel" id="r-phone" name="phone" placeholder="+91 90000 00000" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="r-date">Date</label>
+              <input type="date" id="r-date" name="date" required>
+            </div>
+            <div class="form-field">
+              <label for="r-time">Time</label>
+              <input type="time" id="r-time" name="time" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="r-guests">Guests</label>
+              <select id="r-guests" name="guests" required>
+                <option value="" disabled selected>Select</option>
+                <option>1–2 guests</option>
+                <option>3–4 guests</option>
+                <option>5–6 guests</option>
+                <option>7+ guests</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="r-occasion">Occasion (optional)</label>
+              <select id="r-occasion" name="occasion">
+                <option value="" selected>None</option>
+                <option>Birthday</option>
+                <option>Anniversary</option>
+                <option>Business Dinner</option>
+                <option>Date Night</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="r-notes">Special requests</label>
+            <textarea id="r-notes" name="notes" rows="3" placeholder="Allergies, seating preference, anything else we should know."></textarea>
+          </div>
+          <button type="submit" class="btn btn--gold btn--full">Confirm Reservation</button>
+          <p class="form-note" id="reserveNote" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="reserve-info">
+          <div class="reserve-info__block reveal" data-reveal>
+            <h3>Reservation Policy</h3>
+            <p>Tables are held for 15 minutes past your booking time. For parties of 7 or more, please call us directly.</p>
+          </div>
+          <div class="reserve-info__block reveal" data-reveal>
+            <h3>Private Dining</h3>
+            <p>Ask about our private room for celebrations and business dinners up to 20 guests.</p>
+          </div>
+          <div class="reserve-info__block reveal" data-reveal>
+            <h3>Prefer to call?</h3>
+            <p><a href="tel:+919876543210" style="color:var(--gold-light)">+91 98765 43210</a></p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section section--alt" id="gallery">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Gallery</span>
+      <h2 class="section__title reveal" data-reveal>A taste of the room.</h2>
+      <p class="section__subtitle reveal" data-reveal>The dining room, the kitchen, and everything on the plate.</p>
+
+      <div class="gallery-grid stagger">
+        <div class="gallery-item gallery-item--tall g1 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item g2 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item g3 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item gallery-item--tall g4 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item g5 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item g6 reveal" data-reveal aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Guest Reviews</span>
+      <h2 class="section__title reveal" data-reveal>What our guests say.</h2>
+
+      <div class="testimonial-grid stagger">
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"Best truffle pasta I've had outside of Italy. The room feels special without being stuffy — perfect for our anniversary."</p>
+          <p class="testimonial-card__author">Priya Nair</p>
+          <p class="testimonial-card__role">Regular guest, Bangalore</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"Chef Alessandro came out to greet our table — that kind of hospitality is rare. The seafood risotto was unreal."</p>
+          <p class="testimonial-card__author">Daniel Fischer</p>
+          <p class="testimonial-card__role">Visiting from Munich</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"We've hosted three private dinners here. Consistent, warm, and the wine pairing suggestions are always spot on."</p>
+          <p class="testimonial-card__author">Ritika Shah</p>
+          <p class="testimonial-card__role">Event Host</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION & HOURS ============ -->
+  <section class="section section--alt" id="location">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Location &amp; Hours</span>
+      <h2 class="section__title reveal" data-reveal>Find us, or plan your visit.</h2>
+
+      <div class="location-grid">
+        <div class="map-placeholder reveal" data-reveal>
+          <div class="map-placeholder__pin"><span>BV</span></div>
+          <p class="map-placeholder__label">123 Via Roma Street, MG Road, Bangalore — Google Maps embed goes here</p>
+        </div>
+        <div class="reveal" data-reveal>
+          <table class="hours-table">
+            <tr><td>Monday – Thursday</td><td>12:00 PM – 11:00 PM</td></tr>
+            <tr class="is-today"><td>Friday – Saturday</td><td>12:00 PM – 12:00 AM</td></tr>
+            <tr><td>Sunday</td><td>11:00 AM – 11:00 PM</td></tr>
+          </table>
+          <div class="about__stats" style="border-top:none; padding-top:32px; grid-template-columns:1fr 1fr;">
+            <div><h3>MG Road</h3><p>Bangalore, Karnataka</p></div>
+            <div><h3>Free</h3><p>Valet Parking</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Contact</span>
+      <h2 class="section__title reveal" data-reveal>We'd love to host you.</h2>
+
+      <div class="contact-grid">
+        <div class="reveal" data-reveal>
+          <p style="color:var(--stone); font-size:16px; max-width:520px;">For large parties, private events or press
+            enquiries, reach us directly and our team will respond within a
+            few hours.</p>
+        </div>
+        <aside class="contact-side reveal" data-reveal>
+          <div class="contact-side__block">
+            <h3>Phone</h3>
+            <a href="tel:+919876543210">+91 98765 43210</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Email</h3>
+            <a href="mailto:hello@bellavistaristorante.com">hello@bellavistaristorante.com</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Address</h3>
+            <p>123 Via Roma Street, MG Road, Bangalore 560001</p>
+          </div>
+          <div class="contact-side__block">
+            <h3>Follow along</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      Bella <span>Vista</span>
+      <p>Authentic Italian dining in the heart of the city. Booking recommended on weekends.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Explore</h4>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <div class="footer__col">
+      <h4>Visit</h4>
+      <a href="#reserve">Reservations</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="tel:+919876543210">+91 98765 43210</a>
+      <a href="mailto:hello@bellavistaristorante.com">hello@bellavistaristorante.com</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> Bella Vista Ristorante. All rights reserved.</p>
+    <p>Demo site by <a href="../../index.html">FAA Digital</a></p>
+  </div>
+</footer>
+
+<a href="../../index.html" class="back-to-agency">← <span class="label">Back to FAA Digital</span></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

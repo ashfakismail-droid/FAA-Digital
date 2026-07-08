@@ -4,7 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAA Digital — Web Design &amp; Development Studio</title>
-  <meta name="description" content="FAA Digital is a lean web design and development studio building fast, elegant websites and web apps for founders who refuse to ship anything average.">
+  <meta name="description" content="FAA Digital is a lean web design and development studio building fast, elegant websites, QR menus and digital solutions for restaurants, hotels, gyms, cafés and local businesses in India and beyond.">
+  <meta name="keywords" content="web design agency, web development studio, QR menu design, restaurant website design, small business website India, freelance web designer, website design Bangalore">
+  <meta name="author" content="FAA Digital">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://faadigital.com/">
+  <meta name="theme-color" content="#020202">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FAA Digital — Web Design &amp; Development Studio">
+  <meta property="og:description" content="Modern websites, QR menu solutions and digital experiences for restaurants, hotels, gyms, cafés and local businesses.">
+  <meta property="og:image" content="images/Screenshot 2026-07-07 153441.png">
+  <meta property="og:url" content="https://faadigital.com/">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FAA Digital — Web Design &amp; Development Studio">
+  <meta name="twitter:description" content="Modern websites, QR menu solutions and digital experiences for restaurants, hotels, gyms, cafés and local businesses.">
+  <meta name="twitter:image" content="images/Screenshot 2026-07-07 153441.png">
 
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
@@ -16,8 +35,24 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "FAA Digital",
+    "description": "Web design and development studio building websites, QR menus and digital solutions for local businesses.",
+    "areaServed": ["IN", "DE"],
+    "url": "https://faadigital.com/",
+    "email": "hello@faadigital.com",
+    "telephone": "+91-99999-99999"
+  }
+  </script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <!-- Custom cursor spotlight layer -->
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
@@ -47,7 +82,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- ============ HOME / HERO ============ -->
     <section class="hero" id="home">
       <div class="hero__grid" aria-hidden="true"></div>
@@ -59,9 +94,9 @@
         </div>
 
         <h1 class="hero__title reveal" data-reveal>
-          Modern Websites <br>
-          QR Menu Solutions
-for Local Businesses
+          Modern Websites &amp;<br>
+          <span class="text-gradient">QR Menu Solutions</span><br>
+          for Local Businesses
         </h1>
 
         <p class="hero__subtitle reveal" data-reveal>
@@ -233,48 +268,122 @@ shops, and local businesses.
         </p>
 
         <div class="portfolio-grid">
-          <article class="portfolio-card portfolio-card--wide reveal" data-reveal>
-            <div class="portfolio-card__cover cover--1" aria-hidden="true"></div>
+
+          <!-- Featured live demo: Bella Vista Restaurant -->
+          <article class="portfolio-card portfolio-card--wide portfolio-card--featured reveal" data-reveal>
+            <div class="portfolio-card__cover cover--bella" aria-hidden="true">
+              <div class="portfolio-card__browser">
+                <span></span><span></span><span></span>
+                <div class="url-bar"></div>
+              </div>
+              <div class="portfolio-card__cover-content">
+                <p class="mock-logo">Bella Vista Restaurant</p>
+                <div class="mock-line mock-line--1"></div>
+                <div class="mock-line mock-line--2"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__info">
+              <span class="tag">Restaurant · Full Website + Reservations</span>
+              <h3>Bella Vista Restaurant</h3>
+              <p>A luxury dark-and-gold Italian restaurant experience with a full digital menu, online table reservation form, gallery and guest reviews — built to convert browsers into bookings.</p>
+              <div class="portfolio-card__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a href="demos/bella-vista/index.html" class="portfolio-card__link" target="_blank" rel="noopener">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Featured live demo: Urban Brew Café -->
+          <article class="portfolio-card portfolio-card--wide portfolio-card--featured reveal" data-reveal>
+            <div class="portfolio-card__cover cover--urban" aria-hidden="true">
+              <div class="portfolio-card__browser">
+                <span></span><span></span><span></span>
+                <div class="url-bar"></div>
+              </div>
+              <div class="portfolio-card__cover-content">
+                <p class="mock-logo">Urban Brew Café</p>
+                <div class="mock-line mock-line--1"></div>
+                <div class="mock-line mock-line--2"></div>
+              </div>
+            </div>
+            <div class="portfolio-card__info">
+              <span class="tag">Café &amp; Bakery · Full Website + Loyalty</span>
+              <h3>Urban Brew Café</h3>
+              <p>A warm, wood-toned coffee shop site with a full coffee &amp; bakery menu, seasonal specials, loyalty card section and newsletter signup — designed to feel like a cozy workspace online.</p>
+              <div class="portfolio-card__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive</span>
+              </div>
+              <div class="portfolio-card__actions">
+                <a href="demos/urban-brew/index.html" class="portfolio-card__link" target="_blank" rel="noopener">
+                  Live Demo
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="portfolio-card reveal" data-reveal>
+            <div class="portfolio-card__cover cover--1" aria-hidden="true">
+              <div class="portfolio-card__browser"><span></span><span></span><span></span><div class="url-bar"></div></div>
+            </div>
             <div class="portfolio-card__info">
               <span class="tag">Interior Design · Portfolio Site</span>
               <h3>Nordic Studio</h3>
               <p>Editorial-style portfolio for a Scandinavian interior design studio, built around a bento-grid gallery and smooth scroll transitions.</p>
+              <div class="portfolio-card__tech"><span>Next.js</span><span>Framer Motion</span></div>
             </div>
           </article>
 
           <article class="portfolio-card reveal" data-reveal>
-            <div class="portfolio-card__cover cover--2" aria-hidden="true"></div>
+            <div class="portfolio-card__cover cover--2" aria-hidden="true">
+              <div class="portfolio-card__browser"><span></span><span></span><span></span><div class="url-bar"></div></div>
+            </div>
             <div class="portfolio-card__info">
               <span class="tag">Fintech · Product Dashboard</span>
               <h3>Loop Finance</h3>
               <p>Onboarding flow and analytics dashboard for a payments startup, redesigned for clarity at a glance.</p>
+              <div class="portfolio-card__tech"><span>React</span><span>D3.js</span></div>
             </div>
           </article>
 
           <article class="portfolio-card reveal" data-reveal>
-            <div class="portfolio-card__cover cover--3" aria-hidden="true"></div>
+            <div class="portfolio-card__cover cover--3" aria-hidden="true">
+              <div class="portfolio-card__browser"><span></span><span></span><span></span><div class="url-bar"></div></div>
+            </div>
             <div class="portfolio-card__info">
               <span class="tag">E-commerce · Headless Shopify</span>
               <h3>Verdant</h3>
               <p>Headless commerce build for a plant and home goods brand — checkout time down 40% after launch.</p>
+              <div class="portfolio-card__tech"><span>Shopify</span><span>Hydrogen</span></div>
             </div>
           </article>
 
           <article class="portfolio-card reveal" data-reveal>
-            <div class="portfolio-card__cover cover--4" aria-hidden="true"></div>
+            <div class="portfolio-card__cover cover--4" aria-hidden="true">
+              <div class="portfolio-card__browser"><span></span><span></span><span></span><div class="url-bar"></div></div>
+            </div>
             <div class="portfolio-card__info">
               <span class="tag">Healthcare · Web App</span>
               <h3>Atlas Health</h3>
               <p>Appointment booking web app with real-time calendar sync across multiple clinic locations.</p>
+              <div class="portfolio-card__tech"><span>Vue</span><span>Node.js</span></div>
             </div>
           </article>
 
           <article class="portfolio-card portfolio-card--wide reveal" data-reveal>
-            <div class="portfolio-card__cover cover--5" aria-hidden="true"></div>
+            <div class="portfolio-card__cover cover--5" aria-hidden="true">
+              <div class="portfolio-card__browser"><span></span><span></span><span></span><div class="url-bar"></div></div>
+            </div>
             <div class="portfolio-card__info">
               <span class="tag">DTC Brand · Identity &amp; Store</span>
               <h3>Kiln Coffee</h3>
               <p>Full brand identity paired with a Shopify storefront designed to feel as warm as the product itself.</p>
+              <div class="portfolio-card__tech"><span>Shopify</span><span>Brand Identity</span></div>
             </div>
           </article>
         </div>

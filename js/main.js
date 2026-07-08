@@ -157,13 +157,20 @@ function initAccordion() {
   });
 }
 
-/* ---------- 6. CONTACT FORM ---------- */
+/* ---------- 6. CONTACT FORM ----------
+   To go live, set FORM_ENDPOINT below to your Formspree / Getform / Basin
+   endpoint (e.g. "https://formspree.io/f/xxxxxxx"). Until an endpoint is
+   set, the form falls back to opening the visitor's email client with the
+   message pre-filled, so nothing is ever silently lost. */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const note = document.getElementById('formNote');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  const FORM_ENDPOINT = ''; // e.g. 'https://formspree.io/f/your-id'
+  const FALLBACK_EMAIL = 'hello@faadigital.com';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     if (!form.checkValidity()) {
@@ -172,16 +179,38 @@ function initContactForm() {
       return;
     }
 
-    // TODO: Replace this block with a real submission — e.g. fetch() to your
-    // backend, or a form service like Formspree / Basin / Getform.
-    // Example:
-    // fetch('https://formspree.io/f/your-id', {
-    //   method: 'POST',
-    //   body: new FormData(form),
-    //   headers: { Accept: 'application/json' },
-    // });
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
 
-    note.textContent = "Thanks — your message is in. We'll reply within one business day.";
-    form.reset();
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      if (FORM_ENDPOINT) {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error('Form endpoint returned an error');
+        note.textContent = "Thanks — your message is in. We'll reply within one business day.";
+        form.reset();
+      } else {
+        // Fallback: open a pre-filled email so the enquiry is never lost.
+        const subject = encodeURIComponent(`New project enquiry — ${data.name || ''}`);
+        const body = encodeURIComponent(
+          `Name: ${data.name || ''}\nEmail: ${data.email || ''}\nProject type: ${data.project || ''}\nBudget: ${data.budget || ''}\n\nDetails:\n${data.message || ''}`
+        );
+        window.location.href = `mailto:${FALLBACK_EMAIL}?subject=${subject}&body=${body}`;
+        note.textContent = "Opening your email app to send the enquiry to FAA Digital…";
+        form.reset();
+      }
+    } catch (err) {
+      note.textContent = `Something went wrong. Please email us directly at ${FALLBACK_EMAIL}.`;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
   });
 }
