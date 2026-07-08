@@ -734,6 +734,79 @@ p { margin: 0; }
   max-width: 480px;
 }
 
+/* ---------- 10b. PORTFOLIO — "COMING SOON" PLACEHOLDER CARDS ---------- */
+.portfolio-card--soon .portfolio-card__cover {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-card__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 5px 11px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(125, 211, 252, 0.28);
+}
+
+.portfolio-card__icon-wrap {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform var(--dur-med) var(--ease), background var(--dur-med) var(--ease);
+}
+
+.portfolio-card--soon:hover .portfolio-card__icon-wrap {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.portfolio-card__icon {
+  width: 28px;
+  height: 28px;
+  color: var(--fg-muted);
+}
+
+.portfolio-card--soon:hover .portfolio-card__icon { color: var(--fg); }
+
+.portfolio-card__link--disabled,
+.portfolio-card__link--disabled:hover {
+  color: var(--fg-dim);
+  cursor: not-allowed;
+  pointer-events: none;
+  gap: 6px;
+}
+
+.portfolio-card__link--disabled svg { opacity: 0.45; }
+
+.cover--soon-1 { background: radial-gradient(circle at 30% 25%, #17241f 0%, #0a0a0a 65%); }
+.cover--soon-2 { background: linear-gradient(160deg, #26210f 0%, #0a0a0a 58%, #201a08 100%); }
+.cover--soon-3 { background: radial-gradient(circle at 70% 30%, #0d1f24 0%, #0a0a0a 65%); }
+.cover--soon-4 { background: linear-gradient(135deg, #1a1c20 0%, #0a0a0a 50%, #14161a 100%); }
+.cover--soon-5 { background: radial-gradient(circle at 25% 75%, #221420 0%, #0a0a0a 65%); }
+.cover--soon-6 { background: repeating-linear-gradient(115deg, #161a24 0 2px, #0a0a0a 2px 26px); }
+.cover--soon-7 { background: radial-gradient(circle at 75% 25%, #241c0d 0%, #0a0a0a 60%); }
+.cover--soon-8 { background: linear-gradient(150deg, #201014 0%, #0a0a0a 55%, #180d10 100%); }
+
 /* ---------- 11. PRICING ---------- */
 .pricing-grid {
   display: grid;
