@@ -705,6 +705,7 @@ p { margin: 0; }
 .cover--bella { background: linear-gradient(150deg, #241b0d 0%, #0a0a0a 55%, #1a1206 100%); }
 .cover--urban { background: linear-gradient(150deg, #241708 0%, #0a0a0a 55%, #1c1108 100%); }
 .cover--grand-horizon { background: linear-gradient(150deg, #17324a 0%, #0a0a0a 55%, #0f223b 100%); }
+.cover--pub { background: linear-gradient(150deg, #240a3e 0%, #0a0a0a 55%, #1a0a2e 100%); }
 
 .portfolio-card__info {
   padding: 26px 28px 30px;

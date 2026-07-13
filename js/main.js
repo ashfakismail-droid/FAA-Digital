@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initAccordion();
   initContactForm();
+  initCardOpenLinks();
   document.getElementById('year').textContent = new Date().getFullYear();
 });
 
@@ -212,5 +213,37 @@ function initContactForm() {
       submitBtn.disabled = false;
       submitBtn.textContent = originalLabel;
     }
+  });
+}
+
+/* ---------- 7b. CARD-WIDE OPEN LINKS ----------
+   Cards marked with [data-open] open the given URL when any non-link part
+   of the card is clicked, while explicit links inside the card (e.g. the
+   "Live Demo" / "View Website" buttons) keep their own behaviour. Only
+   cards that opt in via data-open are affected, so existing cards are
+   untouched. */
+function initCardOpenLinks() {
+  document.querySelectorAll('.portfolio-card[data-open]').forEach((card) => {
+    const url = card.getAttribute('data-open');
+    if (!url) return;
+
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', (e) => {
+      // Let real links handle their own navigation (new tab, etc.)
+      if (e.target.closest('a')) return;
+      window.open(url, '_blank', 'noopener');
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.open(url, '_blank', 'noopener');
+      }
+    });
+
+    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'link');
+    card.setAttribute('aria-label', `Open ${url}`);
   });
 }

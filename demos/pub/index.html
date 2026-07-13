@@ -1,0 +1,713 @@
+<!-- PUB SOCIAL CLUB/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PUB SOCIAL CLUB - An elite luxury sanctuary where high-end cinematic design meets immersive night culture.">
+    <title>PUB SOCIAL CLUB | Elite Nightlife & Lounge Sanctuary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Premium Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Interactive Loading Screen -->
+    <div class="loader-overlay" id="loader">
+        <div class="loader-content">
+            <span class="loader-logo">PUB</span>
+            <span class="loader-sub">SOCIAL CLUB</span>
+            <div class="loader-bar-container">
+                <div class="loader-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mouse Follow Fluid Glow Asset -->
+    <div class="mouse-glow-element" id="mouseGlow"></div>
+
+    <!-- Canvas for Animated Background Particles -->
+    <canvas id="particleCanvas" class="ambient-particle-canvas"></canvas>
+
+    <!-- Soft Ambient Glowing Background Elements -->
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-center-right"></div>
+    <div class="ambient-glow glow-bottom-left"></div>
+
+    <!-- 1. Navigation Panel (Premium Glassmorphism) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <span class="brand-main">PUB</span>
+                <span class="brand-sub">SOCIAL CLUB</span>
+            </a>
+            <div class="nav-links">
+                <a href="#hero" class="nav-link-item active">Home</a>
+                <a href="#about" class="nav-link-item">Sanctuary</a>
+                <a href="#cocktails" class="nav-link-item">Mixology</a>
+                <a href="#events" class="nav-link-item">Rituals</a>
+                <a href="#gallery" class="nav-link-item">Gallery</a>
+                <a href="#vip" class="nav-link-item">VIP Membership</a>
+                <a href="#contact" class="nav-link-item">Reservations</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn-premium nav-btn">
+                    <span>Reserve Table</span>
+                </a>
+                <button class="mobile-toggle" aria-label="Open Mobile Menu" id="mobileToggle">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Overlay Menu (Slide Animation) -->
+    <div class="mobile-menu-drawer" id="mobileDrawer">
+        <div class="mobile-menu-links">
+            <a href="#hero" class="mobile-link">Home</a>
+            <a href="#about" class="mobile-link">Sanctuary</a>
+            <a href="#cocktails" class="mobile-link">Mixology</a>
+            <a href="#events" class="mobile-link">Rituals</a>
+            <a href="#gallery" class="mobile-link">Gallery</a>
+            <a href="#vip" class="mobile-link">VIP Membership</a>
+            <a href="#contact" class="mobile-link">Reservations</a>
+            <a href="#contact" class="btn-premium mobile-action-btn"><span>Book Table</span></a>
+        </div>
+    </div>
+
+    <!-- 2. Cinematic Parallax Hero with Animated Lighting -->
+    <section class="hero-section" id="hero">
+        <div class="hero-parallax-wrapper">
+            <div class="hero-vignette"></div>
+            <div class="hero-lighting-beam beam-1"></div>
+            <div class="hero-lighting-beam beam-2"></div>
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1920&q=80" alt="Cinematic Luxury Nightlife" class="hero-parallax-img">
+        </div>
+        <div class="hero-container">
+            <h2 class="hero-subtitle scroll-reveal-up">THE EPITOME OF OPULENCE</h2>
+            <h1 class="hero-title scroll-reveal-up">UNLEASH THE <br><span class="gradient-text">NIGHT CULTURE</span></h1>
+            <p class="hero-lead scroll-reveal-up">An exclusive immersive sanctuary where high-end design, sensory acoustics, and master mixology converge.</p>
+            <div class="hero-buttons scroll-reveal-up">
+                <a href="#events" class="btn-premium"><span>Explore Rituals</span></a>
+                <a href="#vip" class="btn-outline"><span>Black Access</span></a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator scroll-reveal-up">
+            <div class="mouse-frame">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span class="scroll-label">Descend Within</span>
+        </div>
+    </section>
+
+    <!-- 3. About Section (The Sanctuary) -->
+    <section class="menu-section section-padding" id="menu">
+        <div class="container">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">GASTRONOMY & LIBATIONS</span>
+                <h2 class="section-heading">The Sovereign <span class="gradient-text">Menu</span></h2>
+                <p class="section-sub-heading">A curated anthology of premium distillates, vintage reserves, and culinary artistry.</p>
+            </div>
+
+            <div class="menu-tabs-container scroll-reveal-up">
+                <button class="menu-tab-btn active" data-target="tab-cocktails">Cocktails</button>
+                <button class="menu-tab-btn" data-target="tab-mocktails">Mocktails</button>
+                <button class="menu-tab-btn" data-target="tab-spirits">Premium Spirits</button>
+                <button class="menu-tab-btn" data-target="tab-beer">Beer</button>
+                <button class="menu-tab-btn" data-target="tab-wine">Wine</button>
+                <button class="menu-tab-btn" data-target="tab-food">Food & Snacks</button>
+            </div>
+
+            <div class="menu-tab-content active" id="tab-cocktails">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Liquid Gold Cocktail" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Liquid Gold</h3>
+                                <span class="card-item-price">$35</span>
+                            </div>
+                            <p class="card-item-desc">24k edible gold flakes, 23-year single-barrel bourbon, saffron-infused reduction.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Purple Velvet Cocktail" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Purple Velvet</h3>
+                                <span class="card-item-price">$32</span>
+                            </div>
+                            <p class="card-item-desc">Empress botanical gin, cold-pressed violet orchid syrup, Dom Pérignon float.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1536935338774-596f24e5f643?auto=format&fit=crop&w=600&q=80" alt="Obsidian Smoke Cocktail" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Obsidian Smoke</h3>
+                                <span class="card-item-price">$38</span>
+                            </div>
+                            <p class="card-item-desc">Activated charcoal mezcal, hand-pressed blood orange infusion, aromatic applewood vapor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-tab-content" id="tab-mocktails">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=600&q=80" alt="Crimson Aura Mocktail" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Crimson Aura</h3>
+                                <span class="card-item-price">$18</span>
+                            </div>
+                            <p class="card-item-desc">Muddled wild berries, sparkling hibiscus tonic, fresh mint, zero-proof botanical essence.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80" alt="Citrus Mirage Mocktail" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Citrus Mirage</h3>
+                                <span class="card-item-price">$16</span>
+                            </div>
+                            <p class="card-item-desc">Yuzu extract, cold-pressed grapefruit, charred rosemary sprig, effervescent spring water.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-tab-content" id="tab-spirits">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1597075687490-8f673c6c17f6?auto=format&fit=crop&w=600&q=80" alt="Macallan 25" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Macallan 25 Yr</h3>
+                                <span class="card-item-price">$180 / 2oz</span>
+                            </div>
+                            <p class="card-item-desc">Sherry oak cask matured single malt scotch. Notes of dried fruits, wood smoke, and spice.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=600&q=80" alt="Louis XIII Cognac" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Louis XIII Cognac</h3>
+                                <span class="card-item-price">$350 / 1oz</span>
+                            </div>
+                            <p class="card-item-desc">An exquisite blend of up to 1,200 distinct eaux-de-vie sourced exclusively from Grande Champagne.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-tab-content" id="tab-beer">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1614316056586-77894a86f917?auto=format&fit=crop&w=600&q=80" alt="Artisan Dark Stout" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Obsidian Stout</h3>
+                                <span class="card-item-price">$14</span>
+                            </div>
+                            <p class="card-item-desc">A deep, complex imperial stout aged in bourbon barrels with notes of espresso and dark chocolate.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1566633641473-ebfc25ea4721?auto=format&fit=crop&w=600&q=80" alt="Golden Pilsner" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Aura Pilsner</h3>
+                                <span class="card-item-price">$12</span>
+                            </div>
+                            <p class="card-item-desc">Crisp, refreshing craft pilsner brewed with noble hops for a clean and botanical finish.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-tab-content" id="tab-wine">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80" alt="Château Margaux" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Château Margaux 2015</h3>
+                                <span class="card-item-price">$120 / Gl</span>
+                            </div>
+                            <p class="card-item-desc">Premier Grand Cru Classé. Silky tannins, profound depth, offering blackberry and subtle truffle aromatics.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80" alt="Dom Pérignon Vintage" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Dom Pérignon 2012</h3>
+                                <span class="card-item-price">$95 / Gl</span>
+                            </div>
+                            <p class="card-item-desc">Luminous champagne with a vibrant energy, blending white flowers, apricot, and toasted brioche.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-tab-content" id="tab-food">
+                <div class="stagger-cards-grid">
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1544025162-83141f237f37?auto=format&fit=crop&w=600&q=80" alt="Gold Leaf Truffle Fries" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Truffle & Gold Pommes</h3>
+                                <span class="card-item-price">$28</span>
+                            </div>
+                            <p class="card-item-desc">Hand-cut artisan potatoes, white alba truffle oil, aged parmesan, finished with 24k gold leaf.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=600&q=80" alt="Wagyu Bites" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">A5 Wagyu Crostini</h3>
+                                <span class="card-item-price">$45</span>
+                            </div>
+                            <p class="card-item-desc">Seared Japanese A5 Wagyu, black garlic emulsion, micro-greens on toasted artisanal sourdough.</p>
+                        </div>
+                    </div>
+                    <div class="glass-luxury-card">
+                        <div class="card-visual-wrapper">
+                            <img src="https://images.unsplash.com/photo-1599907106069-4e7cb805a5bb?auto=format&fit=crop&w=600&q=80" alt="Caviar Platter" class="image-zoom-hover">
+                        </div>
+                        <div class="card-details">
+                            <div class="card-title-row">
+                                <h3 class="card-item-title">Beluga Caviar Board</h3>
+                                <span class="card-item-price">$190</span>
+                            </div>
+                            <p class="card-item-desc">30g Iranian Beluga caviar served with mother-of-pearl spoons, warm blinis, and crème fraîche.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Signature Mixology -->
+    <section class="cocktails-section section-padding" id="cocktails">
+        <div class="container">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">LIQUID ARTS</span>
+                <h2 class="section-heading">Signature <span class="gradient-text">Mixology</span></h2>
+                <p class="section-sub-heading">Curated by world-champion liquid alchemists using rarest distillates, house infusions, and genuine gold-leaf micro-accents.</p>
+            </div>
+
+            <div class="stagger-cards-grid">
+                <!-- Card 1 -->
+                <div class="glass-luxury-card scroll-reveal-up">
+                    <div class="card-visual-wrapper">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=600&q=80" alt="Liquid Gold Cocktail" class="image-zoom-hover">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row">
+                            <h3 class="card-item-title">Liquid Gold</h3>
+                            <span class="card-item-price">$35</span>
+                        </div>
+                        <p class="card-item-desc">24k edible gold flakes, 23-year single-barrel bourbon, saffron-infused reduction, custom glass architectural elements.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-luxury-card scroll-reveal-up">
+                    <div class="card-visual-wrapper">
+                        <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80" alt="Purple Velvet Cocktail" class="image-zoom-hover">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row">
+                            <h3 class="card-item-title">Purple Velvet</h3>
+                            <span class="card-item-price">$32</span>
+                        </div>
+                        <p class="card-item-desc">Empress botanical gin, cold-pressed violet orchid syrup, fresh lemon citrus atomization, Dom Pérignon float.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-luxury-card scroll-reveal-up">
+                    <div class="card-visual-wrapper">
+                        <img src="https://images.unsplash.com/photo-1536935338774-596f24e5f643?auto=format&fit=crop&w=600&q=80" alt="Obsidian Smoke Cocktail" class="image-zoom-hover">
+                    </div>
+                    <div class="card-details">
+                        <div class="card-title-row">
+                            <h3 class="card-item-title">Obsidian Smoke</h3>
+                            <span class="card-item-price">$38</span>
+                        </div>
+                        <p class="card-item-desc">Activated charcoal mezcal, hand-pressed blood orange infusion, volcanic rim spice, aromatic applewood vapor dome.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Upcoming Events (Rituals) -->
+    <section class="events-section section-padding" id="events">
+        <div class="container">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">THE CALENDAR</span>
+                <h2 class="section-heading">Upcoming <span class="gradient-text">Rituals</span></h2>
+            </div>
+
+            <div class="events-interactive-list">
+                <!-- Event Row 1 -->
+                <div class="event-strip-row glass-morphic-strip scroll-reveal-up">
+                    <div class="event-strip-date">
+                        <span class="strip-day">17</span>
+                        <span class="strip-month">JUL</span>
+                    </div>
+                    <div class="event-strip-info">
+                        <span class="strip-genre">DEEP MELODIC TECHNO</span>
+                        <h3 class="strip-title">Neon Genesis: Tale of Time</h3>
+                    </div>
+                    <div class="event-strip-badge">
+                        <span class="status-pill premium-pulse-red">Selling Fast</span>
+                    </div>
+                    <div class="event-strip-cta">
+                        <a href="#contact" class="btn-premium strip-btn"><span>Acquire Passes</span></a>
+                    </div>
+                </div>
+
+                <!-- Event Row 2 -->
+                <div class="event-strip-row glass-morphic-strip scroll-reveal-up">
+                    <div class="event-strip-date">
+                        <span class="strip-day">24</span>
+                        <span class="strip-month">JUL</span>
+                    </div>
+                    <div class="event-strip-info">
+                        <span class="strip-genre">PROGRESSIVE MINIMAL HOUSE</span>
+                        <h3 class="strip-title">Velvet Subterra Under-Royale</h3>
+                    </div>
+                    <div class="event-strip-badge">
+                        <span class="status-pill premium-pulse-gold">Black Tier Exclusive</span>
+                    </div>
+                    <div class="event-strip-cta">
+                        <a href="#contact" class="btn-premium strip-btn"><span>Request Table</span></a>
+                    </div>
+                </div>
+
+                <!-- Event Row 3 -->
+                <div class="event-strip-row glass-morphic-strip scroll-reveal-up">
+                    <div class="event-strip-date">
+                        <span class="strip-day">31</span>
+                        <span class="strip-month">JUL</span>
+                    </div>
+                    <div class="event-strip-info">
+                        <span class="strip-genre">CYBERPUNK AUDIO IMMERSIVE</span>
+                        <h3 class="strip-title">The Chrome Ball Celebration</h3>
+                    </div>
+                    <div class="event-strip-badge">
+                        <span class="status-pill premium-pulse-purple">Open Allocation</span>
+                    </div>
+                    <div class="event-strip-cta">
+                        <a href="#contact" class="btn-premium strip-btn"><span>Acquire Passes</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Cinematic Gallery -->
+    <section class="gallery-section section-padding" id="gallery">
+        <div class="container-fluid">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">VISUAL ARCHIVE</span>
+                <h2 class="section-heading">Inside The <span class="gradient-text">Sublime</span></h2>
+            </div>
+
+            <div class="gallery-masonry-layout">
+                <div class="gallery-brick brick-wide scroll-reveal-up">
+                    <img src="https://images.unsplash.com/photo-1545128485-c400e7702796?auto=format&fit=crop&w=1200&q=80" alt="Main Arena" class="image-zoom-hover">
+                    <div class="brick-caption-overlay"><span>The Main Amphitheater</span></div>
+                </div>
+                <div class="gallery-brick scroll-reveal-up">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80" alt="DJ Kinetic Control" class="image-zoom-hover">
+                    <div class="brick-caption-overlay"><span>The Spatial Command Booth</span></div>
+                </div>
+                <div class="gallery-brick scroll-reveal-up">
+                    <img src="https://images.unsplash.com/photo-1560512823-829485b8bf24?auto=format&fit=crop&w=600&q=80" alt="VIP Champagne Server" class="image-zoom-hover">
+                    <div class="brick-caption-overlay"><span>The Obsidian Vaults</span></div>
+                </div>
+                <div class="gallery-brick brick-tall scroll-reveal-up">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Luxury Bar Design" class="image-zoom-hover">
+                    <div class="brick-caption-overlay"><span>The Liquid Onyx Counter</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal Asset for Gallery Interactions -->
+    <div id="galleryLightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+        <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+        <div class="lightbox-content-wrapper">
+            <img id="lightboxImage" src="" alt="Enlarged Luxury Preview">
+            <div id="lightboxCaption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- 7. VIP Membership Section -->
+    <section class="vip-section section-padding" id="vip">
+        <div class="container">
+            <div class="split-grid-2 alignment-center">
+                <div class="vip-text-column scroll-reveal-up">
+                    <span class="section-tag-lineline">ULTRA TIERS</span>
+                    <h2 class="section-heading">The Black Tier <br><span class="gradient-text">Membership Matrix</span></h2>
+                    <p class="section-paragraph">Membership inside PUB Social Club is vetted and fiercely protected. Acceptance bestows unrestricted entry into an alternate world of absolute prestige and bespoke hospitality services.</p>
+                    <ul class="luxury-benefits-list">
+                        <li><span class="bullet-highlight"></span>Guaranteed access to unannounced premier headline artist sets</li>
+                        <li><span class="bullet-highlight"></span>Private custom biometric side elevator and secret entrance</li>
+                        <li><span class="bullet-highlight"></span>Dedicated personal concierge host assigned to your profile</li>
+                        <li><span class="bullet-highlight"></span>Priority structural tier placement across any event</li>
+                    </ul>
+                    <a href="#contact" class="btn-premium vip-cta-button"><span>Apply For Access</span></a>
+                </div>
+                <div class="vip-card-column scroll-reveal-up">
+                    <div class="interactive-luxury-card-3d">
+                        <div class="card-inner-glare"></div>
+                        <div class="card-header-elements">
+                            <span class="card-brand-tag">BLACK MEMBERSHIP</span>
+                            <span class="card-brand-year">2026</span>
+                        </div>
+                        <div class="card-embedded-chip"></div>
+                        <div class="card-serial-digits">•••• •••• •••• 8888</div>
+                        <div class="card-footer-elements">
+                            <span class="card-holder-name">DISTINGUISHED GUEST</span>
+                            <span class="card-footer-logo">PUB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Elite Testimonials -->
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">WHISPERS</span>
+                <h2 class="section-heading">The Elite <span class="gradient-text">Verdicts</span></h2>
+            </div>
+
+            <div class="stagger-cards-grid columns-2">
+                <!-- Testimonial 1 -->
+                <div class="glass-luxury-card testimonial-card-box scroll-reveal-up">
+                    <div class="luxury-quote-mark">“</div>
+                    <p class="testimonial-body-text">The level of pure structural sophistication found inside is utterly unmatched. The precision of the custom sound systems combined with the elite private hosting tiers has completely redesigned premium international nightlife.</p>
+                    <div class="author-profile-row">
+                        <div class="author-meta">
+                            <h4 class="author-name">Alessandra Sterling</h4>
+                            <span class="author-title">Global Luxury Curator</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glass-luxury-card testimonial-card-box scroll-reveal-up">
+                    <div class="luxury-quote-mark">“</div>
+                    <p class="testimonial-body-text">PUB Social Club represents a phenomenal sensory transformation. From the exquisite chemical architecture of the cocktails to the extreme privacy levels of the hidden vault corridors, it is flawless.</p>
+                    <div class="author-profile-row">
+                        <div class="author-meta">
+                            <h4 class="author-name">Maximilian Vance</h4>
+                            <span class="author-title">Venture Partner & Member</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Frequently Asked Inquiries -->
+    <section class="faq-section section-padding">
+        <div class="container-compressed">
+            <div class="section-header-centered scroll-reveal-up">
+                <span class="section-tag-lineline">CLARIFICATIONS</span>
+                <h2 class="section-heading">Elite <span class="gradient-text">Inquiries</span></h2>
+            </div>
+
+            <div class="accordion-luxury-wrapper">
+                <!-- Accordion 1 -->
+                <div class="accordion-item-glass scroll-reveal-up">
+                    <button class="accordion-toggle-trigger" aria-expanded="false">
+                        <h3 class="accordion-question-text">What is the exact dress code enforced?</h3>
+                        <div class="accordion-icon-cross"></div>
+                    </button>
+                    <div class="accordion-body-content" style="max-height: 0px;">
+                        <p class="accordion-inner-text">We maintain a rigorous upscale, fashionable dress code. High elegance is strictly mandatory. Tailored jackets or high-designer shirts are required for gentlemen. Attire that reflects a luxury aesthetic must be showcased at all times.</p>
+                    </div>
+                </div>
+
+                <!-- Accordion 2 -->
+                <div class="accordion-item-glass scroll-reveal-up">
+                    <button class="accordion-toggle-trigger" aria-expanded="false">
+                        <h3 class="accordion-question-text">How does one guarantee a private lounge reservation?</h3>
+                        <div class="accordion-icon-cross"></div>
+                    </button>
+                    <div class="accordion-body-content" style="max-height: 0px;">
+                        <p class="accordion-inner-text">Private lounge allotments can be filed through our digital reservation node below. All submittals are carefully handled by our digital host desk within 2 hours of inquiry confirmation.</p>
+                    </div>
+                </div>
+
+                <!-- Accordion 3 -->
+                <div class="accordion-item-glass scroll-reveal-up">
+                    <button class="accordion-toggle-trigger" aria-expanded="false">
+                        <h3 class="accordion-question-text">Is entry limited only to card-carrying members?</h3>
+                        <div class="accordion-icon-cross"></div>
+                    </button>
+                    <div class="accordion-body-content" style="max-height: 0px;">
+                        <p class="accordion-inner-text">While Black Tier members retain immediate priority access across all scheduled calendars, non-members can secure entry passes during specific public showcase ritual brackets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Contact Section -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container">
+            <div class="split-grid-2">
+                <div class="contact-info-panel scroll-reveal-up">
+                    <span class="section-tag-lineline">RESERVATIONS</span>
+                    <h2 class="section-heading">Carve Your <br><span class="gradient-text">Legacy Tonight</span></h2>
+                    <p class="section-paragraph">Secure an uncompromised experience tailored precisely to your metrics. Reach out directly to our concierge hub for private venue takeovers or premium stage tables.</p>
+                    
+                    <div class="contact-structural-details">
+                        <div class="detail-node">
+                            <span class="node-label">Sovereign Location</span>
+                            <span class="node-value">888 Luxury Boulevard, Suite Black, New York</span>
+                        </div>
+                        <div class="detail-node">
+                            <span class="node-label">Concierge Hotline</span>
+                            <span class="node-value">+1 (800) 555-SOCIAL</span>
+                        </div>
+                        <div class="detail-node">
+                            <span class="node-label">Secure Transmissions</span>
+                            <span class="node-value">vip@pubsocialclub.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-panel scroll-reveal-up">
+                    <div class="glass-luxury-card contact-form-envelope">
+                        <form id="luxuryForm" novalidate>
+                            <div class="form-input-block">
+                                <label for="form_name" class="premium-label">Full Designation</label>
+                                <input type="text" id="form_name" class="premium-input-field" placeholder="Lord / Lady / Guest Identity" required autocomplete="name">
+                                <span class="form-field-error-msg">Please declare your configuration title.</span>
+                            </div>
+                            <div class="form-input-block">
+                                <label for="form_email" class="premium-label">Secure Digital Mail</label>
+                                <input type="email" id="form_email" class="premium-input-field" placeholder="identity@domain.com" required autocomplete="email">
+                                <span class="form-field-error-msg">A valid tracking address transmission is required.</span>
+                            </div>
+                            <div class="form-split-row">
+                                <div class="form-input-block">
+                                    <label for="form_date" class="premium-label">Target Date</label>
+                                    <input type="date" id="form_date" class="premium-input-field" required>
+                                    <span class="form-field-error-msg">Select a target timeline.</span>
+                                </div>
+                                <div class="form-input-block">
+                                    <label for="form_guests" class="premium-label">Party Manifest</label>
+                                    <select id="form_guests" class="premium-input-field select-custom-style">
+                                        <option value="1-2">1 - 2 VIPs</option>
+                                        <option value="3-5">3 - 5 VIPs</option>
+                                        <option value="6+">6+ Elite Gathering</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-input-block">
+                                <label for="form_notes" class="premium-label">Special Operational Imperatives</label>
+                                <textarea id="form_notes" class="premium-input-field textarea-custom" rows="4" placeholder="Specific bottle vintages, dietary considerations..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-premium form-submission-btn">
+                                <span>Transmit Secure Request</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Footer System -->
+    <footer class="footer-system">
+        <div class="container">
+            <div class="footer-top-backbone">
+                <div class="footer-brand-segment">
+                    <span class="brand-main">PUB</span>
+                    <span class="brand-sub">SOCIAL CLUB</span>
+                    <p class="footer-mission-statement">An immersive multi-sensory premium architecture engineered specifically for the global digital nightlife vanguard.</p>
+                </div>
+                <div class="footer-links-segment">
+                    <h4 class="footer-column-header">Discover</h4>
+                    <a href="#about" class="footer-anchor">The Sanctuary</a>
+                    <a href="#cocktails" class="footer-anchor">Mixology Suite</a>
+                    <a href="#events" class="footer-anchor">Scheduled Rituals</a>
+                </div>
+                <div class="footer-links-segment">
+                    <h4 class="footer-column-header">Privileges</h4>
+                    <a href="#vip" class="footer-anchor">Black Tier Axis</a>
+                    <a href="#contact" class="footer-anchor">Lounge Booking</a>
+                    <a href="#" class="footer-anchor">Private Hires</a>
+                </div>
+                <div class="footer-links-segment">
+                    <h4 class="footer-column-header">Social Ecosystem</h4>
+                    <a href="#" class="footer-anchor">Instagram</a>
+                    <a href="#" class="footer-anchor">SoundCloud</a>
+                    <a href="#" class="footer-anchor">Vimeo Premium</a>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p class="copyright-notice">&copy; 2026 PUB SOCIAL CLUB. All Elite Rights Reserved. Design Engineered.</p>
+                <div class="footer-legal-anchors">
+                    <a href="#" class="legal-link">Privacy Protocols</a>
+                    <a href="#" class="legal-link">Terms of Sovereignty</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Trigger Button -->
+    <button class="back-to-top-trigger" id="scrollTopBtn" aria-label="Ascend to Top">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
