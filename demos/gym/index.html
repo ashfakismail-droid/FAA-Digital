@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Titan Fitness — Premium gym & fitness center. World-class training, elite coaches, and memberships built for results. Join the strongest community today." />
+  <meta name="keywords" content="gym, fitness, titan fitness, personal training, crossfit, hiit, yoga, membership, workout" />
+  <meta name="author" content="Titan Fitness" />
+  <meta property="og:title" content="Titan Fitness — Forge Your Legend" />
+  <meta property="og:description" content="Premium gym & fitness center with elite trainers, flexible memberships, and a community built for results." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Titan Fitness — Forge Your Legend</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ LOADING ANIMATION ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
+    <div class="loader__text">TITAN<span>FITNESS</span></div>
+  </div>
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav__inner">
+      <a href="#hero" class="logo" aria-label="Titan Fitness home">
+        <span class="logo__mark"><i class="fa-solid fa-dumbbell"></i></span>
+        TITAN<span>FITNESS</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#hero" class="nav__link active">Home</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#membership" class="nav__link">Memberships</a>
+        <a href="#trainers" class="nav__link">Trainers</a>
+        <a href="#schedule" class="nav__link">Schedule</a>
+        <a href="#bmi" class="nav__link">BMI</a>
+        <a href="#testimonials" class="nav__link">Reviews</a>
+        <a href="#gallery" class="nav__link">Gallery</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="#membership" class="btn btn--small btn--gradient nav__cta">Join Now</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <span class="hero__eyebrow reveal">Premium Fitness · Est. 2014</span>
+      <h1 class="hero__title reveal">FORGE YOUR <span class="text-gradient">LEGEND</span></h1>
+      <p class="hero__desc reveal">Train harder, smarter, and stronger at Titan Fitness. Elite coaching, world-class equipment, and a community built to push you past every limit.</p>
+      <div class="hero__actions reveal">
+        <a href="#membership" class="btn btn--gradient btn--lg">Join Now</a>
+        <a href="#membership" class="btn btn--outline btn--lg">View Memberships</a>
+      </div>
+
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <div class="stat__num" data-count="12000" data-suffix="+">0</div>
+          <div class="stat__label">Active Members</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="45" data-suffix="+">0</div>
+          <div class="stat__label">Expert Trainers</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="30" data-suffix="+">0</div>
+          <div class="stat__label">Classes Weekly</div>
+        </div>
+        <div class="stat">
+          <div class="stat__num" data-count="10" data-suffix="yrs">0</div>
+          <div class="stat__label">Of Excellence</div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll" aria-label="Scroll to about"><span></span></a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section about" id="about">
+    <div class="container about__grid">
+      <div class="about__media reveal">
+        <div class="about__img" role="img" aria-label="Athlete training in the gym"></div>
+        <div class="about__float about__float--1 glass">
+          <i class="fa-solid fa-fire"></i>
+          <div><strong>500+</strong><span>Calories / session</span></div>
+        </div>
+        <div class="about__float about__float--2 glass">
+          <i class="fa-solid fa-trophy"></i>
+          <div><strong>#1</strong><span>Rated Gym 2024</span></div>
+        </div>
+      </div>
+
+      <div class="about__content">
+        <span class="section__eyebrow reveal">About Titan</span>
+        <h2 class="section__title reveal">More Than A Gym. <span class="text-gradient">A Movement.</span></h2>
+        <p class="reveal">Titan Fitness was built on a single belief: everyone has a stronger version of themselves waiting to be unlocked. Our 25,000 sq ft facility combines cutting-edge equipment with a culture of relentless progress.</p>
+
+        <div class="about__mission reveal">
+          <h3><i class="fa-solid fa-bullseye"></i> Our Mission</h3>
+          <p>To empower every member to surpass their limits through elite coaching, science-backed programming, and an unbreakable community.</p>
+        </div>
+
+        <ul class="about__features">
+          <li class="reveal"><i class="fa-solid fa-check"></i> State-of-the-art strength & cardio zones</li>
+          <li class="reveal"><i class="fa-solid fa-check"></i> Certified elite personal trainers</li>
+          <li class="reveal"><i class="fa-solid fa-check"></i> Recovery suites &amp; sauna access</li>
+          <li class="reveal"><i class="fa-solid fa-check"></i> 24/7 secure facility access</li>
+        </ul>
+
+        <a href="#trainers" class="btn btn--gradient reveal">Meet Our Trainers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEMBERSHIP ============ -->
+  <section class="section membership" id="membership">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Memberships</span>
+        <h2 class="section__title">Choose Your <span class="text-gradient">Plan</span></h2>
+        <p class="section__sub">Flexible options designed to match your goals and your lifestyle. No hidden fees. Cancel anytime.</p>
+      </div>
+
+      <div class="plans">
+        <!-- Basic -->
+        <article class="plan glass reveal">
+          <div class="plan__badge">Popular</div>
+          <h3 class="plan__name">Basic</h3>
+          <div class="plan__price"><span class="plan__currency">$</span><span class="plan__amount">29</span><span class="plan__period">/mo</span></div>
+          <p class="plan__tag">Perfect for getting started</p>
+          <ul class="plan__features">
+            <li><i class="fa-solid fa-check"></i> Full gym access</li>
+            <li><i class="fa-solid fa-check"></i> Locker &amp; shower facilities</li>
+            <li><i class="fa-solid fa-check"></i> 2 group classes / week</li>
+            <li><i class="fa-solid fa-check"></i> Fitness app access</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Personal training</li>
+            <li class="disabled"><i class="fa-solid fa-xmark"></i> Recovery suite</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Join Basic</a>
+        </article>
+
+        <!-- Pro (featured) -->
+        <article class="plan plan--featured glass reveal">
+          <div class="plan__badge plan__badge--hot">Most Chosen</div>
+          <h3 class="plan__name">Pro</h3>
+          <div class="plan__price"><span class="plan__currency">$</span><span class="plan__amount">59</span><span class="plan__period">/mo</span></div>
+          <p class="plan__tag">For the dedicated athlete</p>
+          <ul class="plan__features">
+            <li><i class="fa-solid fa-check"></i> Unlimited gym access</li>
+            <li><i class="fa-solid fa-check"></i> All group classes</li>
+            <li><i class="fa-solid fa-check"></i> 4 PT sessions / month</li>
+            <li><i class="fa-solid fa-check"></i> Recovery suite &amp; sauna</li>
+            <li><i class="fa-solid fa-check"></i> Nutrition plan</li>
+            <li><i class="fa-solid fa-check"></i> Guest passes (2/mo)</li>
+          </ul>
+          <a href="#contact" class="btn btn--gradient btn--block">Join Pro</a>
+        </article>
+
+        <!-- Elite -->
+        <article class="plan glass reveal">
+          <div class="plan__badge">Premium</div>
+          <h3 class="plan__name">Elite</h3>
+          <div class="plan__price"><span class="plan__currency">$</span><span class="plan__amount">99</span><span class="plan__period">/mo</span></div>
+          <p class="plan__tag">The ultimate experience</p>
+          <ul class="plan__features">
+            <li><i class="fa-solid fa-check"></i> Everything in Pro</li>
+            <li><i class="fa-solid fa-check"></i> Unlimited PT sessions</li>
+            <li><i class="fa-solid fa-check"></i> Dedicated coach</li>
+            <li><i class="fa-solid fa-check"></i> Body composition scans</li>
+            <li><i class="fa-solid fa-check"></i> Priority class booking</li>
+            <li><i class="fa-solid fa-check"></i> 24/7 VIP lounge</li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--block">Join Elite</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAINERS ============ -->
+  <section class="section trainers" id="trainers">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Our Coaches</span>
+        <h2 class="section__title">Elite <span class="text-gradient">Trainers</span></h2>
+        <p class="section__sub">Learn from certified professionals who have transformed thousands of lives.</p>
+      </div>
+
+      <div class="trainers__grid">
+        <article class="trainer glass reveal">
+          <div class="trainer__photo trainer__photo--1" role="img" aria-label="Trainer Marcus Steel"></div>
+          <div class="trainer__body">
+            <h3 class="trainer__name">Marcus Steel</h3>
+            <p class="trainer__spec">Strength &amp; Powerlifting</p>
+            <p class="trainer__exp"><i class="fa-solid fa-clock"></i> 12 years experience</p>
+            <div class="trainer__social">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="trainer glass reveal">
+          <div class="trainer__photo trainer__photo--2" role="img" aria-label="Trainer Elena Voss"></div>
+          <div class="trainer__body">
+            <h3 class="trainer__name">Elena Voss</h3>
+            <p class="trainer__spec">Yoga &amp; Mobility</p>
+            <p class="trainer__exp"><i class="fa-solid fa-clock"></i> 9 years experience</p>
+            <div class="trainer__social">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="trainer glass reveal">
+          <div class="trainer__photo trainer__photo--3" role="img" aria-label="Trainer David Kim"></div>
+          <div class="trainer__body">
+            <h3 class="trainer__name">David Kim</h3>
+            <p class="trainer__spec">HIIT &amp; Conditioning</p>
+            <p class="trainer__exp"><i class="fa-solid fa-clock"></i> 8 years experience</p>
+            <div class="trainer__social">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="trainer glass reveal">
+          <div class="trainer__photo trainer__photo--4" role="img" aria-label="Trainer Sofia Reyes"></div>
+          <div class="trainer__body">
+            <h3 class="trainer__name">Sofia Reyes</h3>
+            <p class="trainer__spec">Boxing &amp; Combat</p>
+            <p class="trainer__exp"><i class="fa-solid fa-clock"></i> 11 years experience</p>
+            <div class="trainer__social">
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCHEDULE ============ -->
+  <section class="section schedule" id="schedule">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Weekly Plan</span>
+        <h2 class="section__title">Class <span class="text-gradient">Schedule</span></h2>
+        <p class="section__sub">Drop in to any session with a Pro or Elite membership. Spaces are limited — book early.</p>
+      </div>
+
+      <div class="schedule__wrap reveal">
+        <table class="schedule__table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Mon</th>
+              <th>Tue</th>
+              <th>Wed</th>
+              <th>Thu</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="schedule__time">06:00</td>
+              <td><span class="cls cls--hiit">HIIT</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+              <td><span class="cls cls--crossfit">CrossFit</span></td>
+              <td><span class="cls cls--strength">Strength</span></td>
+              <td><span class="cls cls--cardio">Cardio</span></td>
+              <td><span class="cls cls--boxing">Boxing</span></td>
+            </tr>
+            <tr>
+              <td class="schedule__time">09:00</td>
+              <td><span class="cls cls--strength">Strength</span></td>
+              <td><span class="cls cls--cardio">Cardio</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+              <td><span class="cls cls--hiit">HIIT</span></td>
+              <td><span class="cls cls--crossfit">CrossFit</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+            </tr>
+            <tr>
+              <td class="schedule__time">12:00</td>
+              <td><span class="cls cls--crossfit">CrossFit</span></td>
+              <td><span class="cls cls--boxing">Boxing</span></td>
+              <td><span class="cls cls--cardio">Cardio</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+              <td><span class="cls cls--strength">Strength</span></td>
+              <td><span class="cls cls--hiit">HIIT</span></td>
+            </tr>
+            <tr>
+              <td class="schedule__time">17:00</td>
+              <td><span class="cls cls--cardio">Cardio</span></td>
+              <td><span class="cls cls--strength">Strength</span></td>
+              <td><span class="cls cls--hiit">HIIT</span></td>
+              <td><span class="cls cls--boxing">Boxing</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+              <td><span class="cls cls--crossfit">CrossFit</span></td>
+            </tr>
+            <tr>
+              <td class="schedule__time">19:00</td>
+              <td><span class="cls cls--boxing">Boxing</span></td>
+              <td><span class="cls cls--yoga">Yoga</span></td>
+              <td><span class="cls cls--strength">Strength</span></td>
+              <td><span class="cls cls--crossfit">CrossFit</span></td>
+              <td><span class="cls cls--hiit">HIIT</span></td>
+              <td><span class="cls cls--cardio">Cardio</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BMI CALCULATOR ============ -->
+  <section class="section bmi" id="bmi">
+    <div class="container bmi__grid">
+      <div class="bmi__intro reveal">
+        <span class="section__eyebrow">Health Tool</span>
+        <h2 class="section__title">BMI <span class="text-gradient">Calculator</span></h2>
+        <p>Body Mass Index is a quick screening tool to estimate whether your weight is healthy for your height. Enter your details below to get instant results.</p>
+        <ul class="bmi__legend">
+          <li><span class="dot dot--uw"></span> Underweight &lt; 18.5</li>
+          <li><span class="dot dot--n"></span> Normal 18.5 – 24.9</li>
+          <li><span class="dot dot--ow"></span> Overweight 25 – 29.9</li>
+          <li><span class="dot dot--ob"></span> Obese ≥ 30</li>
+        </ul>
+      </div>
+
+      <div class="bmi__card glass reveal">
+        <form class="bmi__form" id="bmiForm" novalidate>
+          <div class="field">
+            <label for="height">Height (cm)</label>
+            <input type="number" id="height" name="height" placeholder="e.g. 175" min="50" max="260" step="0.1" required />
+          </div>
+          <div class="field">
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" name="weight" placeholder="e.g. 72" min="20" max="400" step="0.1" required />
+          </div>
+          <button type="submit" class="btn btn--gradient btn--block">Calculate BMI</button>
+        </form>
+
+        <div class="bmi__result" id="bmiResult" hidden>
+          <div class="bmi__value">Your BMI</div>
+          <div class="bmi__num" id="bmiNum">0.0</div>
+          <div class="bmi__category" id="bmiCategory">—</div>
+          <div class="bmi__bar"><span id="bmiMarker"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Reviews</span>
+        <h2 class="section__title">What Members <span class="text-gradient">Say</span></h2>
+        <p class="section__sub">Real results from real people who chose to become legends.</p>
+      </div>
+
+      <div class="testi__grid">
+        <article class="testi glass reveal">
+          <div class="testi__stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi__text">"Titan completely changed my life. In 8 months I lost 18kg and gained a confidence I never knew I had. The trainers actually care."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--1" aria-hidden="true"></div>
+            <div><strong>James Carter</strong><span>Pro Member</span></div>
+          </div>
+        </article>
+
+        <article class="testi glass reveal">
+          <div class="testi__stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testi__text">"The community here is unmatched. Every session pushes me harder than I'd push myself. Best investment I've ever made in my health."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--2" aria-hidden="true"></div>
+            <div><strong>Amara Singh</strong><span>Elite Member</span></div>
+          </div>
+        </article>
+
+        <article class="testi glass reveal">
+          <div class="testi__stars" aria-label="4.5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+          <p class="testi__text">"As a busy parent, the flexible schedule and recovery suite are game changers. I finally have a routine that sticks. Highly recommend."</p>
+          <div class="testi__author">
+            <div class="testi__avatar testi__avatar--3" aria-hidden="true"></div>
+            <div><strong>Liam Brooks</strong><span>Basic Member</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="section__eyebrow">Inside Titan</span>
+        <h2 class="section__title">Our <span class="text-gradient">Gallery</span></h2>
+        <p class="section__sub">A glimpse into the space where legends are forged.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <div class="gallery__item gallery__item--1 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+        <div class="gallery__item gallery__item--2 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+        <div class="gallery__item gallery__item--3 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+        <div class="gallery__item gallery__item--4 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+        <div class="gallery__item gallery__item--5 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+        <div class="gallery__item gallery__item--6 reveal"><span class="gallery__zoom"><i class="fa-solid fa-plus"></i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact">
+    <div class="container contact__grid">
+      <div class="contact__info reveal">
+        <span class="section__eyebrow">Get In Touch</span>
+        <h2 class="section__title">Start Your <span class="text-gradient">Journey</span></h2>
+        <p>Have questions or ready to join? Reach out and our team will get back to you within 24 hours.</p>
+
+        <ul class="contact__list">
+          <li><i class="fa-solid fa-location-dot"></i><div><strong>Address</strong><span>240 Ironworks Ave, Downtown, NY 10001</span></div></li>
+          <li><i class="fa-solid fa-phone"></i><div><strong>Phone</strong><span>+1 (555) 012-3456</span></div></li>
+          <li><i class="fa-solid fa-envelope"></i><div><strong>Email</strong><span>hello@titanfitness.com</span></div></li>
+          <li><i class="fa-solid fa-clock"></i><div><strong>Working Hours</strong><span>Mon–Fri: 5:00–23:00 · Sat–Sun: 7:00–21:00</span></div></li>
+        </ul>
+      </div>
+
+      <form class="contact__form glass reveal" id="contactForm" novalidate>
+        <div class="field">
+          <label for="cName">Name</label>
+          <input type="text" id="cName" name="cName" placeholder="Your full name" required />
+        </div>
+        <div class="field">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="cEmail" placeholder="you@email.com" required />
+        </div>
+        <div class="field">
+          <label for="cPhone">Phone</label>
+          <input type="tel" id="cPhone" name="cPhone" placeholder="+1 (555) 000-0000" />
+        </div>
+        <div class="field">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" name="cMessage" rows="4" placeholder="Tell us about your goals..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn--gradient btn--block">Send Message</button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="#hero" class="logo"><span class="logo__mark"><i class="fa-solid fa-dumbbell"></i></span>TITAN<span>FITNESS</span></a>
+        <p>Forge your legend with the strongest community in the city. Train hard, recover well, repeat.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#membership">Memberships</a></li>
+          <li><a href="#trainers">Trainers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#schedule">HIIT</a></li>
+          <li><a href="#schedule">CrossFit</a></li>
+          <li><a href="#schedule">Yoga</a></li>
+          <li><a href="#schedule">Boxing</a></li>
+          <li><a href="#bmi">BMI Check</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> 240 Ironworks Ave, NY</li>
+          <li><i class="fa-solid fa-phone"></i> +1 (555) 012-3456</li>
+          <li><i class="fa-solid fa-envelope"></i> hello@titanfitness.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="year"></span> Titan Fitness. All rights reserved.</p>
+        <p>Designed with <i class="fa-solid fa-heart"></i> for performance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BACK TO TOP ============ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
