@@ -1075,6 +1075,89 @@ p { margin: 0; }
   gap: 16px;
 }
 
+/* ---------- 13b. DEVELOPER DEMO ---------- */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 0 0 56px;
+}
+
+.dev-demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.dev-demo-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 28px 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.dev-demo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.dev-demo-card__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.dev-demo-card__icon svg { width: 28px; height: 28px; }
+
+.dev-demo-card__body { flex: 1; min-width: 0; }
+
+.dev-demo-card__body h3 {
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.dev-demo-card__body p {
+  color: var(--fg-muted);
+  font-size: 14.5px;
+  margin-bottom: 10px;
+}
+
+.dev-demo-card__meta {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--fg-dim);
+  letter-spacing: 0.02em;
+}
+
+.dev-demo-card__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg);
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease), gap var(--dur-fast) var(--ease);
+}
+
+.dev-demo-card__cta svg { width: 15px; height: 15px; transition: transform var(--dur-fast) var(--ease); }
+
+.dev-demo-card:hover .dev-demo-card__cta { color: var(--accent); gap: 10px; }
+.dev-demo-card:hover .dev-demo-card__cta svg { transform: translate(2px, -2px); }
+
 /* ---------- 14. FOOTER ---------- */
 .footer {
   border-top: 1px solid var(--border);

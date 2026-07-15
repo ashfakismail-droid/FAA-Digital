@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant — Aurora Grand Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div data-header></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">HOME / RESTAURANT</div>
+      <h1>Lumière</h1>
+      <p>Our signature dining destination where culinary artistry meets coastal serenity.</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:center; gap:50px;">
+      <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:4/3;">
+        <img src="images/restaurant.jpg" alt="Restaurant" onerror="this.src='images/placeholder.jpg'" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">The Restaurant</span>
+        <h2 class="section-title">A Stage for the Senses</h2>
+        <p class="card-text" id="rest-intro"></p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:22px;">
+          <a href="menu.html" class="btn btn-gold">View Full Menu</a>
+          <a href="contact.html" class="btn btn-outline">Reserve a Table</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef -->
+  <section class="section alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Meet the Talent</span>
+        <h2 class="section-title">Behind the Pass</h2>
+      </div>
+      <div class="grid grid-2" style="align-items:center; gap:50px; max-width:900px; margin:0 auto;">
+        <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:1/1;">
+          <img id="chef-img" src="images/chef.jpg" alt="Chef" onerror="this.src='images/placeholder.jpg'" />
+        </div>
+        <div class="reveal">
+          <h3 id="chef-name" class="card-title" style="font-size:26px;"></h3>
+          <p class="card-text" id="chef-bio" style="margin-top:12px;"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dining experience + timings -->
+  <section class="section">
+    <div class="container grid grid-2" style="gap:50px; align-items:start;">
+      <div class="reveal">
+        <span class="eyebrow">The Experience</span>
+        <h2 class="section-title">Dining, Reimagined</h2>
+        <p class="card-text" id="dining-exp"></p>
+      </div>
+      <div class="reveal">
+        <div class="card" style="padding:28px;">
+          <h4 style="margin-bottom:18px;">Opening Hours</h4>
+          <ul id="dining-timings" style="display:flex; flex-direction:column; gap:14px;"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature dishes -->
+  <section class="section alt">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Signature</span>
+        <h2 class="section-title">Chef's Signatures</h2>
+        <p class="section-sub">A selection of dishes that define the Lumière experience.</p>
+      </div>
+      <div class="grid grid-3" id="signature-dishes"></div>
+    </div>
+  </section>
+
+  <!-- Special offers -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Offers</span>
+        <h2 class="section-title">Special Experiences</h2>
+      </div>
+      <div class="grid grid-2" id="special-offers"></div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/restaurant.js"></script>
+</body>
+</html>

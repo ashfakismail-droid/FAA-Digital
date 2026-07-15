@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="table-wrap">
+          <div class="table-toolbar">
+            <div class="search">
+              <span class="s-ico">🔍</span>
+              <input type="text" id="res-search" placeholder="Search guest, ID, room…" />
+            </div>
+            <select id="res-filter" style="max-width:180px;">
+              <option value="all">All Status</option>
+              <option value="pending">Pending</option>
+              <option value="confirmed">Confirmed</option>
+              <option value="checked-in">Checked-in</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th data-sort="id">Booking</th>
+                <th data-sort="guest">Guest</th>
+                <th>Room</th>
+                <th data-sort="checkIn">Dates</th>
+                <th data-sort="status">Status</th>
+                <th>Payment</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="res-tbody"></tbody>
+          </table>
+          <div class="pagination" id="res-pagination"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- View/Edit modal -->
+  <div class="modal-overlay" id="res-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Reservation Details</h3>
+        <button class="modal-close" data-close-modal="res-modal">×</button>
+      </div>
+      <div class="modal-body" id="res-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/reservations-admin.js"></script>
+</body>
+</html>

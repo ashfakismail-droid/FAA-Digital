@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3>Hotel Profile</h3>
+            <form id="hotel-form">
+              <div class="form-group"><label>Hotel Name</label><input name="name" /></div>
+              <div class="form-group"><label>Tagline</label><input name="tagline" /></div>
+              <div class="form-group"><label>Phone</label><input name="phone" /></div>
+              <div class="form-group"><label>Email</label><input name="email" type="email" /></div>
+              <div class="form-group"><label>Address</label><input name="address" /></div>
+              <button type="submit" class="btn btn-gold">Save Profile</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Appearance & Theme</h3>
+            <form id="theme-form">
+              <div class="form-group">
+                <label>Default Theme</label>
+                <select name="theme">
+                  <option value="dark">Dark (Navy + Gold)</option>
+                  <option value="light">Light</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Logo URL</label>
+                <input name="logo" placeholder="images/logo.svg" />
+              </div>
+              <div class="form-group">
+                <label>Accent Color</label>
+                <input name="accent" value="#c9a24b" />
+              </div>
+              <button type="submit" class="btn btn-gold">Save Appearance</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Social Media</h3>
+            <form id="social-form">
+              <div class="form-group"><label>Facebook</label><input name="facebook" placeholder="https://facebook.com/…" /></div>
+              <div class="form-group"><label>Instagram</label><input name="instagram" placeholder="https://instagram.com/…" /></div>
+              <div class="form-group"><label>Twitter / X</label><input name="twitter" placeholder="https://x.com/…" /></div>
+              <div class="form-group"><label>LinkedIn</label><input name="linkedin" placeholder="https://linkedin.com/…" /></div>
+              <button type="submit" class="btn btn-gold">Save Social</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Opening Hours</h3>
+            <form id="hours-form">
+              <div class="form-group"><label>Reception</label><input name="reception" /></div>
+              <div class="form-group"><label>Restaurant</label><input name="restaurant" /></div>
+              <div class="form-group"><label>Spa</label><input name="spa" /></div>
+              <div class="form-group"><label>Pool</label><input name="pool" /></div>
+              <button type="submit" class="btn btn-gold">Save Hours</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Reservation Settings</h3>
+            <form id="res-settings-form">
+              <div class="form-group"><label>Minimum Nights</label><input name="minNights" type="number" min="1" /></div>
+              <div class="form-group">
+                <label>Currency</label>
+                <select name="currency" id="currency-select"></select>
+              </div>
+              <div class="form-group"><label>Tax Rate (%)</label><input name="taxRate" type="number" step="0.1" /></div>
+              <button type="submit" class="btn btn-gold">Save Settings</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Data</h3>
+            <p class="text-dim" style="font-size:13px; margin-bottom:16px;">Reset all demo data to its original seeded state. This clears any changes you made.</p>
+            <button class="btn btn-danger btn-block" id="reset-data">↺ Reset Demo Data</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/settings-admin.js"></script>
+</body>
+</html>

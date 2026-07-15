@@ -1,541 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Aurora Grand Resort — a 5-star luxury hotel & resort offering elegant rooms, fine dining, spa, and unforgettable experiences by the ocean." />
-    <meta name="keywords" content="luxury hotel, resort, spa, fine dining, ocean view suites, Aurora Grand Resort" />
-    <meta name="author" content="Aurora Grand Resort" />
-    <title>Aurora Grand Resort | 5-Star Luxury Hotel &amp; Resort</title>
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Grand Resort — Luxury Coastal Retreat</title>
+  <meta name="description" content="Aurora Grand Resort — where elegance meets the horizon. Luxury rooms, world-class dining, and unforgettable experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <div data-header></div>
 
-    <!-- ============ LOADING SCREEN ============ -->
-    <div class="loader" id="loader" aria-hidden="true">
-        <div class="loader__inner">
-            <div class="loader__logo">AURORA</div>
-            <div class="loader__bar"><span></span></div>
-            <div class="loader__text">GRAND RESORT</div>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="eyebrow">Coastal Luxury Resort</span>
+      <h1>Where Elegance<br>Meets the Horizon</h1>
+      <p>Discover a sanctuary of refined comfort, world-class dining, and curated experiences along a private stretch of coastline.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-gold">Book Your Stay</a>
+        <a href="rooms.html" class="btn btn-outline">Explore Rooms</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">6</div><div class="lbl">Room Types</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="lbl">Guest Rating</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Concierge</div></div>
+        <div class="stat"><div class="num">12</div><div class="lbl">Dining Awards</div></div>
+      </div>
     </div>
+  </section>
 
-    <!-- ============ HEADER / NAVIGATION ============ -->
-    <header class="header" id="header">
-        <div class="container header__inner">
-            <a href="#hero" class="logo" aria-label="Aurora Grand Resort home">
-                <span class="logo__mark">A</span>
-                <span class="logo__text">AURORA<span class="logo__sub">GRAND RESORT</span></span>
-            </a>
-
-            <nav class="nav" id="nav" aria-label="Primary navigation">
-                <ul class="nav__list">
-                    <li><a href="#hero" class="nav__link active">Home</a></li>
-                    <li><a href="#about" class="nav__link">About</a></li>
-                    <li><a href="#rooms" class="nav__link">Rooms</a></li>
-                    <li><a href="#booking" class="nav__link">Booking</a></li>
-                    <li><a href="#amenities" class="nav__link">Amenities</a></li>
-                    <li><a href="#dining" class="nav__link">Dining</a></li>
-                    <li><a href="#gallery" class="nav__link">Gallery</a></li>
-                    <li><a href="#reviews" class="nav__link">Reviews</a></li>
-                    <li><a href="#attractions" class="nav__link">Attractions</a></li>
-                    <li><a href="#faq" class="nav__link">FAQ</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
-
-            <a href="#booking" class="btn btn--gold btn--sm header__cta">Book Now</a>
-
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container grid grid-2" style="align-items:center; gap:50px;">
+      <div class="reveal">
+        <span class="eyebrow">About Aurora</span>
+        <h2 class="section-title">A Timeless Escape by the Sea</h2>
+        <p class="card-text" style="margin-bottom:18px;">Perched along a private stretch of coastline, Aurora Grand Resort blends timeless luxury with modern comfort. Every detail is designed to soothe the soul — from the gentle sound of waves to the warm glow of golden hour on your private terrace.</p>
+        <p class="card-text" style="margin-bottom:24px;">Our team of dedicated hosts anticipates your every need, crafting experiences that turn a simple stay into a cherished memory.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <span class="badge badge-gold">Private Beach</span>
+          <span class="badge badge-gold">Michelin Dining</span>
+          <span class="badge badge-gold">Serenity Spa</span>
+          <span class="badge badge-gold">Infinity Pool</span>
         </div>
-    </header>
-
-    <!-- ============ HERO ============ -->
-    <section class="hero" id="hero">
-        <div class="hero__overlay"></div>
-        <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80')"></div>
-        <div class="container hero__content">
-            <p class="hero__eyebrow reveal">WELCOME TO PARADISE</p>
-            <h1 class="hero__title reveal">Aurora Grand Resort</h1>
-            <p class="hero__desc reveal">Where timeless elegance meets the endless horizon. Experience world-class luxury, oceanfront serenity, and unforgettable moments crafted just for you.</p>
-            <div class="hero__actions reveal">
-                <a href="#booking" class="btn btn--gold">Book Your Stay</a>
-                <a href="#rooms" class="btn btn--ghost">Explore Rooms</a>
-            </div>
-        </div>
-        <a href="#about" class="scroll-indicator" aria-label="Scroll down">
-            <span class="scroll-indicator__mouse"><span></span></span>
-            <span class="scroll-indicator__text">Scroll</span>
-        </a>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section about" id="about">
-        <div class="container about__grid">
-            <div class="about__media reveal">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80" alt="Luxury resort pool and suites" />
-                <div class="about__badge">
-                    <span class="about__badge-num">25+</span>
-                    <span class="about__badge-text">Years of Excellence</span>
-                </div>
-            </div>
-            <div class="about__content reveal">
-                <p class="section__eyebrow">OUR STORY</p>
-                <h2 class="section__title">A Sanctuary of Timeless Luxury</h2>
-                <p class="about__text">Nestled along a pristine coastline, Aurora Grand Resort is a masterpiece of modern architecture and natural beauty. Every detail has been thoughtfully designed to awaken your senses and elevate your stay into something extraordinary.</p>
-                <p class="about__text">From the moment you arrive, our dedicated team anticipates your every need — delivering the warmth of genuine hospitality wrapped in refined sophistication.</p>
-
-                <div class="about__awards">
-                    <div class="award">
-                        <span class="award__icon">★</span>
-                        <div><strong>5-Star Rating</strong><small>Forbes Travel Guide</small></div>
-                    </div>
-                    <div class="award">
-                        <span class="award__icon">❖</span>
-                        <div><strong>Green Key Certified</strong><small>Sustainable Luxury</small></div>
-                    </div>
-                    <div class="award">
-                        <span class="award__icon">✦</span>
-                        <div><strong>World Luxury Award</strong><small>2024 Winner</small></div>
-                    </div>
-                </div>
-
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat__num" data-target="320">0</span>
-                        <span class="stat__label">Luxury Rooms</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num" data-target="48">0</span>
-                        <span class="stat__label">Awards Won</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num" data-target="120">0</span>
-                        <span class="stat__label">Staff Members</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat__num" data-target="99">0</span>
-                        <span class="stat__label">% Satisfaction</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ ROOMS ============ -->
-    <section class="section rooms" id="rooms">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">ACCOMMODATION</p>
-                <h2 class="section__title">The Room Collection</h2>
-                <p class="section__sub">Thoughtfully designed spaces where comfort and elegance converge.</p>
-            </div>
-
-            <div class="rooms__grid">
-                <!-- Deluxe Room -->
-                <article class="room-card reveal">
-                    <div class="room-card__media">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=800&q=80" alt="Deluxe Room" />
-                        <span class="room-card__price">$220<small>/night</small></span>
-                    </div>
-                    <div class="room-card__body">
-                        <h3 class="room-card__title">Deluxe Room</h3>
-                        <ul class="room-card__features">
-                            <li><span>⤢</span> 38 m²</li>
-                            <li><span>👤</span> 2 Guests</li>
-                            <li><span>🛏</span> King Bed</li>
-                            <li><span>📶</span> Free Wi-Fi</li>
-                            <li><span>❄</span> Air Conditioning</li>
-                            <li><span>☕</span> Breakfast Included</li>
-                        </ul>
-                        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-                    </div>
-                </article>
-
-                <!-- Executive Suite -->
-                <article class="room-card reveal">
-                    <div class="room-card__media">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80" alt="Executive Suite" />
-                        <span class="room-card__price">$380<small>/night</small></span>
-                    </div>
-                    <div class="room-card__body">
-                        <h3 class="room-card__title">Executive Suite</h3>
-                        <ul class="room-card__features">
-                            <li><span>⤢</span> 65 m²</li>
-                            <li><span>👤</span> 3 Guests</li>
-                            <li><span>🛏</span> King + Sofa</li>
-                            <li><span>📶</span> Free Wi-Fi</li>
-                            <li><span>❄</span> Air Conditioning</li>
-                            <li><span>☕</span> Breakfast Included</li>
-                        </ul>
-                        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-                    </div>
-                </article>
-
-                <!-- Ocean View Suite -->
-                <article class="room-card reveal">
-                    <div class="room-card__media">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Ocean View Suite" />
-                        <span class="room-card__price">$520<small>/night</small></span>
-                    </div>
-                    <div class="room-card__body">
-                        <h3 class="room-card__title">Ocean View Suite</h3>
-                        <ul class="room-card__features">
-                            <li><span>⤢</span> 85 m²</li>
-                            <li><span>👤</span> 4 Guests</li>
-                            <li><span>🛏</span> 2 Queen Beds</li>
-                            <li><span>📶</span> Free Wi-Fi</li>
-                            <li><span>❄</span> Air Conditioning</li>
-                            <li><span>☕</span> Breakfast Included</li>
-                        </ul>
-                        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-                    </div>
-                </article>
-
-                <!-- Presidential Suite -->
-                <article class="room-card reveal">
-                    <div class="room-card__media">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80" alt="Presidential Suite" />
-                        <span class="room-card__price">$980<small>/night</small></span>
-                    </div>
-                    <div class="room-card__body">
-                        <h3 class="room-card__title">Presidential Suite</h3>
-                        <ul class="room-card__features">
-                            <li><span>⤢</span> 180 m²</li>
-                            <li><span>👤</span> 6 Guests</li>
-                            <li><span>🛏</span> 3 Bedrooms</li>
-                            <li><span>📶</span> Free Wi-Fi</li>
-                            <li><span>❄</span> Air Conditioning</li>
-                            <li><span>☕</span> Breakfast Included</li>
-                        </ul>
-                        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ BOOKING ============ -->
-    <section class="section booking" id="booking">
-        <div class="container">
-            <div class="booking__panel glass reveal">
-                <div class="booking__intro">
-                    <p class="section__eyebrow">RESERVATION</p>
-                    <h2 class="section__title">Plan Your Escape</h2>
-                    <p class="section__sub">Check availability and reserve your perfect stay in seconds.</p>
-                </div>
-
-                <form class="booking__form" id="bookingForm" novalidate>
-                    <div class="field">
-                        <label for="checkin">Check-in</label>
-                        <input type="date" id="checkin" name="checkin" />
-                        <small class="field__error" data-error="checkin"></small>
-                    </div>
-                    <div class="field">
-                        <label for="checkout">Check-out</label>
-                        <input type="date" id="checkout" name="checkout" />
-                        <small class="field__error" data-error="checkout"></small>
-                    </div>
-                    <div class="field">
-                        <label for="adults">Adults</label>
-                        <select id="adults" name="adults">
-                            <option value="">Select</option>
-                            <option value="1">1 Adult</option>
-                            <option value="2">2 Adults</option>
-                            <option value="3">3 Adults</option>
-                            <option value="4">4 Adults</option>
-                        </select>
-                        <small class="field__error" data-error="adults"></small>
-                    </div>
-                    <div class="field">
-                        <label for="children">Children</label>
-                        <select id="children" name="children">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        <small class="field__error" data-error="children"></small>
-                    </div>
-                    <div class="field">
-                        <label for="roomType">Room Type</label>
-                        <select id="roomType" name="roomType">
-                            <option value="">Select</option>
-                            <option value="deluxe">Deluxe Room</option>
-                            <option value="executive">Executive Suite</option>
-                            <option value="ocean">Ocean View Suite</option>
-                            <option value="presidential">Presidential Suite</option>
-                        </select>
-                        <small class="field__error" data-error="roomType"></small>
-                    </div>
-                    <div class="field field--submit">
-                        <button type="submit" class="btn btn--gold btn--block">Search Availability</button>
-                    </div>
-                    <p class="booking__success" id="bookingSuccess" hidden>✓ Availability confirmed! Our concierge will contact you shortly.</p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ AMENITIES ============ -->
-    <section class="section amenities" id="amenities">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">EXPERIENCES</p>
-                <h2 class="section__title">Resort Amenities</h2>
-                <p class="section__sub">Everything you need for an extraordinary stay.</p>
-            </div>
-
-            <div class="amenities__grid">
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🌊</span><h3>Infinity Pool</h3><p>Edge-of-the-world views over the ocean.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">💆</span><h3>Luxury Spa</h3><p>Rejuvenating treatments &amp; therapies.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🍽</span><h3>Fine Dining</h3><p>Michelin-inspired culinary journeys.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🏋</span><h3>Fitness Center</h3><p>State-of-the-art gym &amp; equipment.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">📶</span><h3>Free Wi-Fi</h3><p>High-speed internet throughout.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🚐</span><h3>Airport Pickup</h3><p>Private luxury transfers.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🏛</span><h3>Conference Hall</h3><p>Elegant spaces for events.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🏖</span><h3>Beach Access</h3><p>Private pristine shoreline.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🧸</span><h3>Kids Play Area</h3><p>Fun &amp; safe for little ones.</p></div>
-                <div class="amenity-card reveal"><span class="amenity-card__icon">🍸</span><h3>Bar &amp; Lounge</h3><p>Signature cocktails at sunset.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ DINING ============ -->
-    <section class="section dining" id="dining">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">GASTRONOMY</p>
-                <h2 class="section__title">Restaurant &amp; Dining</h2>
-                <p class="section__sub">A symphony of flavors from around the world.</p>
-            </div>
-
-            <div class="dining__grid">
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80" alt="Breakfast Buffet" /><div class="food-card__body"><h3>Breakfast Buffet</h3><p>Artisan pastries, fresh fruits &amp; more.</p></div></article>
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=700&q=80" alt="International Cuisine" /><div class="food-card__body"><h3>International Cuisine</h3><p>Global dishes crafted by master chefs.</p></div></article>
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=700&q=80" alt="Seafood Specials" /><div class="food-card__body"><h3>Seafood Specials</h3><p>Catch of the day, ocean to table.</p></div></article>
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=700&q=80" alt="Rooftop Dining" /><div class="food-card__body"><h3>Rooftop Dining</h3><p>Starlit dinners above the skyline.</p></div></article>
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80" alt="Premium Desserts" /><div class="food-card__body"><h3>Premium Desserts</h3><p>Handcrafted sweet indulgences.</p></div></article>
-                <article class="food-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=700&q=80" alt="Signature Cocktails" /><div class="food-card__body"><h3>Signature Cocktails</h3><p>Mixology at its finest.</p></div></article>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ GALLERY ============ -->
-    <section class="section gallery" id="gallery">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">VISUAL JOURNEY</p>
-                <h2 class="section__title">Resort Gallery</h2>
-                <p class="section__sub">Glimpses of the Aurora experience.</p>
-            </div>
-
-            <div class="gallery__grid" id="galleryGrid">
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80" alt="Resort view" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=600&q=80" alt="Pool" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80" alt="Suite" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80" alt="Spa" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="Bedroom" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80" alt="Nature" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=600&q=80" alt="Beach" /></a>
-                <a class="gallery__item" href="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=80" data-lightbox><img loading="lazy" src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=600&q=80" alt="Lobby" /></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============ LIGHTBOX ============ -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lightbox__close" id="lightboxClose" aria-label="Close">&times;</button>
-        <img src="" alt="Enlarged gallery image" id="lightboxImg" />
+      </div>
+      <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:4/5;">
+        <img src="images/about.jpg" alt="Resort view" />
+      </div>
     </div>
+  </section>
 
-    <!-- ============ REVIEWS ============ -->
-    <section class="section reviews" id="reviews">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">TESTIMONIALS</p>
-                <h2 class="section__title">Guest Reviews</h2>
-            </div>
+  <!-- ROOMS PREVIEW -->
+  <section class="section alt" id="rooms">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Accommodation</span>
+        <h2 class="section-title">Rooms & Suites</h2>
+        <p class="section-sub">Thoughtfully designed spaces where comfort and elegance converge.</p>
+      </div>
+      <div class="grid grid-3" id="rooms-preview"></div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href="rooms.html" class="btn btn-outline">View All Rooms</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="reviews__rating reveal">
-                <div class="reviews__stars">★★★★★</div>
-                <div class="reviews__score">4.9<span>/5</span></div>
-                <p class="reviews__count">Based on 2,500+ Guest Reviews</p>
-            </div>
+  <!-- AMENITIES -->
+  <section class="section" id="amenities">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Experiences</span>
+        <h2 class="section-title">Resort Amenities</h2>
+        <p class="section-sub">Everything you need for a stay that feels effortless and extraordinary.</p>
+      </div>
+      <div class="grid grid-4" id="amenities-grid"></div>
+    </div>
+  </section>
 
-            <div class="reviews__grid">
-                <article class="review-card reveal">
-                    <div class="review-card__head">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Emma Wilson" />
-                        <div><h4>Emma Wilson</h4><small>United Kingdom</small></div>
-                    </div>
-                    <div class="review-card__stars">★★★★★</div>
-                    <p>"An absolutely breathtaking experience. The ocean view suite was pure bliss and the staff treated us like royalty."</p>
-                </article>
-                <article class="review-card reveal">
-                    <div class="review-card__head">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="James Carter" />
-                        <div><h4>James Carter</h4><small>United States</small></div>
-                    </div>
-                    <div class="review-card__stars">★★★★★</div>
-                    <p>"The spa and fine dining exceeded every expectation. Aurora Grand is now our annual retreat without question."</p>
-                </article>
-                <article class="review-card reveal">
-                    <div class="review-card__head">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="Sophie Laurent" />
-                        <div><h4>Sophie Laurent</h4><small>France</small></div>
-                    </div>
-                    <div class="review-card__stars">★★★★★</div>
-                    <p>"Elegance in every detail. From the infinity pool to the rooftop dining — simply perfection from start to finish."</p>
-                </article>
-                <article class="review-card reveal">
-                    <div class="review-card__head">
-                        <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Hiroshi Tanaka" />
-                        <div><h4>Hiroshi Tanaka</h4><small>Japan</small></div>
-                    </div>
-                    <div class="review-card__stars">★★★★★</div>
-                    <p>"Impeccable service and stunning architecture. A truly world-class resort that lives up to its reputation."</p>
-                </article>
-            </div>
+  <!-- RESTAURANT PREVIEW -->
+  <section class="section alt" id="dining">
+    <div class="container grid grid-2" style="align-items:center; gap:50px;">
+      <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:4/3;">
+        <img src="images/restaurant.jpg" alt="Restaurant" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Lumière Dining</span>
+        <h2 class="section-title">A Culinary Journey</h2>
+        <p class="card-text" style="margin-bottom:18px;">Our signature restaurant, Lumière, brings together seasonal, locally sourced ingredients and refined technique. From candle-lit terrace dinners to the chef's private table, every meal is designed to be remembered.</p>
+        <p class="card-text" style="margin-bottom:24px;">Led by two-Michelin-starred Chef Antoine Laurent, the menu evolves with the seasons and the sea.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="restaurant.html" class="btn btn-gold">Discover Dining</a>
+          <a href="menu.html" class="btn btn-outline">View Menu</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ============ ATTRACTIONS ============ -->
-    <section class="section attractions" id="attractions">
-        <div class="container">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">EXPLORE</p>
-                <h2 class="section__title">Nearby Attractions</h2>
-                <p class="section__sub">Discover the wonders surrounding the resort.</p>
-            </div>
+  <!-- GALLERY PREVIEW -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Visual Story</span>
+        <h2 class="section-title">Moments at Aurora</h2>
+        <p class="section-sub">A glimpse into the spaces and experiences that define our resort.</p>
+      </div>
+      <div class="masonry" id="gallery-preview"></div>
+      <div class="text-center" style="margin-top:36px;">
+        <a href="gallery.html" class="btn btn-outline">Open Gallery</a>
+      </div>
+    </div>
+  </section>
 
-            <div class="attractions__grid">
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=80" alt="Beach" /><div class="attraction-card__body"><h3>Golden Beach</h3><p>2 min walk</p></div></article>
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1519567241046-7f570eee3ce6?auto=format&fit=crop&w=700&q=80" alt="Shopping Mall" /><div class="attraction-card__body"><h3>Luxury Mall</h3><p>10 min drive</p></div></article>
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=80" alt="Airport" /><div class="attraction-card__body"><h3>Intl Airport</h3><p>25 min drive</p></div></article>
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1565992441121-4367c2967103?auto=format&fit=crop&w=700&q=80" alt="Water Park" /><div class="attraction-card__body"><h3>Aqua Park</h3><p>15 min drive</p></div></article>
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=700&q=80" alt="Museum" /><div class="attraction-card__body"><h3>Art Museum</h3><p>20 min drive</p></div></article>
-                <article class="attraction-card reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1533240332313-0db49b459ad6?auto=format&fit=crop&w=700&q=80" alt="Adventure" /><div class="attraction-card__body"><h3>Adventure Tours</h3><p>30 min drive</p></div></article>
-            </div>
-        </div>
-    </section>
+  <!-- TESTIMONIALS -->
+  <section class="section alt" id="reviews">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Guest Love</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-sub">Real stories from travellers who made Aurora their escape.</p>
+      </div>
+      <div class="grid grid-3" id="reviews-preview"></div>
+    </div>
+  </section>
 
-    <!-- ============ FAQ ============ -->
-    <section class="section faq" id="faq">
-        <div class="container container--narrow">
-            <div class="section__head reveal">
-                <p class="section__eyebrow">QUESTIONS</p>
-                <h2 class="section__title">Frequently Asked Questions</h2>
-            </div>
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width:820px;">
+      <div class="text-center reveal">
+        <span class="eyebrow">Good to Know</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
 
-            <div class="accordion reveal">
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">What is the check-in / check-out time?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>Check-in begins at 3:00 PM and check-out is at 12:00 PM. Early check-in and late check-out can be arranged upon request, subject to availability.</p></div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">What is your cancellation policy?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>Cancellations made up to 48 hours before arrival are fully refundable. Within 48 hours, a one-night charge applies. Non-refundable rates are excluded.</p></div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">Do you offer airport transfers?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>Yes, we provide complimentary luxury airport pickup for Presidential Suite guests and paid private transfers for all other bookings.</p></div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">Are pets allowed?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>We welcome well-behaved pets under 15kg in selected room categories with a one-time cleaning fee. Service animals are always permitted.</p></div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">Is parking available?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>Complimentary secure valet parking is available for all resort guests, including EV charging stations on site.</p></div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__trigger" aria-expanded="false">Is breakfast included?<span class="accordion__icon">+</span></button>
-                    <div class="accordion__content"><p>Yes, a gourmet breakfast buffet is included with every room reservation, served daily at our oceanfront restaurant.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter reveal">
+        <span class="eyebrow">Stay in Touch</span>
+        <h2 class="section-title">Join the Aurora Circle</h2>
+        <p class="section-sub" style="margin:0 auto;">Receive exclusive offers, seasonal menus, and event invitations.</p>
+        <form data-newsletter>
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit" class="btn btn-gold">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section class="section contact" id="contact">
-        <div class="container contact__grid">
-            <div class="contact__info reveal">
-                <p class="section__eyebrow">GET IN TOUCH</p>
-                <h2 class="section__title">Contact Us</h2>
-                <ul class="contact__list">
-                    <li><span>📍</span> 1 Aurora Boulevard, Coastal Bay, Paradise Island</li>
-                    <li><span>📞</span> +1 (800) 555-0199</li>
-                    <li><span>✉</span> reservations@auroragrand.com</li>
-                </ul>
-                <div class="contact__social">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Instagram">◎</a>
-                    <a href="#" aria-label="Twitter">𝕏</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                </div>
-            </div>
-            <div class="contact__map reveal">
-                <iframe title="Resort location map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=-0.09%2C51.50%2C-0.07%2C51.51&amp;layer=mapnik" style="border:0;width:100%;height:100%;"></iframe>
-            </div>
-        </div>
-    </section>
+  <div data-footer></div>
 
-    <!-- ============ NEWSLETTER ============ -->
-    <section class="section newsletter" id="newsletter">
-        <div class="container newsletter__inner glass reveal">
-            <h2 class="newsletter__title">Join the Aurora Circle</h2>
-            <p class="newsletter__sub">Subscribe for exclusive offers, events, and luxury inspirations.</p>
-            <form class="newsletter__form" id="newsletterForm" novalidate>
-                <input type="email" id="newsletterEmail" placeholder="Enter your email address" aria-label="Email address" />
-                <button type="submit" class="btn btn--gold">Subscribe</button>
-            </form>
-            <p class="newsletter__msg" id="newsletterMsg" hidden>✓ Thank you for subscribing!</p>
-        </div>
-    </section>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" aria-label="Previous">‹</button>
+    <img src="" alt="" />
+    <button class="lb-nav lb-next" aria-label="Next">›</button>
+  </div>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="footer">
-        <div class="container footer__grid">
-            <div class="footer__col footer__about">
-                <a href="#hero" class="logo logo--light"><span class="logo__mark">A</span><span class="logo__text">AURORA<span class="logo__sub">GRAND RESORT</span></span></a>
-                <p>A sanctuary of timeless luxury where every moment is crafted to perfection along the ocean's edge.</p>
-            </div>
-            <div class="footer__col">
-                <h4>Quick Links</h4>
-                <ul><li><a href="#about">About</a></li><li><a href="#rooms">Rooms</a></li><li><a href="#dining">Dining</a></li><li><a href="#gallery">Gallery</a></li></ul>
-            </div>
-            <div class="footer__col">
-                <h4>Rooms</h4>
-                <ul><li><a href="#rooms">Deluxe Room</a></li><li><a href="#rooms">Executive Suite</a></li><li><a href="#rooms">Ocean View Suite</a></li><li><a href="#rooms">Presidential Suite</a></li></ul>
-            </div>
-            <div class="footer__col">
-                <h4>Contact</h4>
-                <ul><li>1 Aurora Boulevard</li><li>+1 (800) 555-0199</li><li>reservations@auroragrand.com</li></ul>
-                <div class="footer__social">
-                    <a href="#" aria-label="Facebook">f</a>
-                    <a href="#" aria-label="Instagram">◎</a>
-                    <a href="#" aria-label="Twitter">𝕏</a>
-                    <a href="#" aria-label="LinkedIn">in</a>
-                </div>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <p>&copy; <span id="year"></span> Aurora Grand Resort. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- ============ BACK TO TOP ============ -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
-
-    <script src="js/script.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

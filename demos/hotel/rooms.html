@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms & Suites — Aurora Grand Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div data-header></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">HOME / ROOMS</div>
+      <h1>Rooms & Suites</h1>
+      <p>Spaces designed to feel like a private retreat above the sea.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-tabs" id="room-filters">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="Standard">Standard</button>
+        <button class="filter-tab" data-filter="Premium">Premium</button>
+        <button class="filter-tab" data-filter="Suite">Suite</button>
+        <button class="filter-tab" data-filter="Loft">Loft</button>
+        <button class="filter-tab" data-filter="Villa">Villa</button>
+      </div>
+      <div class="grid grid-3" id="rooms-grid"></div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+
+  <!-- Booking Modal -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3>Reserve Your Stay</h3>
+        <button class="modal-close" data-close-modal="booking-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="booking-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input name="name" required />
+              <div class="field-error">Please enter your name.</div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input name="email" type="email" required />
+              <div class="field-error">Enter a valid email.</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone</label>
+              <input name="phone" required />
+              <div class="field-error">Enter your phone number.</div>
+            </div>
+            <div class="form-group">
+              <label>Room Type</label>
+              <select name="roomType" id="book-room-type"></select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Check-in</label>
+              <input name="checkIn" type="date" required />
+              <div class="field-error">Select a check-in date.</div>
+            </div>
+            <div class="form-group">
+              <label>Check-out</label>
+              <input name="checkOut" type="date" required />
+              <div class="field-error">Select a check-out date.</div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Adults</label>
+              <input name="adults" type="number" min="1" value="2" required />
+            </div>
+            <div class="form-group">
+              <label>Children</label>
+              <input name="children" type="number" min="0" value="0" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special Requests</label>
+            <textarea name="requests" placeholder="Anything we can prepare for you?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Confirm Reservation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/rooms.js"></script>
+</body>
+</html>
