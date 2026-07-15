@@ -704,6 +704,115 @@ p { margin: 0; }
 .cover--aurora { background: linear-gradient(150deg, #1a2a3a 0%, #0a0a0a 55%, #122033 100%); }
 .cover--real-estate { background: linear-gradient(150deg, #1a1c20 0%, #0a0a0a 55%, #14161a 100%); }
 
+/* ---------- 10b. FEATURED PROJECT CARD ----------
+   A premium, full-width variant of the standard portfolio card.
+   Reuses the same tokens, typography, spacing, shadows, radius and
+   animations as .portfolio-card — only scaled up and given a badge. */
+.portfolio-card--featured {
+  grid-column: 1 / -1; /* span the full width of the portfolio container */
+  position: relative;
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Accent ring to signal flagship priority without breaking the language */
+.portfolio-card--featured::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 40%, transparent 60%, var(--accent-2) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.portfolio-card--featured:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-soft), var(--shadow-lg);
+}
+
+.portfolio-card__badge {
+  position: absolute;
+  top: 48px;
+  left: 16px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 6px 13px;
+  box-shadow: 0 6px 18px rgba(125, 211, 252, 0.28);
+}
+
+.portfolio-card__badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+/* Larger cover with a real preview image */
+.portfolio-card--featured .portfolio-card__cover {
+  height: 340px; /* ~30% taller than the 260px standard cover */
+}
+
+.portfolio-card__preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Keep the mockup overlay readable over the photo */
+.portfolio-card--featured .portfolio-card__cover::after {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.portfolio-card--featured .portfolio-card__cover-content {
+  z-index: 1;
+}
+
+/* Scale up the info block to match the premium feel */
+.portfolio-card--featured .portfolio-card__info {
+  padding: 32px 36px 38px;
+}
+
+.portfolio-card--featured .portfolio-card__info h3 {
+  font-size: 28px; /* larger title than the 21px standard */
+}
+
+.portfolio-card--featured .portfolio-card__info p {
+  font-size: 15.5px;
+  max-width: 720px;
+}
+
+.portfolio-card--featured .portfolio-card__tech span {
+  font-size: 12px;
+  padding: 5px 12px;
+}
+
+.portfolio-card--featured .portfolio-card__actions {
+  margin-top: 6px;
+}
+
+.portfolio-card--featured .portfolio-card__link {
+  font-size: 15px;
+}
+
 .portfolio-card__info {
   padding: 26px 28px 30px;
   display: flex;
