@@ -28,11 +28,16 @@
           <span class="logo-mark">A</span>
           <span>Aurora<span class="text-gold"> Grand</span></span>
         </a>
-        <nav class="nav-links">${links}</nav>
+        <nav class="nav-links">
+          ${links}
+          <div class="nav-divider"></div>
+          <div class="nav-section-label">Developer Demo</div>
+          <a href="${base}admin/login.html" class="nav-dev-link">⚙ Admin Dashboard</a>
+        </nav>
         <div class="nav-actions">
           <button class="theme-toggle" data-theme-toggle data-theme-icon title="Toggle theme">☾</button>
           <a href="${base}contact.html" class="btn btn-gold btn-sm">Book Now</a>
-          <a href="${base}admin/login.html" class="btn btn-outline btn-sm">Admin</a>
+          <a href="${base}admin/login.html" class="btn btn-outline btn-sm nav-admin-btn">Admin</a>
           <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
       </div>

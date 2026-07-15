@@ -185,6 +185,11 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.15;
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; padding: 8px; }
 .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: var(--transition); }
 
+/* Developer Demo section inside the mobile menu — hidden on desktop */
+.nav-divider,
+.nav-section-label,
+.nav-dev-link { display: none; }
+
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
@@ -476,6 +481,15 @@ textarea { resize: vertical; min-height: 110px; }
   }
   .nav-links.open { transform: none; opacity: 1; pointer-events: auto; }
   .hamburger { display: flex; }
+  /* Remove the Admin button from the top header on mobile — it lives
+     inside the hamburger menu under "Developer Demo" instead. */
+  .nav-admin-btn { display: none; }
+  /* Reveal the Developer Demo section only inside the mobile menu */
+  .nav-divider,
+  .nav-section-label,
+  .nav-dev-link { display: block; }
+  .nav-section-label { display: block; }
+  .nav-dev-link { display: block; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .booking-widget .form-row { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
