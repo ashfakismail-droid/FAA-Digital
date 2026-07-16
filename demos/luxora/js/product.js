@@ -104,7 +104,29 @@
     renderRelated(p);
     UI.refreshPrices();
     UI.renderWishButtons();
+    syncCartButton(p.id);
+    syncWishButton(p.id);
   }
+
+  // Keep the PDP Add-to-Cart / Wishlist buttons in sync with shared state.
+  // Listens to the same events every other component uses so removing an item
+  // from the cart (or wishlist) on another page updates this page instantly.
+  function syncCartButton(id) {
+    const btn = document.getElementById('addCart');
+    if (!btn) return;
+    const inCart = UI.isInCart(id);
+    btn.textContent = inCart ? '✓ In Cart' : 'Add to Cart';
+    btn.classList.toggle('in-cart', inCart);
+  }
+  function syncWishButton(id) {
+    const btn = document.getElementById('wishBtn');
+    if (!btn) return;
+    const active = UI.inWishlist(id);
+    btn.textContent = active ? '♥ In Wishlist' : '♡ Wishlist';
+    btn.classList.toggle('btn-gold', active);
+  }
+  document.addEventListener('luxora:cart', () => syncCartButton(getProduct() ? getProduct().id : null));
+  document.addEventListener('luxora:wishlist', () => syncWishButton(getProduct() ? getProduct().id : null));
 
   function bind(p) {
     // gallery
@@ -154,11 +176,9 @@
     const wishBtn = document.getElementById('wishBtn');
     wishBtn.addEventListener('click', () => {
       UI.toggleWishlist(p.id);
-      const active = UI.inWishlist(p.id);
-      wishBtn.textContent = active ? '♥ In Wishlist' : '♡ Wishlist';
-      wishBtn.classList.toggle('btn-gold', active);
+      syncWishButton(p.id);
     });
-    if (UI.inWishlist(p.id)) { wishBtn.textContent = '♥ In Wishlist'; wishBtn.classList.add('btn-gold'); }
+    syncWishButton(p.id);
 
     // tabs
     document.querySelectorAll('.tabs-nav button').forEach(btn => {
