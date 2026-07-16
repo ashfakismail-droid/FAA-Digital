@@ -127,11 +127,56 @@
 
     UI.refreshPrices();
     UI.renderWishButtons();
+    updateFilterCount();
+  }
+
+  // ---------- Mobile filter drawer ----------
+  // On mobile the sidebar is hidden by default and opened as a slide-in drawer.
+  // Desktop layout is untouched (the drawer classes are only applied < 900px via CSS).
+  let _filterCountEl = null;
+  function updateFilterCount() {
+    if (!_filterCountEl) return;
+    const n = (state.cat.length + state.brand.length + (state.rating ? 1 : 0) + (state.min != null || state.max != null ? 1 : 0) + (state.inStock ? 1 : 0) + (state.search ? 1 : 0));
+    if (n > 0) { _filterCountEl.style.display = 'inline-flex'; _filterCountEl.textContent = n; }
+    else _filterCountEl.style.display = 'none';
+  }
+
+  function initMobileDrawer() {
+    const panel = document.getElementById('filtersPanel');
+    const backdrop = document.getElementById('filterBackdrop');
+    const openBtn = document.getElementById('openFilters');
+    const closeBtn = document.getElementById('closeFilters');
+    const applyBtn = document.getElementById('applyFilters');
+    _filterCountEl = document.getElementById('filterCount');
+    if (!panel || !backdrop || !openBtn) return;
+
+    function isMobile() { return window.matchMedia('(max-width: 900px)').matches; }
+
+    function openDrawer() {
+      if (!isMobile()) return;
+      panel.classList.add('filter-drawer', 'open');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      panel.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      if (!isMobile()) panel.classList.remove('filter-drawer');
+    }
+
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    applyBtn.addEventListener('click', () => { render(); closeDrawer(); });
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && panel.classList.contains('open')) closeDrawer(); });
+    window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
   }
 
   function init() {
     getParams();
     buildFilters();
+    initMobileDrawer();
     render();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

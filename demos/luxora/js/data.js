@@ -3652,10 +3652,14 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
   }
 
-  // ensure seed data exists (and re-seed if a stored catalog is stale/shorter than the seed)
+  // Ensure seed data exists. IMPORTANT: we must NEVER overwrite an existing
+  // stored catalog. Previously this re-seeded whenever the stored count dropped
+  // below the seed count (100), which silently wiped admin-created products and
+  // restored deleted seeds on every page load -> "Product not found" errors.
+  // Now we only seed when there is no stored catalog at all.
   function init() {
     const storedProducts = read(STORAGE_KEYS.products, null);
-    if (!storedProducts || !Array.isArray(storedProducts) || storedProducts.length < seedProducts.length) {
+    if (!storedProducts || !Array.isArray(storedProducts) || storedProducts.length === 0) {
       write(STORAGE_KEYS.products, seedProducts);
     }
     if (!localStorage.getItem(STORAGE_KEYS.categories)) write(STORAGE_KEYS.categories, seedCategories);

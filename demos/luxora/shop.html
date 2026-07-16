@@ -24,8 +24,17 @@
     <section class="section-sm">
       <div class="container">
         <div class="shop-layout">
+          <!-- Mobile filter trigger (hidden on desktop) -->
+          <div class="mobile-filter-bar" id="mobileFilterBar">
+            <button class="btn btn-outline" id="openFilters" type="button">⚙ Filters<span class="filter-count" id="filterCount" style="display:none">0</span></button>
+          </div>
+
           <!-- FILTERS -->
-          <aside class="filters glass">
+          <aside class="filters glass" id="filtersPanel">
+            <div class="drawer-head">
+              <h3 style="margin:0">Filters</h3>
+              <button class="drawer-close" id="closeFilters" type="button" aria-label="Close filters">✕</button>
+            </div>
             <h3>Search</h3>
             <div class="field" style="margin:0">
               <input type="text" id="searchInput" placeholder="Search products…" aria-label="Search">
@@ -52,7 +61,9 @@
             </div>
 
             <button class="btn btn-outline btn-block filter-reset" id="resetFilters">Reset Filters</button>
+            <button class="btn btn-gold btn-block filter-apply" id="applyFilters" type="button">Apply Filters</button>
           </aside>
+          <div class="filter-backdrop" id="filterBackdrop"></div>
 
           <!-- RESULTS -->
           <div>
