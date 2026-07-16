@@ -3652,6 +3652,48 @@
     try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
   }
 
+  // Normalize a single product record to the current schema. This migrates
+  // legacy/old-format entries (different field names, missing fields) into the
+  // canonical shape used everywhere, and drops unrecoverable "ghost" records
+  // (no id or no name) so they can never linger as undeletable orphans.
+  function normalizeProduct(p, i) {
+    if (!p || typeof p !== 'object') return null;
+    // Ghost detection: a product MUST have an id and a name to be usable.
+    const id = (p.id != null && String(p.id).trim() !== '') ? String(p.id).trim() : null;
+    const name = (p.name != null && String(p.name).trim() !== '') ? String(p.name).trim()
+               : (p.title != null && String(p.title).trim() !== '') ? String(p.title).trim() : null;
+    if (!id || !name) return null;
+
+    const toArr = (v) => Array.isArray(v) ? v.map(String) : (typeof v === 'string' && v.trim() !== '')
+      ? v.split(',').map(s => s.trim()).filter(Boolean) : [];
+    const num = (v, d) => { const n = parseFloat(v); return isNaN(n) ? d : n; };
+
+    return {
+      id,
+      name,
+      brand: (p.brand != null && String(p.brand).trim() !== '') ? String(p.brand)
+           : (p.brandName != null ? String(p.brandName) : 'LUXORA'),
+      category: (p.category != null && String(p.category).trim() !== '') ? String(p.category)
+              : (p.cat != null ? String(p.cat) : 'uncategorized'),
+      status: (p.status === 'active' || p.status === 'out') ? p.status : (num(p.stock, 0) > 0 ? 'active' : 'out'),
+      price: num(p.price != null ? p.price : p.cost, 0),
+      salePrice: num(p.salePrice, 0),
+      stock: Math.max(0, Math.floor(num(p.stock, 0))),
+      rating: Math.min(5, Math.max(0, num(p.rating, 4.5))),
+      reviews: Math.max(0, Math.floor(num(p.reviews, 0))),
+      description: p.description != null ? String(p.description) : '',
+      colors: toArr(p.colors),
+      sizes: toArr(p.sizes),
+      tags: toArr(p.tags),
+      featured: !!p.featured,
+      bestSeller: !!p.bestSeller,
+      newArrival: !!p.newArrival,
+      image: p.image || (Array.isArray(p.images) && p.images[0]) || 'shoes-0.jpg',
+      images: Array.isArray(p.images) && p.images.length ? p.images
+            : [p.image || 'shoes-0.jpg']
+    };
+  }
+
   // Ensure seed data exists. IMPORTANT: we must NEVER overwrite an existing
   // stored catalog. Previously this re-seeded whenever the stored count dropped
   // below the seed count (100), which silently wiped admin-created products and
@@ -3661,6 +3703,17 @@
     const storedProducts = read(STORAGE_KEYS.products, null);
     if (!storedProducts || !Array.isArray(storedProducts) || storedProducts.length === 0) {
       write(STORAGE_KEYS.products, seedProducts);
+    } else {
+      // Migrate legacy entries and purge ghost records so there is always
+      // exactly ONE clean, canonical product source. We ALWAYS write the
+      // normalized result back: a legacy record may normalize successfully
+      // (same length) yet still need its fields rewritten, and a ghost record
+      // must be purged. Skipping the write when counts match would leave raw,
+      // broken objects in storage (e.g. "undefined" rows, undeletable ghosts).
+      const cleaned = storedProducts.map((p, i) => normalizeProduct(p, i)).filter(Boolean);
+      const seen = new Set();
+      const deduped = cleaned.filter(p => { if (seen.has(p.id)) return false; seen.add(p.id); return true; });
+      write(STORAGE_KEYS.products, deduped);
     }
     if (!localStorage.getItem(STORAGE_KEYS.categories)) write(STORAGE_KEYS.categories, seedCategories);
     if (!localStorage.getItem(STORAGE_KEYS.brands)) write(STORAGE_KEYS.brands, seedBrands);

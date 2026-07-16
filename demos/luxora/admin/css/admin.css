@@ -119,6 +119,17 @@ table.data .thumb { width: 46px; height: 46px; border-radius: 8px; object-fit: c
 .field.invalid input, .field.invalid select { border-color: var(--danger); }
 .field.invalid .error-msg { display: block; }
 
+/* color picker (replaces manual HEX text input) */
+.color-picker-wrap { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.color-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg); }
+.color-input { width: 38px; height: 38px; padding: 0; border: 1px solid var(--line); border-radius: 8px; background: none; cursor: pointer; }
+.color-input::-webkit-color-swatch-wrapper { padding: 3px; }
+.color-input::-webkit-color-swatch { border: none; border-radius: 5px; }
+.color-input::-moz-color-swatch { border: none; border-radius: 5px; }
+.color-hex { font-size: 13px; color: var(--text-dim); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .3px; min-width: 64px; }
+.color-remove { width: 26px; height: 26px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface-2); color: var(--text-dim); cursor: pointer; font-size: 12px; line-height: 1; display: flex; align-items: center; justify-content: center; }
+.color-remove:hover { color: var(--danger); border-color: var(--danger); }
+
 /* image upload preview */
 .img-preview { width: 120px; height: 120px; border-radius: var(--radius-sm); border: 1px dashed var(--line); object-fit: cover; background: var(--surface-2); }
 .img-upload { display: flex; align-items: center; gap: 14px; }

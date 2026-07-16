@@ -35,7 +35,12 @@
           <div class="field"><label>Rating</label><input name="rating" type="number" step="0.1" min="0" max="5" value="4.5"></div>
         </div>
         <div class="field"><label>Description</label><textarea name="description"></textarea></div>
-        <div class="field"><label>Colors (comma separated hex)</label><input name="colors" placeholder="#111, #c9a24b"></div>
+        <div class="field">
+          <label>Colors</label>
+          <div id="colorPickerWrap" class="color-picker-wrap"></div>
+          <button type="button" class="btn btn-outline btn-sm" id="addColorBtn">+ Add Color</button>
+          <input type="hidden" name="colors" id="colorsInput">
+        </div>
         <div class="field"><label>Sizes (comma separated)</label><input name="sizes" placeholder="S, M, L"></div>
         <div class="field"><label>Tags (comma separated)</label><input name="tags" placeholder="shoes, sneakers"></div>
         <div class="checkbox-row" style="margin-bottom:16px">
