@@ -26,7 +26,7 @@
         <div class="shop-layout">
           <!-- Mobile filter trigger (hidden on desktop) -->
           <div class="mobile-filter-bar" id="mobileFilterBar">
-            <button class="btn btn-outline" id="openFilters" type="button">⚙ Filters<span class="filter-count" id="filterCount" style="display:none">0</span></button>
+        <button class="btn btn-outline" id="openSearch" type="button">🔍 Search</button>
           </div>
 
           <!-- FILTERS -->
@@ -64,6 +64,18 @@
             <button class="btn btn-gold btn-block filter-apply" id="applyFilters" type="button">Apply Filters</button>
           </aside>
           <div class="filter-backdrop" id="filterBackdrop"></div>
+
+          <!-- MOBILE SEARCH PANEL (mobile only) -->
+          <aside class="filters search-drawer" id="searchPanel" aria-hidden="true">
+            <div class="drawer-head">
+              <h3>Search</h3>
+              <button class="drawer-close" id="closeSearch" aria-label="Close search">✕</button>
+            </div>
+            <div class="field">
+              <input type="search" id="searchInputMobile" placeholder="Search products…" autocomplete="off">
+            </div>
+            <button class="btn btn-gold btn-block" id="applySearch" type="button">Search</button>
+          </aside>
 
           <!-- RESULTS -->
           <div>

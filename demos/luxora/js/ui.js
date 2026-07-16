@@ -45,9 +45,11 @@
 
   // ---------- Cart ----------
   function getCart() { return DB.getCart(); }
-  function setCart(c) { DB.setCart(c); updateCartCount(); document.dispatchEvent(new CustomEvent('luxora:cart')); }
+  function setCart(c) { DB.setCart(c); updateHeaderCounts(); document.dispatchEvent(new CustomEvent('luxora:cart')); }
+  // Count is ALWAYS derived from the real cart array, and only items whose
+  // product still exists are counted. No separate badge counter is ever stored.
   function cartCount() {
-    return getCart().reduce((s, i) => s + (i.qty || 1), 0);
+    return getCart().reduce((s, i) => s + ((i && i.productId && DB.getProduct(i.productId)) ? (i.qty || 1) : 0), 0);
   }
   function addToCart(productId, qty, variant) {
     qty = qty || 1;
@@ -83,7 +85,7 @@
 
   // ---------- Wishlist ----------
   function getWishlist() { return DB.getWishlist(); }
-  function setWishlist(w) { DB.setWishlist(w); updateWishlistCount(); document.dispatchEvent(new CustomEvent('luxora:wishlist')); }
+  function setWishlist(w) { DB.setWishlist(w); updateHeaderCounts(); document.dispatchEvent(new CustomEvent('luxora:wishlist')); }
   function inWishlist(id) { return getWishlist().includes(id); }
   function toggleWishlist(id) {
     const w = getWishlist();
@@ -91,12 +93,25 @@
     else { w.push(id); setWishlist(w); toast('Added to Wishlist', 'success'); }
     document.dispatchEvent(new CustomEvent('luxora:wishlist'));
   }
+  // Count is ALWAYS derived from the real wishlist array, filtered to ids that
+  // still resolve to a product. No separate badge counter is ever stored.
+  function wishlistCount() {
+    return getWishlist().filter(id => DB.getProduct(id)).length;
+  }
   function updateWishlistCount() {
-    const n = getWishlist().length;
+    const n = wishlistCount();
     document.querySelectorAll('[data-wishlist-count]').forEach(el => {
       el.textContent = n;
       el.style.display = n > 0 ? 'inline-flex' : 'none';
     });
+  }
+
+  // ---------- Single source of truth for header badges ----------
+  // Recalculates cart + wishlist counts directly from storage on every call.
+  // Every page calls this on load and after any mutation.
+  function updateHeaderCounts() {
+    updateCartCount();
+    updateWishlistCount();
   }
 
   // ---------- Currency switcher ----------
@@ -396,15 +411,18 @@
   }
 
   // ---------- Compare ----------
-  const compareSet = new Set(JSON.parse(localStorage.getItem('luxora_compare') || '[]'));
-  function saveCompare() { localStorage.setItem('luxora_compare', JSON.stringify([...compareSet])); }
+  // Compare list is stored under luxora_compare and read/written through the
+  // shared DB helpers so it stays consistent with the single source of truth.
+  function getCompare() { return DB.read('luxora_compare', []); }
+  function saveCompare(list) { DB.write('luxora_compare', list); }
+  let compareSet = new Set(getCompare());
   function toggleCompare(id) {
     if (compareSet.has(id)) { compareSet.delete(id); toast('Removed from compare', 'info'); }
     else {
       if (compareSet.size >= 4) { toast('You can compare up to 4 products', 'error'); return; }
       compareSet.add(id); toast('Added to compare', 'success');
     }
-    saveCompare();
+    saveCompare([...compareSet]);
     renderCompareBar();
   }
   function renderCompareBar() {
@@ -415,8 +433,10 @@
       bar.className = 'compare-bar';
       document.body.appendChild(bar);
     }
-    if (!compareSet.size) { bar.classList.remove('open'); return; }
+    // Hide completely when empty (Task 5). Only show when compare.length > 0.
+    if (!compareSet.size) { bar.classList.remove('open'); bar.innerHTML = ''; return; }
     const items = [...compareSet].map(id => DB.getProduct(id)).filter(Boolean);
+    if (!items.length) { bar.classList.remove('open'); bar.innerHTML = ''; return; }
     bar.innerHTML = `
       <div class="cb-inner">
         <div class="cb-items">${items.map(p => `<div class="cb-item"><img src="${IMG(p.image)}" alt="${p.name}"><button data-cb-remove="${p.id}" aria-label="Remove">✕</button></div>`).join('')}</div>
@@ -434,11 +454,12 @@
   // ---------- Init ----------
   function init() {
     DB.init();
+    // Re-sync compare set from storage after repair/migration.
+    compareSet = new Set(getCompare());
     initTheme();
     renderHeader();
     renderFooter();
-    updateCartCount();
-    updateWishlistCount();
+    updateHeaderCounts();
     refreshPrices();
     bindGlobal();
     renderCartButtons();
@@ -448,7 +469,7 @@
   window.LUXORA_UI = {
     init, toast, addToCart, removeFromCart, updateQty, getCart, cartCount,
     toggleWishlist, inWishlist, getWishlist, productCard, stars, refreshPrices,
-    buildCurrencyOptions, updateCartCount, updateWishlistCount, renderWishButtons,
+    buildCurrencyOptions, updateCartCount, updateWishlistCount, updateHeaderCounts, renderWishButtons,
     openQuickView, closeQuickView, toggleCompare, renderCompareBar, isInCart, IMG
   };
 

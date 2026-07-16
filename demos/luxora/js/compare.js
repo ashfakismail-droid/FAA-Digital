@@ -4,8 +4,7 @@
   const DB = window.LUXORA_DB, UI = window.LUXORA_UI, CUR = window.LUXORA_CURRENCY;
 
   function getCompare() {
-    try { return JSON.parse(localStorage.getItem('luxora_compare') || '[]'); }
-    catch (e) { return []; }
+    return DB.read('luxora_compare', []);
   }
 
   function render() {
@@ -44,7 +43,7 @@
     root.querySelectorAll('[data-rm]').forEach(b => b.addEventListener('click', () => {
       const set = new Set(getCompare());
       set.delete(b.getAttribute('data-rm'));
-      localStorage.setItem('luxora_compare', JSON.stringify([...set]));
+      DB.write('luxora_compare', [...set]);
       UI.renderCompareBar();
       render();
     }));

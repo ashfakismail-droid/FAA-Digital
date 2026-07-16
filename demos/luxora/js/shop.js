@@ -173,10 +173,48 @@
     window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
   }
 
+  // Mobile-only Search drawer. Desktop layout is unchanged. The search input
+  // filters the product list instantly; closing restores the layout.
+  function initMobileSearch() {
+    const panel = document.getElementById('searchPanel');
+    const backdrop = document.getElementById('filterBackdrop');
+    const openBtn = document.getElementById('openSearch');
+    const closeBtn = document.getElementById('closeSearch');
+    const applyBtn = document.getElementById('applySearch');
+    const input = document.getElementById('searchInputMobile');
+    if (!panel || !backdrop || !openBtn || !input) return;
+
+    function isMobile() { return window.matchMedia('(max-width: 900px)').matches; }
+
+    function openDrawer() {
+      if (!isMobile()) return;
+      panel.classList.add('search-drawer', 'open');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      input.value = state.search;
+      input.focus();
+    }
+    function closeDrawer() {
+      panel.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      if (!isMobile()) panel.classList.remove('search-drawer');
+    }
+
+    openBtn.addEventListener('click', openDrawer);
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (applyBtn) applyBtn.addEventListener('click', () => { state.search = input.value.trim(); render(); closeDrawer(); });
+    input.addEventListener('input', () => { state.search = input.value.trim(); render(); });
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && panel.classList.contains('open')) closeDrawer(); });
+    window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
+  }
+
   function init() {
     getParams();
     buildFilters();
     initMobileDrawer();
+    initMobileSearch();
     render();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -3694,6 +3694,47 @@
     };
   }
 
+  // Repair/validate every stored collection on startup. This guarantees the
+  // app never runs on corrupt or orphaned localStorage data (a common cause of
+  // "badge says 3 but cart is empty" and ghost product references). All fixes
+  // are derived from the single product source of truth.
+  function repairStorage() {
+    const products = read(STORAGE_KEYS.products, []);
+    const validIds = new Set(products.filter(p => p && p.id).map(p => p.id));
+
+    // cart: keep only items whose product still exists; ensure shape is valid.
+    const cart = read(STORAGE_KEYS.cart, []);
+    if (Array.isArray(cart)) {
+      const fixed = cart
+        .filter(i => i && i.productId && validIds.has(i.productId))
+        .map(i => ({
+          key: i.key || (i.productId + '|' + (i.variant ? JSON.stringify(i.variant) : '')),
+          productId: i.productId,
+          qty: Math.max(1, parseInt(i.qty, 10) || 1),
+          variant: i.variant || null
+        }));
+      if (fixed.length !== cart.length) write(STORAGE_KEYS.cart, fixed);
+    } else write(STORAGE_KEYS.cart, []);
+
+    // wishlist: keep only ids that still exist.
+    const wish = read(STORAGE_KEYS.wishlist, []);
+    if (Array.isArray(wish)) {
+      const fixed = wish.filter(id => validIds.has(id));
+      if (fixed.length !== wish.length) write(STORAGE_KEYS.wishlist, fixed);
+    } else write(STORAGE_KEYS.wishlist, []);
+
+    // compare: keep only ids that still exist.
+    const cmp = read('luxora_compare', []);
+    if (Array.isArray(cmp)) {
+      const fixed = cmp.filter(id => validIds.has(id));
+      if (fixed.length !== cmp.length) write('luxora_compare', fixed);
+    } else write('luxora_compare', []);
+
+    // orders / customers: ensure they are arrays.
+    if (!Array.isArray(read(STORAGE_KEYS.orders, null))) write(STORAGE_KEYS.orders, []);
+    if (!Array.isArray(read(STORAGE_KEYS.customers, null))) write(STORAGE_KEYS.customers, []);
+  }
+
   // Ensure seed data exists. IMPORTANT: we must NEVER overwrite an existing
   // stored catalog. Previously this re-seeded whenever the stored count dropped
   // below the seed count (100), which silently wiped admin-created products and
@@ -3725,6 +3766,9 @@
     if (!localStorage.getItem(STORAGE_KEYS.orders)) write(STORAGE_KEYS.orders, []);
     if (!localStorage.getItem(STORAGE_KEYS.customers)) write(STORAGE_KEYS.customers, []);
     if (!localStorage.getItem(STORAGE_KEYS.currency)) write(STORAGE_KEYS.currency, 'USD');
+    // Repair/validate all collections AFTER products are normalized so orphan
+    // references can be detected against the clean product list.
+    repairStorage();
   }
 
   const DB = {
@@ -3753,6 +3797,17 @@
     setCart: (v) => write(STORAGE_KEYS.cart, v),
     setWishlist: (v) => write(STORAGE_KEYS.wishlist, v),
     getProduct: (id) => read(STORAGE_KEYS.products, seedProducts).find(p => p.id === id),
+    // Remove a product AND every reference to it from cart, wishlist and
+    // compare. Keeps all collections consistent with the single source of
+    // truth so no orphan IDs (ghost entries) can remain.
+    removeProductReferences: (id) => {
+      const cart = read(STORAGE_KEYS.cart, []).filter(i => i.productId !== id);
+      write(STORAGE_KEYS.cart, cart);
+      const wish = read(STORAGE_KEYS.wishlist, []).filter(w => w !== id);
+      write(STORAGE_KEYS.wishlist, wish);
+      const cmp = read('luxora_compare', []).filter(c => c !== id);
+      write('luxora_compare', cmp);
+    },
     seedProducts, seedCategories, seedBrands, seedCoupons, seedReviews, seedSettings
   };
 

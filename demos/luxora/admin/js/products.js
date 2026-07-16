@@ -237,6 +237,9 @@
     }).then(ok => {
       if (!ok) return;
       DB.setProducts(DB.getProducts().filter(p => p.id !== id));
+      // Clean every reference to the deleted product so no orphan IDs remain
+      // in cart, wishlist or compare (single source of truth stays consistent).
+      DB.removeProductReferences(id);
       ADMIN.toast('Product deleted', 'success');
       render();
     });
