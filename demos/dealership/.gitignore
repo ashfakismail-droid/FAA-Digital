@@ -1,0 +1,13 @@
+# Dependencies / OS
+node_modules/
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Local preview (kept out of source control)
+*.log

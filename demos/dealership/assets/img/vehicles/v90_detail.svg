@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img" aria-label="Toyota Supra">
+  <defs>
+    <linearGradient id="gnxabrd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f6f8"/>
+      <stop offset="1" stop-color="#d7dde3"/>
+    </linearGradient>
+    <linearGradient id="gnxabrdb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a4f55"/>
+      <stop offset="1" stop-color="#2e3339"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#gnxabrd)"/>
+  <ellipse cx="300" cy="312" rx="270" ry="20" fill="#000" opacity="0.10"/>
+  <path d="M40,255 L75,255 L110,185 L300,160 L470,180 L520,255 L560,255 L560,300 L40,300 Z M120,255 a38,38 0 1,0 76,0 a38,38 0 1,0 -76,0 M400,255 a38,38 0 1,0 76,0 a38,38 0 1,0 -76,0" fill="url(#gnxabrdb)" stroke="#1d2228" stroke-width="2"/>
+  <path d="M150,200 L300,182 L300,205 L160,212 Z" fill="#cfe3f2" opacity="0.85"/>
+  <path d="M312,182 L460,196 L470,212 L312,205 Z" fill="#cfe3f2" opacity="0.85"/>
+  <circle cx="158" cy="255" r="38" fill="#15181c"/><circle cx="158" cy="255" r="18" fill="#3a3f45"/>
+  <circle cx="438" cy="255" r="38" fill="#15181c"/><circle cx="438" cy="255" r="18" fill="#3a3f45"/>
+  <rect x="500" y="232" width="40" height="14" rx="4" fill="#fff3b0" opacity="0.9"/>
+  <rect x="40" y="232" width="30" height="12" rx="4" fill="#ff5a5a" opacity="0.9"/>
+  <text x="300" y="345" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#eb0a1e" font-weight="700">Toyota</text>
+</svg>

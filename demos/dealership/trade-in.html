@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade-In — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="trade-in" data-nav="solid">
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)"><a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Trade-In</span></div>
+      <h1>Trade-In Valuation</h1>
+      <p>Get an instant, fair estimate for your current vehicle and put it towards your next prestige motor.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid" style="grid-template-columns: 1.4fr 1fr; gap:40px; align-items:start">
+      <div class="card" style="padding:32px">
+        <h3 style="margin-top:0">Your Vehicle Details</h3>
+        <form id="tradeForm">
+          <div class="form-row">
+            <div class="field"><label for="tMake">Make</label><input id="tMake" required placeholder="e.g. BMW"></div>
+            <div class="field"><label for="tModel">Model</label><input id="tModel" required placeholder="e.g. 3 Series"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="tYear">Year</label><input id="tYear" type="number" min="1990" max="2025" required value="2019"></div>
+            <div class="field"><label for="tMileage">Mileage (miles)</label><input id="tMileage" type="number" min="0" required value="45000"></div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="tCondition">Condition</label>
+              <select id="tCondition">
+                <option>Excellent</option><option>Good</option><option>Fair</option><option>Poor</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tFuel">Fuel</label>
+              <select id="tFuel"><option>Petrol</option><option>Diesel</option><option>Hybrid</option><option>Electric</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="tPhotos">Photos (preview only)</label>
+            <input id="tPhotos" type="file" accept="image/*" multiple>
+            <div id="photoPreview" class="flex wrap" style="gap:10px;margin-top:10px"></div>
+          </div>
+          <div class="field">
+            <label for="tName">Your Name</label><input id="tName" required placeholder="Full name">
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="tEmail">Email</label><input id="tEmail" type="email" required></div>
+            <div class="field"><label for="tPhone">Phone</label><input id="tPhone" type="tel"></div>
+          </div>
+          <button class="btn btn--gold btn--block" type="submit">Get My Valuation</button>
+        </form>
+      </div>
+
+      <aside class="price-box" style="position:static">
+        <h3 style="margin-top:0">Estimated Value</h3>
+        <div class="price" id="estValue" style="font-size:2.6rem">£0</div>
+        <div class="muted" id="estRange" style="margin-bottom:18px">Enter details to estimate</div>
+        <div style="background:var(--bg-alt);border-radius:var(--radius);padding:16px;font-size:.9rem">
+          <div class="flex between" style="padding:6px 0"><span class="muted">Base value</span><strong id="baseVal">£0</strong></div>
+          <div class="flex between" style="padding:6px 0"><span class="muted">Condition adj.</span><strong id="condAdj">£0</strong></div>
+          <div class="flex between" style="padding:6px 0;border-top:1px solid var(--line)"><span>Estimate</span><strong id="estVal2">£0</strong></div>
+        </div>
+        <p class="form-note" style="margin-top:14px">Estimates are indicative. A final offer follows a physical inspection by our specialists.</p>
+        <a class="btn btn--outline btn--block" style="margin-top:14px" href="inventory.html">Browse Replacement</a>
+      </aside>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/trade-in.js"></script>
+</body>
+</html>

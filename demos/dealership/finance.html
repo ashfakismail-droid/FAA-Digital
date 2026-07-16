@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="finance" data-nav="solid">
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)"><a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Finance</span></div>
+      <h1>Finance & Leasing</h1>
+      <p>Transparent, tailored solutions. Calculate your monthly payment in real time and drive away with confidence.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="calc">
+        <div>
+          <div class="card" style="padding:32px">
+            <h3 style="margin-top:0">Loan Calculator</h3>
+            <div class="field">
+              <label for="vehicleSelect">Vehicle (optional)</label>
+              <select id="vehicleSelect"><option value="">Custom amount…</option></select>
+            </div>
+            <div class="range-row">
+              <label>Vehicle Price <span id="priceVal"></span></label>
+              <input type="range" id="priceRange" min="20000" max="600000" step="1000" value="65000">
+            </div>
+            <div class="range-row">
+              <label>Deposit <span id="depVal"></span></label>
+              <input type="range" id="depRange" min="0" max="100" step="5" value="20">
+            </div>
+            <div class="range-row">
+              <label>Term <span id="termVal"></span></label>
+              <input type="range" id="termRange" min="12" max="72" step="6" value="48">
+            </div>
+            <div class="range-row">
+              <label>Interest (APR) <span id="aprVal"></span></label>
+              <input type="range" id="aprRange" min="0" max="15" step="0.1" value="5.9">
+            </div>
+            <div class="form-row">
+              <div class="field"><label>Balloon / Final Payment</label><input type="number" id="balloon" value="0" min="0"></div>
+              <div class="field"><label>Product</label>
+                <select id="product">
+                  <option value="hp">Hire Purchase (HP)</option>
+                  <option value="pcp">Personal Contract (PCP)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="card section--alt" style="padding:28px;margin-top:24px">
+            <h3 style="margin-top:0">Why finance with us?</h3>
+            <ul class="feature-list">
+              <li>Rates from 0% APR</li><li>Decisions in minutes</li>
+              <li>No early settlement fees</li><li>Protected by FCA regulation</li>
+              <li>Flexible terms 12–72 months</li><li>Dedicated finance specialist</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="calc__result">
+            <span class="eyebrow gold">Your estimate</span>
+            <div class="big" id="monthlyBig">£0</div>
+            <div style="color:rgba(255,255,255,.7);margin-bottom:24px" id="productLabel">per month</div>
+            <table style="width:100%;border-collapse:collapse">
+              <tr style="border-bottom:1px solid rgba(255,255,255,.12)"><td style="padding:10px 0;color:rgba(255,255,255,.7)">Vehicle price</td><td style="text-align:right;font-weight:600" id="rPrice">£0</td></tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.12)"><td style="padding:10px 0;color:rgba(255,255,255,.7)">Deposit</td><td style="text-align:right;font-weight:600" id="rDep">£0</td></tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.12)"><td style="padding:10px 0;color:rgba(255,255,255,.7)">Amount financed</td><td style="text-align:right;font-weight:600" id="rAmt">£0</td></tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.12)"><td style="padding:10px 0;color:rgba(255,255,255,.7)">Term</td><td style="text-align:right;font-weight:600" id="rTerm">0 mo</td></tr>
+              <tr style="border-bottom:1px solid rgba(255,255,255,.12)"><td style="padding:10px 0;color:rgba(255,255,255,.7)">Total interest</td><td style="text-align:right;font-weight:600" id="rInt">£0</td></tr>
+              <tr><td style="padding:10px 0;color:rgba(255,255,255,.7)">Total payable</td><td style="text-align:right;font-weight:700;color:var(--c-gold-bright)" id="rTotal">£0</td></tr>
+            </table>
+            <a class="btn btn--gold btn--block" style="margin-top:24px" href="contact.html">Enquire About This Quote</a>
+            <p class="form-note" style="color:rgba(255,255,255,.5);margin-top:12px">Illustrative only. Subject to status and affordability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/finance.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img" aria-label="BMW iX">
+  <defs>
+    <linearGradient id="g4tp76s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4f6f8"/>
+      <stop offset="1" stop-color="#d7dde3"/>
+    </linearGradient>
+    <linearGradient id="g4tp76sb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4622a"/>
+      <stop offset="1" stop-color="#b8460e"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#g4tp76s)"/>
+  <ellipse cx="300" cy="312" rx="270" ry="20" fill="#000" opacity="0.10"/>
+  <path d="M40,250 L70,250 L95,170 L300,150 L470,160 L520,250 L560,250 L560,300 L40,300 Z M120,250 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0 M400,250 a40,40 0 1,0 80,0 a40,40 0 1,0 -80,0" fill="url(#g4tp76sb)" stroke="#a73500" stroke-width="2"/>
+  <path d="M150,200 L300,182 L300,205 L160,212 Z" fill="#cfe3f2" opacity="0.85"/>
+  <path d="M312,182 L460,196 L470,212 L312,205 Z" fill="#cfe3f2" opacity="0.85"/>
+  <circle cx="158" cy="255" r="38" fill="#15181c"/><circle cx="158" cy="255" r="18" fill="#3a3f45"/>
+  <circle cx="438" cy="255" r="38" fill="#15181c"/><circle cx="438" cy="255" r="18" fill="#3a3f45"/>
+  <rect x="500" y="232" width="40" height="14" rx="4" fill="#fff3b0" opacity="0.9"/>
+  <rect x="40" y="232" width="30" height="12" rx="4" fill="#ff5a5a" opacity="0.9"/>
+  <text x="300" y="345" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#1c69d4" font-weight="700">BMW</text>
+</svg>

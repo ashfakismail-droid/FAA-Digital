@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Test Drive — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="test-drive" data-nav="solid">
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)"><a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Test Drive</span></div>
+      <h1>Book a Test Drive</h1>
+      <p>Experience the machine on your terms. Choose a vehicle, a showroom, and a time that suits you.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:760px">
+      <div class="steps">
+        <div class="step active" id="step1"><span class="num">1</span> Details</div>
+        <div class="step" id="step2"><span class="num">2</span> Schedule</div>
+        <div class="step" id="step3"><span class="num">3</span> Confirm</div>
+      </div>
+
+      <form id="tdForm" class="card" style="padding:32px">
+        <div class="field">
+          <label for="tdVehicle">Vehicle</label>
+          <select id="tdVehicle" required><option value="">Select a vehicle…</option></select>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="tdName">Full Name</label><input id="tdName" required></div>
+          <div class="field"><label for="tdEmail">Email</label><input id="tdEmail" type="email" required></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="tdPhone">Phone</label><input id="tdPhone" type="tel" required></div>
+          <div class="field">
+            <label for="tdDealer">Showroom</label>
+            <select id="tdDealer" required>
+              <option>London Mayfair</option><option>Manchester</option><option>Birmingham</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="tdDate">Preferred Date</label><input id="tdDate" type="date" required></div>
+          <div class="field">
+            <label for="tdTime">Time Slot</label>
+            <select id="tdTime" required>
+              <option>09:00</option><option>10:30</option><option>12:00</option>
+              <option>14:00</option><option>15:30</option><option>17:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="tdNotes">Notes (optional)</label><textarea id="tdNotes" placeholder="Anything we should know?"></textarea></div>
+        <button class="btn btn--gold btn--block" type="submit">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/test-drive.js"></script>
+</body>
+</html>

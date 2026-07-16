@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prestige Motors — Luxury & Performance Automobiles</title>
+  <meta name="description" content="Prestige Motors — the definitive destination for luxury and performance automobiles. Curated inventory, white-glove service, and tailored finance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg" onerror="this.href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><circle cx=%2216%22 cy=%2216%22 r=%2216%22 fill=%22%23c9a86a%22/><text x=%2216%22 y=%2222%22 font-size=%2218%22 text-anchor=%22middle%22 fill=%22%231a1206%22 font-family=%22serif%22>P</text></svg>'">
+</head>
+<body data-page="home" data-nav="light">
+  <header id="site-nav"></header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__slides" id="heroSlides"></div>
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <span class="hero__eyebrow">Est. 1998 · London</span>
+      <h1>The Art of<br>Extraordinary Driving</h1>
+      <p>A curated collection of the world's finest automobiles — from timeless grand tourers to electric flagships. Experience luxury, redefined.</p>
+      <div class="hero__cta">
+        <a class="btn btn--gold" href="inventory.html">Browse Inventory</a>
+        <a class="btn btn--ghost" href="test-drive.html">Book a Test Drive</a>
+      </div>
+      <div class="hero__stats">
+        <div class="hero__stat"><div class="n" data-count="131">0</div><div class="l">Vehicles in stock</div></div>
+        <div class="hero__stat"><div class="n" data-count="18">0</div><div class="l">Premium brands</div></div>
+        <div class="hero__stat"><div class="n" data-count="26">0</div><div class="l">Years of heritage</div></div>
+      </div>
+    </div>
+    <div class="hero__dots" id="heroDots"></div>
+    <div class="hero__scroll">SCROLL</div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Marques</span>
+        <h2>Featured Brands</h2>
+        <p>We represent the most prestigious manufacturers in the world, each chosen for engineering excellence.</p>
+      </div>
+      <div class="marquee reveal" id="brandMarquee"></div>
+    </div>
+  </section>
+
+  <!-- FEATURED VEHICLES -->
+  <section class="section">
+    <div class="container">
+      <div class="title-row reveal">
+        <div><span class="eyebrow gold">Hand-picked</span><h2>Featured Vehicles</h2></div>
+        <a class="btn btn--outline" href="inventory.html">View all</a>
+      </div>
+      <div class="grid grid-3" id="featuredGrid"></div>
+    </div>
+  </section>
+
+  <!-- LATEST ARRIVALS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="title-row reveal">
+        <div><span class="eyebrow gold">Just in</span><h2>Latest Arrivals</h2></div>
+        <a class="btn btn--outline" href="inventory.html?sort=newest">See more</a>
+      </div>
+      <div class="grid grid-4" id="arrivalsGrid"></div>
+    </div>
+  </section>
+
+  <!-- SPECIAL OFFERS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Limited time</span>
+        <h2>Special Offers</h2>
+      </div>
+      <div class="grid grid-3" id="offersGrid"></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow gold">White-glove care</span>
+        <h2>Luxury Services</h2>
+        <p>Beyond the sale, we deliver an ownership experience worthy of the badge on your bonnet.</p>
+      </div>
+      <div class="grid grid-4" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- FINANCE + TRADE-IN CTA -->
+  <section class="section">
+    <div class="container grid grid-2" style="gap:24px">
+      <div class="card card--glass reveal" style="padding:40px;background:linear-gradient(135deg,#14161a,#2a2e35)">
+        <span class="eyebrow gold">Flexible plans</span>
+        <h3 style="color:#fff">Finance Made Effortless</h3>
+        <p style="color:rgba(255,255,255,.75)">Tailored PCP and HP solutions with rates from 0% APR. Calculate your monthly payment in seconds.</p>
+        <a class="btn btn--gold" href="finance.html">Calculate Finance</a>
+      </div>
+      <div class="card card--glass reveal" style="padding:40px;background:linear-gradient(135deg,#1c1f24,#3a2f1c)">
+        <span class="eyebrow gold">Upgrade today</span>
+        <h3 style="color:#fff">Trade-In Your Vehicle</h3>
+        <p style="color:rgba(255,255,255,.75)">Get an instant, fair valuation and put it towards your next prestige motor.</p>
+        <a class="btn btn--gold" href="trade-in.html">Value My Car</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Client voices</span>
+        <h2>Testimonials</h2>
+      </div>
+      <div class="grid grid-3" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">@prestigemotors</span>
+        <h2>From Our Showroom</h2>
+      </div>
+      <div class="ig-grid reveal" id="igGrid"></div>
+    </div>
+  </section>
+
+  <!-- LATEST BLOG -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="title-row reveal">
+        <div><span class="eyebrow gold">Journal</span><h2>Latest from the Blog</h2></div>
+        <a class="btn btn--outline" href="blog.html">All articles</a>
+      </div>
+      <div class="grid grid-3" id="blogGrid"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter reveal">
+        <div>
+          <h2 style="margin:0 0 8px;color:#fff">Join the Inner Circle</h2>
+          <p style="margin:0;color:rgba(255,255,255,.7)">New arrivals, private events, and exclusive offers — straight to your inbox.</p>
+        </div>
+        <form id="newsletterForm">
+          <input type="email" required placeholder="Your email address" aria-label="Email">
+          <button class="btn btn--gold" type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow gold">Visit us</span>
+        <h2>Our Showrooms</h2>
+      </div>
+      <div class="grid grid-3" id="locationsGrid"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/data/blog.js"></script>
+  <script src="assets/data/offers.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
