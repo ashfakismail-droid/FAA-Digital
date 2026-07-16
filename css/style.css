@@ -702,6 +702,7 @@ p { margin: 0; }
 .cover--pub { background: linear-gradient(150deg, #240a3e 0%, #0a0a0a 55%, #1a0a2e 100%); }
 .cover--gym { background: linear-gradient(150deg, #3a0d0d 0%, #0a0a0a 55%, #2a0a0a 100%); }
 .cover--aurora { background: linear-gradient(150deg, #1a2a3a 0%, #0a0a0a 55%, #122033 100%); }
+.cover--luxora { background: linear-gradient(150deg, #2a1f3a 0%, #0a0a0a 55%, #1c1430 100%); }
 .cover--real-estate { background: linear-gradient(150deg, #1a1c20 0%, #0a0a0a 55%, #14161a 100%); }
 
 /* ---------- 10b. FEATURED PROJECT CARD ----------
