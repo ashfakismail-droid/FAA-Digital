@@ -203,8 +203,8 @@
 
     openBtn.addEventListener('click', openDrawer);
     if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (applyBtn) applyBtn.addEventListener('click', () => { state.search = input.value.trim(); render(); closeDrawer(); });
-    input.addEventListener('input', () => { state.search = input.value.trim(); render(); });
+    if (applyBtn) applyBtn.addEventListener('click', () => { state.search = input.value.trim().toLowerCase(); render(); closeDrawer(); });
+    input.addEventListener('input', () => { state.search = input.value.trim().toLowerCase(); render(); });
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && panel.classList.contains('open')) closeDrawer(); });
     window.addEventListener('resize', () => { if (!isMobile()) closeDrawer(); });
