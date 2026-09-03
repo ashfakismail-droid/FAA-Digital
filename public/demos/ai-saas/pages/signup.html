@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Sign Up - Create your account and start building with AI.">
+  <title>Sign Up - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1 class="auth-title">Create Account</h1>
+        <p class="auth-subtitle">Start your journey with NovaAI today</p>
+      </div>
+
+      <form class="auth-form" id="signupForm" novalidate>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="firstName">First Name</label>
+            <input type="text" class="form-input" id="firstName" required placeholder="Alex">
+            <div class="error-message" id="firstNameError">First name is required</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Last Name</label>
+            <input type="text" class="form-input" id="lastName" required placeholder="Lee">
+            <div class="error-message" id="lastNameError">Last name is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input type="email" class="form-input" id="email" required placeholder="you@example.com">
+          <div class="error-message" id="emailError">Please enter a valid email address</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input type="password" class="form-input" id="password" required placeholder="Create a password">
+          <div class="error-message" id="passwordError">Password must be at least 8 characters</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-input" id="confirmPassword" required placeholder="Confirm password">
+          <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+        </div>
+        <div class="form-group" style="display: flex; align-items: flex-start; gap: var(--space-xs); margin-top: var(--space-sm);">
+          <input type="checkbox" id="terms" required style="margin-top: 4px;">
+          <label for="terms" style="font-size: var(--text-sm); color: var(--color-text-secondary);">
+            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Create Account</button>
+      </form>
+
+      <div class="auth-footer">
+        <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">
+          Already have an account? <a href="login.html">Log In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const termsInput = document.getElementById('terms');
+
+    // Error elements
+    const firstNameError = document.getElementById('firstNameError');
+    const lastNameError = document.getElementById('lastNameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+    const validateEmail = (email) => {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    };
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      if (!firstNameInput.value.trim()) {
+        firstNameError.classList.add('visible');
+        valid = false;
+      } else {
+        firstNameError.classList.remove('visible');
+      }
+
+      if (!lastNameInput.value.trim()) {
+        lastNameError.classList.add('visible');
+        valid = false;
+      } else {
+        lastNameError.classList.remove('visible');
+      }
+
+      if (!validateEmail(emailInput.value)) {
+        emailError.classList.add('visible');
+        valid = false;
+      } else {
+        emailError.classList.remove('visible');
+      }
+
+      if (passwordInput.value.length < 8) {
+        passwordError.classList.add('visible');
+        valid = false;
+      } else {
+        passwordError.classList.remove('visible');
+      }
+
+      if (passwordInput.value !== confirmPasswordInput.value) {
+        confirmPasswordError.classList.add('visible');
+        valid = false;
+      } else {
+        confirmPasswordError.classList.remove('visible');
+      }
+
+      if (!termsInput.checked) {
+        alert('Please agree to the Terms of Service');
+        valid = false;
+      }
+
+      if (valid) {
+        alert('Account created! Redirecting to dashboard...');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 800);
+      }
+    });
+
+    // Real-time validation
+    firstNameInput.addEventListener('input', () => {
+      if (firstNameInput.value.trim()) firstNameError.classList.remove('visible');
+    });
+
+    lastNameInput.addEventListener('input', () => {
+      if (lastNameInput.value.trim()) lastNameError.classList.remove('visible');
+    });
+
+    emailInput.addEventListener('input', () => {
+      if (validateEmail(emailInput.value)) emailError.classList.remove('visible');
+    });
+
+    passwordInput.addEventListener('input', () => {
+      if (passwordInput.value.length >= 8) passwordError.classList.remove('visible');
+      if (passwordInput.value === confirmPasswordInput.value) confirmPasswordError.classList.remove('visible');
+    });
+
+    confirmPasswordInput.addEventListener('input', () => {
+      if (passwordInput.value === confirmPasswordInput.value) confirmPasswordError.classList.remove('visible');
+    });
+  </script>
+</body>
+</html>

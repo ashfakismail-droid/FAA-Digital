@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Analytics - Detailed performance and usage metrics visualization.">
+  <title>Analytics - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">NovaAI</a>
+      </div>
+      
+      <nav class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html"><span class="nav-icon">📊</span><span>Dashboard</span></a></li>
+          <li><a href="chat.html"><span class="nav-icon">💬</span><span>Chat</span></a></li>
+          <li><a href="analytics.html" class="active"><span class="nav-icon">📈</span><span>Analytics</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Reports</div>
+        <ul class="sidebar-nav">
+          <li><a href="#"><span class="nav-icon">📄</span><span>Usage Report</span></a></li>
+          <li><a href="#"><span class="nav-icon">📄</span><span>Performance Report</span></a></li>
+          <li><a href="#"><span class="nav-icon">📄</span><span>Cost Analysis</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <ul class="sidebar-nav">
+          <li><a href="#"><span class="nav-icon">👤</span><span>Profile</span></a></li>
+          <li><a href="../index.html"><span class="nav-icon">⬅️</span><span>Log out</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- App Header -->
+      <header class="app-header">
+        <div class="container header-content">
+          <h1 style="font-size: var(--text-2xl); margin: 0;">Analytics</h1>
+        </div>
+      </header>
+
+      <!-- Analytics Content -->
+      <div class="container-fluid" style="padding: var(--space-xl);">
+        <div class="analytics-header-section">
+          <h1 class="analytics-title-large">Performance Metrics</h1>
+          <p style="color: var(--color-text-secondary); max-width: 600px;">Monitor your AI usage patterns, response times, and engagement metrics across all models.</p>
+          <div class="analytics-period-selector">
+            <button class="period-btn active">24h</button>
+            <button class="period-btn">7d</button>
+            <button class="period-btn">30d</button>
+            <button class="period-btn">90d</button>
+          </div>
+        </div>
+
+        <!-- User Activity Charts -->
+        <div class="analytics-grid" style="margin-bottom: var(--space-xl);">
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Total Requests</span>
+              <span class="analytics-trend up">Live</span>
+            </div>
+            <div class="analytics-value">45,892</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Success Rate</span>
+              <span class="analytics-trend up">99.2%</span>
+            </div>
+            <div class="analytics-value">~99.2%</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Avg Latency</span>
+              <span class="analytics-trend down">42ms</span>
+            </div>
+            <div class="analytics-value">42ms</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Error Rate</span>
+              <span class="analytics-trend down">0.8%</span>
+            </div>
+            <div class="analytics-value">0.8%</div>
+          </div>
+        </div>
+
+        <!-- User Activity Graph -->
+        <div class="chart-container" style="margin-bottom: var(--space-xl);">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">User Activity Over Time</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="activityChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Response Time Distribution -->
+        <div class="chart-container" style="margin-bottom: var(--space-xl);">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">Response Time Distribution</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="latencyChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Model Usage Breakdown -->
+        <div class="chart-container" style="margin-bottom: var(--space-xl);">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">Model Usage Breakdown</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="modelChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Engagement Metrics -->
+        <div class="chart-container" style="margin-bottom: var(--space-xl);">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">Weekly Engagement</h3>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="engagementChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // User Activity Line Chart
+    const activityCtx = document.getElementById('activityChart');
+    if (activityCtx) {
+      new Chart(activityCtx, {
+        type: 'line',
+        data: {
+          labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+          datasets: [{
+            label: 'Requests',
+            data: [1200, 800, 3400, 5200, 4800, 6100, 2300],
+            borderColor: '#00f0ff',
+            backgroundColor: 'rgba(0, 240, 255, 0.1)',
+            borderWidth: 3,
+            pointBackgroundColor: '#00f0ff',
+            pointRadius: 4,
+            tension: 0.4,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { color: '#8a94a6' }, grid: { display: false } },
+            y: { ticks: { color: '#8a94a6' }, grid: { color: 'rgba(0, 240, 255, 0.05)' } }
+          }
+        }
+      });
+    }
+
+    // Latency Bar Chart
+    const latencyCtx = document.getElementById('latencyChart');
+    if (latencyCtx) {
+      new Chart(latencyCtx, {
+        type: 'bar',
+        data: {
+          labels: ['0-20ms', '20-40ms', '40-60ms', '60-80ms', '80+ms'],
+          datasets: [{
+            label: 'Requests',
+            data: [15, 65, 20, 8, 2],
+            backgroundColor: 'rgba(0, 240, 255, 0.6)',
+            borderColor: '#00f0ff',
+            borderWidth: 1,
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { ticks: { color: '#8a94a6' }, grid: { display: false } },
+            y: { ticks: { color: '#8a94a6' }, grid: { color: 'rgba(0, 240, 255, 0.05)' } }
+          }
+        }
+      });
+    }
+
+    // Model Usage Doughnut Chart
+    const modelCtx = document.getElementById('modelChart');
+    if (modelCtx) {
+      new Chart(modelCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['GPT-4', 'GPT-3.5', 'DALL-E', 'Whisper', 'Embeddings'],
+          datasets: [{
+            data: [45, 25, 15, 10, 5],
+            backgroundColor: ['#00f0ff', '#00d4ff', '#00ff88', '#66ccff', '#3399ff'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: { color: '#b8c1d1', padding: 20 }
+            }
+          }
+        }
+      });
+    }
+
+    // Engagement Radar Chart
+    const engagementCtx = document.getElementById('engagementChart');
+    if (engagementCtx) {
+      new Chart(engagementCtx, {
+        type: 'radar',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: 'Requests',
+            data: [4200, 3800, 5100, 4600, 6800, 3400, 2100],
+            backgroundColor: 'rgba(0, 240, 255, 0.2)',
+            borderColor: '#00f0ff',
+            borderWidth: 2,
+            pointBackgroundColor: '#00f0ff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            r: {
+              ticks: { color: '#8a94a6', backdropColor: 'transparent' },
+              grid: { color: 'rgba(0, 240, 255, 0.1)' },
+              angleLines: { color: 'rgba(0, 240, 255, 0.05)' },
+              pointLabels: { color: '#b8c1d1' }
+            }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    // Period selector interaction
+    document.querySelectorAll('.period-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

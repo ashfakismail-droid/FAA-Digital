@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Chat - Interactive AI conversation interface with code support.">
+  <title>Chat - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="chat-layout">
+    <!-- Chat History Drawer -->
+    <aside class="chat-sidebar">
+      <div class="sidebar-header" style="margin-bottom: var(--space-lg);">
+        <a href="../index.html" class="sidebar-logo">NovaAI</a>
+      </div>
+
+      <button class="btn btn-primary" id="newChatBtn" style="width: 100%; margin-bottom: var(--space-lg);">
+        + New Chat
+      </button>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Recent Chats</div>
+        <ul class="sidebar-nav" id="historyList">
+          <li><a href="#" class="active"><span class="nav-icon">💬</span><span>Credit Usage Query</span></a></li>
+          <li><a href="#"><span class="nav-icon">💬</span><span>Data Analysis Help</span></a></li>
+          <li><a href="#"><span class="nav-icon">💬</span><span>API Integration</span></a></li>
+          <li><a href="#"><span class="nav-icon">💬</span><span>Model Selection</span></a></li>
+          <li><a href="#"><span class="nav-icon">💬</span><span>Performance Tuning</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Chat Main Area -->
+    <main class="chat-main">
+      <!-- Chat Header -->
+      <header class="chat-header">
+        <div class="container header-content">
+          <h2 style="font-size: var(--text-xl); margin: 0;">Credit Usage Query</h2>
+          <button class="btn btn-outline btn-sm">Export Chat</button>
+        </div>
+      </header>
+
+      <!-- Chat Messages -->
+      <div class="chat-messages" id="chatMessages">
+        <div class="message assistant">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            Hello! I'm your NovaAI assistant. How can I help you today?
+          </div>
+        </div>
+
+        <div class="message user">
+          <div class="message-avatar">A</div>
+          <div class="message-content">
+            Can you analyze my credit usage for the past month?
+          </div>
+        </div>
+
+        <div class="message assistant">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            I'll analyze your credit usage for July 2024. Here's what I found:
+            <br><br>
+            <ul style="margin-top: var(--space-sm); padding-left: var(--space-lg);">
+              <li>Total credits consumed: <strong>8,452</strong></li>
+              <li>Peak usage day: <strong>July 28</strong> (1,450 credits)</li>
+              <li>Most used model: <strong>GPT-4 Turbo</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="message user">
+          <div class="message-avatar">A</div>
+          <div class="message-content">
+            Show me the API code for fetching this data programmatically.
+          </div>
+        </div>
+
+        <div class="message assistant">
+          <div class="message-avatar">AI</div>
+          <div class="message-content">
+            Here's a JavaScript example using the NovaAI SDK:
+            <div class="code-block">
+              <div class="code-block-header">
+                <span>api/usage.js</span>
+                <button class="btn btn-outline btn-sm" style="padding: 2px 8px; font-size: 10px;">Copy</button>
+              </div>
+              <pre><code><span class="code-comment">// Initialize NovaAI client</span>
+<span class="code-comment">const</span> <span style="color: #ffcc66;">nova</span> = <span class="code-comment">new</span> <span style="color: #66ccff;">NovaAIClient</span>({ apiKey: <span style="color: #99cc66;">'your-api-key'</span> });
+
+<span class="code-comment">// Fetch usage analytics</span>
+<span class="code-comment">const</span> usage = <span class="code-comment">await</span> nova.usage.<span class="code-comment">getCredits</span>({
+  startDate: <span style="color: #99cc66;">'2024-07-01'</span>,
+  endDate: <span style="color: #99cc66;">'2024-07-31'</span>
+});
+
+<span class="code-comment">console</span>.<span class="code-comment">log</span>(usage.creditsUsed); <span class="code-comment">// 8452</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-area">
+        <div class="container chat-input-wrapper">
+          <textarea class="chat-input" id="chatInput" placeholder="Ask NovaAI anything..." rows="1"></textarea>
+          <button class="send-button" id="sendBtn">➤</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Chat functionality
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const historyList = document.getElementById('historyList');
+
+    // Typing indicator HTML
+    const createTypingIndicator = () => {
+      return `<div class="message assistant" id="typingIndicator">
+        <div class="message-avatar">AI</div>
+        <div class="message-content">
+          <div class="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+          </div>
+        </div>
+      </div>`;
+    };
+
+    const sendMessage = () => {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      // Add user message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user';
+      userMsg.innerHTML = `<div class="message-avatar">A</div>
+        <div class="message-content">${text}</div>`;
+      chatMessages.appendChild(userMsg);
+
+      chatInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Show typing indicator
+      chatMessages.insertAdjacentHTML('beforeend', createTypingIndicator());
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Mock assistant response
+      setTimeout(() => {
+        const typingEl = document.getElementById('typingIndicator');
+        if (typingEl) typingEl.remove();
+
+        const responses = [
+          "I can help you optimize that workflow. Consider using batch processing to reduce token usage by up to 40%.",
+          "Based on your query, I recommend deploying the NovaAI model with custom temperature settings for better accuracy.",
+          "Here's a detailed breakdown of your request with implementation steps and estimated costs."
+        ];
+
+        const assistantMsg = document.createElement('div');
+        assistantMsg.className = 'message assistant';
+        assistantMsg.innerHTML = `<div class="message-avatar">AI</div>
+          <div class="message-content">${responses[Math.floor(Math.random() * responses.length)]}</div>`;
+        chatMessages.appendChild(assistantMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1200 + Math.random() * 800);
+    };
+
+    sendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // New chat button
+    document.getElementById('newChatBtn').addEventListener('click', () => {
+      chatMessages.innerHTML = '<div class="message assistant">\
+        <div class="message-avatar">AI</div>\
+        <div class="message-content">New conversation started. How can I assist you?</div>\
+      </div>';
+    });
+
+    // History item click
+    historyList.querySelectorAll('a').forEach((link, idx) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        historyList.querySelectorAll('a').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

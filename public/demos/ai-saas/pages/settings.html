@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Settings - Configure your workspace, billing, and preferences.">
+  <title>Settings - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">NovaAI</a>
+      </div>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html"><span class="nav-icon">📊</span><span>Dashboard</span></a></li>
+          <li><a href="chat.html"><span class="nav-icon">💬</span><span>Chat</span></a></li>
+          <li><a href="analytics.html"><span class="nav-icon">📈</span><span>Analytics</span></a></li>
+          <li><a href="projects.html"><span class="nav-icon">📁</span><span>Projects</span></a></li>
+          <li><a href="documents.html"><span class="nav-icon">📄</span><span>Documents</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <ul class="sidebar-nav">
+          <li><a href="settings.html" class="active"><span class="nav-icon">⚙️</span><span>Settings</span></a></li>
+          <li><a href="profile.html"><span class="nav-icon">👤</span><span>Profile</span></a></li>
+          <li><a href="../index.html"><span class="nav-icon">⬅️</span><span>Log out</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="app-header">
+        <div class="container header-content">
+          <h1 style="font-size: var(--text-2xl); margin: 0;">Settings</h1>
+        </div>
+      </header>
+
+      <div class="container-fluid" style="padding: var(--space-xl);">
+        <!-- Workspace Settings -->
+        <div class="form-section">
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md);">Workspace</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Workspace Name</label>
+              <input type="text" class="form-input" value="NovaAI Team" id="workspaceName">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Timezone</label>
+              <select class="form-input" id="timezoneSelect">
+                <option>UTC-5 (Eastern)</option>
+                <option selected>UTC-8 (Pacific)</option>
+                <option>UTC+0 (GMT)</option>
+                <option>UTC+5:30 (India)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Billing Settings -->
+        <div class="form-section">
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md);">Billing</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Current Plan</label>
+              <div style="padding: var(--space-sm) 0; color: var(--color-text-secondary);">Professional ($99/month)</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Payment Method</label>
+              <input type="text" class="form-input" value="Visa ending in 4242" id="paymentMethod">
+            </div>
+          </div>
+          <button class="btn btn-outline" style="margin-top: var(--space-sm);">Update Payment Method</button>
+        </div>
+
+        <!-- API Settings -->
+        <div class="form-section">
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md);">API Configuration</h3>
+          <div class="form-group">
+            <label class="form-label">Default Model</label>
+            <select class="form-input" id="defaultModel">
+              <option>GPT-3.5 Turbo</option>
+              <option selected>GPT-4 Turbo</option>
+              <option>Claude 3 Sonnet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">API Timeout (ms)</label>
+            <input type="number" class="form-input" value="30000" id="apiTimeout">
+          </div>
+          <button class="btn btn-primary">Regenerate API Key</button>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="form-section">
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md);">Notifications</h3>
+          <div class="flex-col" style="gap: var(--space-sm);">
+            <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
+              <input type="checkbox" checked> Email alerts for credit usage
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
+              <input type="checkbox" checked> Weekly analytics summary
+            </label>
+            <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
+              <input type="checkbox"> Slack integration
+            </label>
+          </div>
+        </div>
+
+        <!-- Theme Preferences -->
+        <div class="form-section">
+          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-md);">Theme Preference</h3>
+          <div class="theme-toggle">
+            <div class="theme-option active" data-theme="dark">🌙 Dark</div>
+            <div class="theme-option" data-theme="light">☀️ Light</div>
+            <div class="theme-option" data-theme="system">💻 System</div>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--space-xl);">
+          <button class="btn btn-primary btn-lg">Save Changes</button>
+          <button class="btn btn-outline btn-lg" style="margin-left: var(--space-sm);">Cancel</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Theme preference handling
+    document.querySelectorAll('.theme-option').forEach(option => {
+      option.addEventListener('click', () => {
+        document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+        option.classList.add('active');
+        const theme = option.dataset.theme;
+        try {
+          localStorage.setItem('novaAI_theme', theme);
+        } catch (e) {
+          console.warn('Could not save theme preference');
+        }
+      });
+    });
+
+    // Form change detection
+    document.querySelectorAll('.form-input').forEach(input => {
+      input.addEventListener('change', () => {
+        input.classList.add('changed');
+      });
+    });
+  </script>
+</body>
+</html>

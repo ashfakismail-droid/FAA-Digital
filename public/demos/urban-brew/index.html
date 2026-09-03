@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Brew Café — Craft Coffee & Bakery</title>
+<meta name="description" content="Urban Brew Café — craft coffee, fresh bakery, and a cozy workspace. Explore our menu, seasonal specials, and loyalty rewards.">
+<meta name="theme-color" content="#17110b">
+<link rel="icon" href="data:,">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="container nav__inner">
+    <a href="#home" class="nav__brand">Urban <span>Brew</span></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#menu">Menu</a>
+      <a href="#bakery">Bakery</a>
+      <a href="#specials">Specials</a>
+      <a href="#workspace">Workspace</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#location" class="btn btn--rust nav__cta">Find Us</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__grid-inner container">
+      <div>
+        <p class="hero__tagline reveal" data-reveal">Craft Coffee • Fresh Bakery • Cozy Workspace</p>
+        <h1 class="hero__title reveal" data-reveal>Where flavor meets focus.</h1>
+        <p class="hero__subtitle reveal" data-reveal>Your neighborhood coffee haven — expertly brewed coffee, artisan pastries, and a peaceful workspace to get things done.</p>
+        <div class="hero__actions reveal" data-reveal>
+          <a href="#menu" class="btn btn--rust">View Our Menu</a>
+          <a href="#location" class="btn btn--ghost">Visit Us Today</a>
+        </div>
+      </div>
+      <div class="hero__cup-wrap reveal" data-reveal>
+        <div class="steam steam--1"></div>
+        <div class="steam steam--2"></div>
+        <div class="steam steam--3"></div>
+        <div class="cup">
+          <div class="cup__body"></div>
+          <div class="cup__handle"></div>
+          <div class="cup__saucer"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__stats reveal" data-reveal style="--i:1">
+      <div><h3>500+</h3><p>Daily Cups</p></div>
+      <div><h3>100+</h3><p>Artisan Pastries</p></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section section--alt" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__visual reveal" data-reveal aria-hidden="true"></div>
+        <div>
+          <span class="eyebrow reveal" data-reveal>Our Story</span>
+          <h2 class="section__title reveal" data-reveal>From bean to cup, we pour passion into every brew.</h2>
+          <p class="about__body reveal" data-reveal>
+            Founded in 2024, Urban Brew Café is your neighborhood coffee haven. We source premium beans from ethical farms, craft signature blends in-house, and bake fresh pastries daily. Whether you're diving into a book, powering through work, or catching up with friends, we've got the perfect corner for you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COFFEE ============ -->
+  <section class="section" id="coffee">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Coffee</span>
+      <h2 class="section__title reveal" data-reveal>Handcrafted brews, expertly prepared.</h2>
+      <p class="section__subtitle reveal" data-reveal">Our baristas use precision techniques to bring out the best in every bean.</p>
+
+      <div class="feature-grid stagger reveal" data-reveal>
+        <article class="feature-card">
+          <div class="feature-card__cover fc-1"></div>
+          <div class="feature-card__info">
+            <span class="feature-card__badge">Signature Brew</span>
+            <h3>Our House Blend</h3>
+            <p>A balanced mix of Ethiopian and Colombian beans, perfect for any time of day.</p>
+            <p class="feature-card__price">₹149</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__cover fc-2"></div>
+          <div class="feature-card__info">
+            <span class="feature-card__badge">Single Origin</span>
+            <h3>Ethiopian Yirgacheffe</h3>
+            <p>Floral and bright with notes of bergamot and stone fruit.</p>
+            <p class="feature-card__price">₹179</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__cover fc-3"></div>
+          <div class="feature-card__info">
+            <span class="feature-card__badge">Pour Over</span>
+            <h3>Clean & Bright</h3>
+            <p>Prepared using the Hario V60 for optimal flavor extraction.</p>
+            <p class="feature-card__price">₹169</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FULL MENU ============ -->
+  <section class="section section--alt" id="menu">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Menu</span>
+      <h2 class="section__title reveal" data-reveal>All our offerings, priced honestly.</h2>
+      <p class="section__subtitle reveal" data-reveal">From our signature brews to daily fresh bakes.</p>
+
+      <div class="menu-tabs reveal" data-reveal role="tablist" aria-label="Menu categories">
+        <button class="menu-tab is-active" data-tab="coffee" role="tab" aria-selected="true">Coffee</button>
+        <button class="menu-tab" data-tab="bakery" role="tab" aria-selected="false">Bakery</button>
+      </div>
+
+      <div class="menu-panel is-active" id="panel-coffee" role="tabpanel">
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Espresso</p><p class="menu-item__desc">Rich, concentrated shot of our house blend</p></div>
+            <p class="menu-item__price">₹129</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Cappuccino</p><p class="menu-item__desc">Espresso, steamed milk, and foam</p></div>
+            <p class="menu-item__price">₹199</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Latte</p><p class="menu-item__desc">Smooth and creamy with your choice of flavor</p></div>
+            <p class="menu-item__price">₹229</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Cold Brew</p><p class="menu-item__desc">Slow-steeped 18 hours, served over ice</p></div>
+            <p class="menu-item__price">₹199</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-bakery" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Croissant</p><p class="menu-item__desc">Buttery, flaky, baked fresh daily</p></div>
+            <p class="menu-item__price">₹149</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Chocolate Croissant</p><p class="menu-item__desc">Dual-layered with dark chocolate</p></div>
+            <p class="menu-item__price">₹179</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Cinnamon Roll</p><p class="menu-item__desc">Swirled with house cinnamon sugar</p></div>
+            <p class="menu-item__price">₹169</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Blueberry Muffin</p><p class="menu-item__desc">Bursting with fresh berries</p></div>
+            <p class="menu-item__price">₹159</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEASONAL SPECIALS ============ -->
+  <section class="section section--alt" id="specials">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Specials</span>
+      <h2 class="section__title reveal" data-reveal>This week's limited offerings.</h2>
+
+      <div class="specials-banner reveal" data-reveal>
+        <div class="specials-list">
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Pumpkin Spice Latte</p><p class="menu-item__desc">Fall favorite with real pumpkin puree</p></div>
+            <p class="menu-item__price">₹249</p>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item__left"><p class="menu-item__name">Cardamom Bun</p><p class="menu-item__desc">Aromatic spice rolls, fresh every morning</p></div>
+            <p class="menu-item__price">₹139</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOYALTY PROGRAM ============ -->
+  <section class="section" id="loyalty">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Loyalty Program</span>
+      <h2 class="section__title reveal" data-reveal>Collect stamps with every visit.</h2>
+      <p class="section__subtitle reveal" data-reveal">Get a free drink after 9 stamps, and exclusive member perks.</p>
+
+      <div class="loyalty-card reveal" data-reveal>
+        <div class="loyalty-card__stamps">
+          <span class="stamp">1</span>
+          <span class="stamp">2</span>
+          <span class="stamp is-filled">3</span>
+          <span class="stamp is-filled">4</span>
+          <span class="stamp is-filled">5</span>
+          <span class="stamp is-filled">6</span>
+          <span class="stamp is-filled">7</span>
+          <span class="stamp is-filled">8</span>
+          <span class="stamp is-filled">9</span>
+          <span class="stamp">10</span>
+        </div>
+        <div>
+          <h3>5 stamps = Free Coffee</h3>
+          <p>Plus access to member-only events and early product drops.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKSPACE FEATURES ============ -->
+  <section class="section section--alt" id="workspace">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Workspace</span>
+      <h2 class="section__title reveal" data-reveal>Work in comfort.</h2>
+
+      <div class="workspace-grid stagger reveal" data-reveal>
+        <div class="workspace-item">
+          <div class="workspace-item__icon">💻</div>
+          <h4>Power Outlets</h4>
+          <p>We've got you covered with ample charging stations.</p>
+        </div>
+        <div class="workspace-item">
+          <div class="workspace-item__icon">🎶</div>
+          <h4>Background Music</h4>
+          <p>Curated playlists to keep you focused.</p>
+        </div>
+        <div class="workspace-item">
+          <div class="workspace-item__icon">☕</div>
+          <h4>Free Refills</h4>
+          <p>Get complimentary refills while you work.</p>
+        </div>
+        <div class="workspace-item">
+          <div class="workspace-item__icon">🖇️</div>
+          <h4>Meeting Space</h4>
+          <p>Quiet corners for calls and collaboration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Gallery</span>
+      <h2 class="section__title reveal" data-reveal>A taste of our space.</h2>
+
+      <div class="gallery-grid stagger">
+        <div class="gallery-item ug1 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug2 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug3 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug4 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug5 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug6 reveal" data-reveal aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section section--alt" id="testimonials">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Testimonials</span>
+      <h2 class="section__title reveal" data-reveal>What our customers say.</h2>
+
+      <div class="testimonial-grid stagger">
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"The best coffee I've had in the city. The workspace is peaceful and the staff are incredibly friendly."</p>
+          <p class="testimonial-card__author">Maya Patel</p>
+          <p class="testimonial-card__role">Regular customer</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"Their cinnamon rolls are legendary. Comes in handy during early morning meetings."</p>
+          <p class="testimonial-card__author">Rahul Mehta</p>
+          <p class="testimonial-card__role">Remote worker</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"Love the loyalty program and their seasonal specials. Will definitely be back!"</p>
+          <p class="testimonial-card__author">Ananya Roy</p>
+          <p class="testimonial-card__role">Coffee enthusiast</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION / HOURS ============ -->
+  <section class="section" id="location">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Location & Hours</span>
+      <h2 class="section__title reveal" data-reveal>Find us in the heart of the city.</h2>
+
+      <div class="location-grid">
+        <div class="map-placeholder reveal" data-reveal>
+          <div class="map-placeholder__pin"><span>UB</span></div>
+          <p class="map-placeholder__label">123 Coffee Lane, MG Road, Bangalore — Google Maps embed goes here</p>
+        </div>
+        <div class="reveal" data-reveal>
+          <table class="hours-table">
+            <tr><td>Monday – Friday</td><td>7:00 AM – 8:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM – 8:00 PM</td></tr>
+            <tr><td>Sunday</td><td>8:00 AM – 6:00 PM</td></tr>
+          </table>
+          <div class="about__stats" style="margin-top:32px; grid-template-columns:1fr;">
+            <div><h3>Cafe Lane</h3><p>MG Road, Bangalore 560001</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Contact</span>
+      <h2 class="section__title reveal" data-reveal>Reach out to us.</h2>
+
+      <div class="contact-grid">
+        <div class="reveal" data-reveal>
+          <p style="color:var(--tan); font-size:16px; max-width:520px;">
+            Have questions about our menu, want to book a private event, or just want to say hello? We'd love to hear from you.
+          </p>
+        </div>
+        <aside class="contact-side reveal" data-reveal>
+          <div class="contact-side__block">
+            <h3>Phone</h3>
+            <a href="tel:+919812345678">+91 98123 45678</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Email</h3>
+            <a href="mailto:hello@urbanbrewcafe.com">hello@urbanbrewcafe.com</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Address</h3>
+            <p>123 Coffee Lane, MG Road, Bangalore 560001</p>
+          </div>
+          <div class="contact-side__block">
+            <h3>Follow along</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      Urban <span>Brew</span>
+      <p>Craft coffee, fresh bakery, and a cozy workspace — open daily.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Explore</h4>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <div class="footer__col">
+      <h4>Visit</h4>
+      <a href="#workspace">Workspace</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="tel:+919812345678">+91 98123 45678</a>
+      <a href="mailto:hello@urbanbrewcafe.com">hello@urbanbrewcafe.com</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> Urban Brew Café. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Update year in footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+  
+  // Navigation toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', navLinks.classList.contains('is-open'));
+    });
+  }
+  
+  // Scroll reveal
+  const revealElements = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealElements.forEach(el => observer.observe(el));
+  
+  // Stagger delay
+  const staggerElements = document.querySelectorAll('.stagger [data-reveal]');
+  staggerElements.forEach((el, i) => {
+    el.style.setProperty('--i', i);
+  });
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+        navLinks?.classList.remove('is-open');
+        navToggle?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+  
+  // Form submission
+  const reserveForm = document.getElementById('reserveForm');
+  if (reserveForm) {
+    reserveForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Reservation request submitted! We will contact you shortly.');
+      reserveForm.reset();
+    });
+  }
+</script>
+</body>
+</html>

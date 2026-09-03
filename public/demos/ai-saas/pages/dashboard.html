@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Dashboard - Monitor your AI usage, analytics, and performance metrics.">
+  <title>Dashboard - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">NovaAI</a>
+      </div>
+      
+      <nav class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html" class="active"><span class="nav-icon">📊</span><span>Dashboard</span></a></li>
+          <li><a href="chat.html"><span class="nav-icon">💬</span><span>Chat</span></a></li>
+          <li><a href="analytics.html"><span class="nav-icon">📈</span><span>Analytics</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Management</div>
+        <ul class="sidebar-nav">
+          <li><a href="#"><span class="nav-icon">⚙️</span><span>Settings</span></a></li>
+          <li><a href="#"><span class="nav-icon">🔒</span><span>API Keys</span></a></li>
+          <li><a href="#"><span class="nav-icon">📝</span><span>Logs</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <ul class="sidebar-nav">
+          <li><a href="#"><span class="nav-icon">👤</span><span>Profile</span></a></li>
+          <li><a href="#"><span class="nav-icon">💳</span><span>Billing</span></a></li>
+          <li><a href="../index.html"><span class="nav-icon">⬅️</span><span>Log out</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- App Header -->
+      <header class="app-header">
+        <div class="container header-content">
+          <h1 style="font-size: var(--text-2xl); margin: 0;">Dashboard Overview</h1>
+          <div class="flex" style="align-items: center; gap: var(--space-md);">
+            <span style="color: var(--color-text-secondary); font-size: var(--text-sm);">Welcome back, Alex</span>
+            <button class="btn btn-primary btn-sm">Upgrade Plan</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="container-fluid" style="padding: var(--space-xl);">
+        <!-- Credit Usage Summary -->
+        <div class="analytics-grid">
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Credits Used</span>
+              <span class="analytics-trend up">↑ 12% this week</span>
+            </div>
+            <div class="analytics-value">8,452 / 10,000</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Avg Response Time</span>
+              <span class="analytics-trend down">↓ 8ms improved</span>
+            </div>
+            <div class="analytics-value">42ms</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Active Models</span>
+              <span class="analytics-trend up">↑ 3 deployed</span>
+            </div>
+            <div class="analytics-value">7</div>
+          </div>
+          <div class="analytics-card">
+            <div class="analytics-header">
+              <span class="analytics-title">Monthly Requests</span>
+              <span class="analytics-trend up">↑ 24% growth</span>
+            </div>
+            <div class="analytics-value">45,892</div>
+          </div>
+        </div>
+
+        <!-- Credit Usage Chart -->
+        <div class="chart-container">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">Credit Usage Tracking</h3>
+            <span class="analytics-title">Last 30 days</span>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="creditChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="chart-container">
+          <div class="analytics-header" style="margin-bottom: var(--space-lg);">
+            <h3 style="font-size: var(--text-lg); margin: 0;">Recent Activity</h3>
+            <button class="btn btn-outline btn-sm">View All</button>
+          </div>
+          <div style="display: grid; gap: var(--space-md);">
+            <div class="glass" style="padding: var(--space-md); display: flex; justify-content: space-between; align-items: center;">
+              <div><strong>GPT-4 Completion</strong><br><span style="color: var(--color-text-muted); font-size: var(--text-sm);">Model: gpt-4-turbo | Tokens: 1,250</span></div>
+              <span style="color: var(--color-accent); font-weight: 600;">Completed</span>
+            </div>
+            <div class="glass" style="padding: var(--space-md); display: flex; justify-content: space-between; align-items: center;">
+              <div><strong>Image Generation</strong><br><span style="color: var(--color-text-muted); font-size: var(--text-sm);">Model: dall-e-3 | Credits: 15</span></div>
+              <span style="color: var(--color-primary);">Processing</span>
+            </div>
+            <div class="glass" style="padding: var(--space-md); display: flex; justify-content: space-between; align-items: center;">
+              <div><strong>Embeddings Request</strong><br><span style="color: var(--color-text-muted); font-size: var(--text-sm);">Model: text-embedding | Tokens: 450</span></div>
+              <span style="color: var(--color-accent);">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

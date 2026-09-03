@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaAI Projects - Manage your AI projects and workflows.">
+  <title>Projects - NovaAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="sidebar-logo">NovaAI</a>
+      </div>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Main</div>
+        <ul class="sidebar-nav">
+          <li><a href="dashboard.html"><span class="nav-icon">📊</span><span>Dashboard</span></a></li>
+          <li><a href="chat.html"><span class="nav-icon">💬</span><span>Chat</span></a></li>
+          <li><a href="analytics.html"><span class="nav-icon">📈</span><span>Analytics</span></a></li>
+          <li><a href="projects.html" class="active"><span class="nav-icon">📁</span><span>Projects</span></a></li>
+          <li><a href="documents.html"><span class="nav-icon">📄</span><span>Documents</span></a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-section">
+        <div class="nav-section-title">Account</div>
+        <ul class="sidebar-nav">
+          <li><a href="settings.html"><span class="nav-icon">⚙️</span><span>Settings</span></a></li>
+          <li><a href="profile.html"><span class="nav-icon">👤</span><span>Profile</span></a></li>
+          <li><a href="../index.html"><span class="nav-icon">⬅️</span><span>Log out</span></a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="app-header">
+        <div class="container header-content">
+          <h1 style="font-size: var(--text-2xl); margin: 0;">Projects</h1>
+          <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search projects..." id="searchInput">
+            <button class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </header>
+
+      <div class="container-fluid" style="padding: var(--space-xl);">
+        <div class="flex-between" style="margin-bottom: var(--space-lg);">
+          <h2 style="font-size: var(--text-lg); margin: 0;">Your Projects</h2>
+          <button class="btn btn-primary" id="newProjectBtn">+ New Project</button>
+        </div>
+
+        <div class="file-grid" id="projectsGrid">
+          <div class="file-card glass">
+            <div class="file-header">
+              <div class="file-icon">🚀</div>
+              <div class="file-actions">
+                <button class="action-btn" title="Edit">✏️</button>
+                <button class="action-btn" title="Duplicate">📋</button>
+                <button class="action-btn" title="Delete">🗑️</button>
+              </div>
+            </div>
+            <div class="file-info">
+              <h4>Chatbot Integration</h4>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">GPT-4 powered customer support bot</p>
+              <div class="file-meta">
+                <span>Updated: today</span>
+                <span><span class="badge badge-success">Active</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-card glass">
+            <div class="file-header">
+              <div class="file-icon">📊</div>
+              <div class="file-actions">
+                <button class="action-btn" title="Edit">✏️</button>
+                <button class="action-btn" title="Duplicate">📋</button>
+                <button class="action-btn" title="Delete">🗑️</button>
+              </div>
+            </div>
+            <div class="file-info">
+              <h4>Analytics Dashboard</h4>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">Real-time usage metrics and insights</p>
+              <div class="file-meta">
+                <span>Updated: 2d ago</span>
+                <span><span class="badge badge-success">Active</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-card glass">
+            <div class="file-header">
+              <div class="file-icon">🎨</div>
+              <div class="file-actions">
+                <button class="action-btn" title="Edit">✏️</button>
+                <button class="action-btn" title="Duplicate">📋</button>
+                <button class="action-btn" title="Delete">🗑️</button>
+              </div>
+            </div>
+            <div class="file-info">
+              <h4>Image Generator</h4>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">DALL-E 3 creative image workflows</p>
+              <div class="file-meta">
+                <span>Updated: 5d ago</span>
+                <span><span class="badge badge-warning">Paused</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="file-card glass">
+            <div class="file-header">
+              <div class="file-icon">🔍</div>
+              <div class="file-actions">
+                <button class="action-btn" title="Edit">✏️</button>
+                <button class="action-btn" title="Duplicate">📋</button>
+                <button class="action-btn" title="Delete">🗑️</button>
+              </div>
+            </div>
+            <div class="file-info">
+              <h4>Semantic Search API</h4>
+              <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">Vector database for product search</p>
+              <div class="file-meta">
+                <span>Updated: 1w ago</span>
+                <span><span class="badge badge-success">Active</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const search = e.target.value.toLowerCase();
+      document.querySelectorAll('.file-card').forEach(card => {
+        const title = card.querySelector('h4').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        card.style.display = title.includes(search) || desc.includes(search) ? 'block' : 'none';
+      });
+    });
+
+    // New project button
+    document.getElementById('newProjectBtn').addEventListener('click', () => {
+      alert('Creating new project... (demo action)');
+    });
+
+    // Action buttons
+    document.querySelectorAll('.action-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const action = e.target.textContent;
+        const project = e.target.closest('.file-card').querySelector('h4').textContent;
+        if (action === '🗑️') {
+          if (confirm(`Delete project "${project}"?`)) {
+            e.target.closest('.file-card').remove();
+          }
+        } else if (action === '📋') {
+          alert(`Duplicated: ${project}`);
+        } else {
+          alert(`Editing: ${project}`);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
