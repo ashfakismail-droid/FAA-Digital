@@ -1,13 +1,25 @@
 import { notFound } from "next/navigation";
-import { demos, getDemo } from "@/config/demos";
+import { demos } from "@/config/demos";
+import { loadStudioDemos } from "@/lib/demo-store";
+import type { Demo } from "@/types";
 import type { Metadata } from "next";
 
-export const dynamicParams = false;
+// Demos imported after a deployment (stored in the production demo store)
+// have no build-time static param, so unknown slugs must render on demand.
+export const dynamicParams = true;
+
+// Imported metadata/files change rarely; ISR keeps the page fresh for edits.
+export const revalidate = 60;
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   return demos
     .filter((demo) => demo.status !== "archived" && demo.visibility !== "private" && demo.source?.type !== "external")
     .map((d) => ({ slug: d.slug }));
+}
+
+async function findDemo(slug: string): Promise<Demo | undefined> {
+  const { demos: liveDemos } = await loadStudioDemos();
+  return liveDemos.find((demo) => demo.slug === slug);
 }
 
 export async function generateMetadata({
@@ -16,7 +28,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const demo = getDemo(slug);
+  const demo = await findDemo(slug);
   if (!demo || demo.status === "archived" || demo.visibility === "private" || demo.source?.type === "external") return {};
 
   return {
@@ -31,14 +43,15 @@ export default async function DemoPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const demo = getDemo(slug);
+  const demo = await findDemo(slug);
 
   if (!demo || demo.status === "archived" || demo.visibility === "private" || demo.source?.type === "external") {
     notFound();
   }
 
-  // Serve the static demo HTML file directly via iframe
-  // The layout.tsx ensures no FAA Digital V2 wrapper
+  // Serve the demo HTML file directly via iframe — the same architecture as
+  // static demos. For store-backed demos the iframe URL is fulfilled by the
+  // /demos/[slug]/[...path] file server reading from the production store.
   return (
     <iframe
       src={`/demos/${demo.source?.folder ?? demo.slug}/index.html`}

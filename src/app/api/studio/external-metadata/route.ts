@@ -25,7 +25,6 @@ function extractFavicon(html: string): string | undefined {
 export async function POST(request: Request) {
   const denied = await requireAdmin(request);
   if (denied) return denied;
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio is disabled." }, { status: 404 });
 
   try {
     const { url } = await request.json();

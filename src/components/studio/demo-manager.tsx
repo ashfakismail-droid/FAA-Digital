@@ -6,7 +6,7 @@ import type { Demo, DemoStatus } from "@/types";
 import { WebsiteMockup } from "@/components/visuals/website-mockup";
 import { slugify } from "@/lib/utils";
 
-type WizardMode = "choice" | "local-choice" | "local-scan" | "local-picker" | "analysis" | "duplicate";
+type WizardMode = "choice" | "local-choice" | "local-scan" | "local-picker" | "analysis" | "duplicate" | "external";
 type ThumbnailSource = "upload" | "auto" | "external";
 
 type Folder = {
@@ -28,7 +28,7 @@ type Analysis = {
   slug: string;
   thumbnail?: string;
   detectedType: "html" | "nextjs" | "unknown";
-  assets: Record<string, boolean>;
+  assets: Record<string, boolean | number>;
   ready: boolean;
   message?: string;
   description?: string;
@@ -37,6 +37,7 @@ type Analysis = {
   galleryImage?: string;
   seoTitle?: string;
   seoDescription?: string;
+  externalUrl?: string;
 };
 
 type LocalFileEntry = {
@@ -109,6 +110,9 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState<string[]>([]);
   const [notice, setNotice] = useState("");
+  const [externalUrl, setExternalUrl] = useState("");
+  const [analyzing, setAnalyzing] = useState(false);
+  const [analyzeError, setAnalyzeError] = useState("");
 
   const dirty = JSON.stringify(saved) !== JSON.stringify(items);
   const categories = useMemo(() => [...new Set(items.map((d) => d.category))].sort(), [items]);
@@ -192,8 +196,12 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
   };
 
   const startExternal = () => {
-    setWizard(false);
-    addDraft({ ...fresh(), slug: "external-website", title: "External Website", source: { type: "external", url: "", detectedType: "unknown" }, visibility: "public" });
+    setWizard(true);
+    setWizardMode("external");
+    setExternalUrl("");
+    setAnalyzeError("");
+    setImportError("");
+    setAnalysis(null);
   };
 
   const startLocalScan = () => {
@@ -253,6 +261,23 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     const fileNames: string[] = [];
     const dirNames: string[] = [];
 
+    // Walk the entire tree (not just the top level) so nested CSS/JS/images
+    // and fonts are detected in the Website Analysis checklist.
+    const walkAllPaths = async (handle: LocalDirectoryHandle, prefix = ""): Promise<string[]> => {
+      const paths: string[] = [];
+      try {
+        for await (const entry of handle.values()) {
+          const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
+          if (entry.kind === "file") paths.push(relative);
+          else paths.push(...(await walkAllPaths(entry as LocalDirectoryHandle, relative)));
+        }
+      } catch {
+        // ignore unreadable entries
+      }
+      return paths;
+    };
+    const allPaths = await walkAllPaths(dir);
+
     try {
       for await (const entry of dir.values()) {
         if (entry.kind === "file") fileNames.push(entry.name);
@@ -305,10 +330,10 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       }
     }
 
-    const hasCss = fileNames.some((e) => /\.css$/i.test(e)) || dirNames.includes("css");
-    const hasJs = fileNames.some((e) => /\.js$/i.test(e)) || dirNames.includes("js");
-    const hasImages = fileNames.some((e) => /\.(png|jpe?g|gif|svg|webp|ico)$/i.test(e)) || dirNames.includes("images") || dirNames.includes("img");
-    const hasFavicon = fileNames.some((e) => /favicon/i.test(e));
+    const hasCss = allPaths.some((e) => /\.css$/i.test(e));
+    const hasJs = allPaths.some((e) => /\.(mjs|cjs|js)$/i.test(e));
+    const hasImages = allPaths.some((e) => /\.(png|jpe?g|gif|svg|webp|avif|ico)$/i.test(e));
+    const hasFavicon = allPaths.some((e) => /favicon/i.test(e));
     const hasThumbnail = hasImages;
 
     const assets = { index: hasIndex, css: hasCss, js: hasJs, images: hasImages, favicon: hasFavicon, thumbnail: hasThumbnail };
@@ -364,9 +389,72 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     setWizardMode("analysis");
   };
 
+  const analyzeExternalUrl = async () => {
+    const url = externalUrl.trim();
+    if (!url || analyzing) return;
+    setAnalyzing(true);
+    setAnalyzeError("");
+    setImportError("");
+    try {
+      const response = await fetch("/api/studio/external-analyze", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        setAnalyzeError(data.error ?? "The website could not be analyzed.");
+        return;
+      }
+      setAnalysis({
+        title: data.title ?? new URL(url).hostname?.replace(/^www\./, "") ?? "External Website",
+        slug: slugify(data.title ?? new URL(url).hostname?.replace(/^www\./, "") ?? "external-site"),
+        thumbnail: data.thumbnail,
+        description: data.description,
+        logo: data.logo,
+        galleryImage: data.galleryImage,
+        seoTitle: data.seoTitle,
+        seoDescription: data.seoDescription,
+        detectedType: "html",
+        assets: data.assets ?? { index: true, css: 0, js: 0, images: 0, favicon: Boolean(data.logo), thumbnail: Boolean(data.thumbnail) },
+        ready: true,
+        externalUrl: data.url ?? url,
+      });
+      setWizardMode("analysis");
+    } catch {
+      setAnalyzeError("Network error during analysis.");
+    } finally {
+      setAnalyzing(false);
+    }
+  };
+
   const importAnalysis = async () => {
     if (!analysis) return;
     setImportError("");
+
+    // External website URLs are fetched and imported server-side (browsers
+    // cannot fetch cross-origin sites) through the same importer endpoint.
+    if (analysis.externalUrl) {
+      setImporting(true);
+      try {
+        const response = await fetch("/api/studio/import-html", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ url: analysis.externalUrl, slug: analysis.slug }),
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          setImportError(data.error ?? "Import failed.");
+          setImporting(false);
+          return;
+        }
+      } catch {
+        setImportError("Network error during import.");
+        setImporting(false);
+        return;
+      }
+      setImporting(false);
+    }
 
     // For computer-folder imports, upload the entire folder first
     if (collectedFiles.length > 0) {
@@ -394,6 +482,11 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       setImporting(false);
     }
 
+    const external = analysis.externalUrl ? {
+      source: { type: "external" as const, url: analysis.externalUrl, detectedType: "unknown" as const },
+    } : {
+      source: { type: "local" as const, folder: analysis.slug, detectedType: analysis.detectedType },
+    };
     setWizard(false);
     setWizardMode("choice");
     setAnalysis(null);
@@ -410,7 +503,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       galleryImage: analysis.galleryImage,
       seoTitle: analysis.seoTitle,
       seoDescription: analysis.seoDescription,
-      source: { type: "local", folder: analysis.slug, detectedType: analysis.detectedType },
+      ...external,
     });
   };
 
@@ -539,6 +632,8 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
             setAnalysis(null);
             setPickerError("");
             setImportError("");
+            setAnalyzeError("");
+            setExternalUrl("");
             setCollectedFiles([]);
             setCollectedDirectories([]);
           }}
@@ -549,6 +644,12 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
           startLocalScan={startLocalScan}
           startLocalPicker={startLocalPicker}
           selectComputerFolder={selectComputerFolder}
+          analyzeExternalUrl={analyzeExternalUrl}
+          externalUrl={externalUrl}
+          setExternalUrl={setExternalUrl}
+          analyzing={analyzing}
+          analyzeError={analyzeError}
+          setAnalyzeError={setAnalyzeError}
           duplicate={duplicate}
           importError={importError}
           importing={importing}
@@ -922,6 +1023,12 @@ function Wizard({
   duplicate,
   importError,
   importing,
+  analyzeExternalUrl,
+  externalUrl,
+  setExternalUrl,
+  analyzing,
+  analyzeError,
+  setAnalyzeError,
 }: {
   mode: WizardMode;
   setMode: (m: WizardMode) => void;
@@ -940,6 +1047,12 @@ function Wizard({
   duplicate: (d: Demo) => void;
   importError: string;
   importing: boolean;
+  analyzeExternalUrl: () => void | Promise<void>;
+  externalUrl: string;
+  setExternalUrl: (value: string) => void;
+  analyzing: boolean;
+  analyzeError: string;
+  setAnalyzeError: (value: string) => void;
 }) {
   return (
     <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/50 p-4 backdrop-blur-sm">
@@ -967,13 +1080,21 @@ function Wizard({
         )}
 
         {mode === "local-choice" && (
-          <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <button onClick={startLocalScan} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
-              <Plus className="mb-4 text-brand-600" /> Scan Project Folder
-            </button>
-            <button onClick={startLocalPicker} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
-              <Upload className="mb-4 text-brand-600" /> Choose Folder From Computer
-            </button>
+          <div className="mt-6 space-y-2">
+            {process.env.NODE_ENV === "development" ? (
+              <div className="grid gap-3 sm:grid-cols-2">
+                <button onClick={startLocalScan} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
+                  <Plus className="mb-4 text-brand-600" /> Scan Project Folder
+                </button>
+                <button onClick={startLocalPicker} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
+                  <Upload className="mb-4 text-brand-600" /> Choose Folder From Computer
+                </button>
+              </div>
+            ) : (
+              <p className="rounded-xl border border-slate-200 p-4 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
+                Local folder scanning is a development-environment feature. Use <b>Link External Website</b> or <b>Duplicate Existing Demo</b> to add demos on this deployment.
+              </p>
+            )}
           </div>
         )}
 
@@ -1001,18 +1122,39 @@ function Wizard({
           </div>
         )}
 
+        {mode === "external" && (
+          <div className="mt-5">
+            <div className="rounded-xl border border-dashed border-slate-300 p-6 dark:border-white/15">
+              <ExternalLink className="mx-auto h-8 w-8 text-slate-400" />
+              <p className="mt-2 text-sm">Enter a public website URL to analyze and import as a demo.</p>
+              <div className="mt-4 flex gap-2">
+                <input
+                  className="studio-input flex-1"
+                  value={externalUrl}
+                  onChange={(event) => { setExternalUrl(event.target.value); setAnalyzeError(""); }}
+                  placeholder="https://example.com"
+                />
+                <button onClick={analyzeExternalUrl} disabled={!externalUrl?.trim() || analyzing} className="studio-button bg-slate-950 text-white disabled:opacity-40 dark:bg-white dark:text-slate-950">
+                  {analyzing ? "Analyzing…" : "Analyze Website"}
+                </button>
+              </div>
+              {analyzeError && <p className="mt-2 text-xs text-rose-600">{analyzeError}</p>}
+            </div>
+          </div>
+        )}
+
         {mode === "analysis" && analysis && (
           <div className="mt-5">
             <div className="rounded-2xl border border-slate-200 p-4 dark:border-white/10">
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Website Analysis</p>
               <p className="mt-2 text-lg font-semibold">{analysis.title}</p>
               <p className="mt-1 text-sm text-slate-500">
-                {analysis.detectedType === "html" ? "Static HTML Website" : analysis.detectedType === "nextjs" ? "Next.js Project Detected" : "Unknown Project"}
+                {analysis.externalUrl ? "External Website" : analysis.detectedType === "html" ? "Static HTML Website" : analysis.detectedType === "nextjs" ? "Next.js Project Detected" : "Unknown Project"}
               </p>
               <ul className="mt-3 grid grid-cols-2 gap-2">
                 {Object.entries(analysis.assets).map(([k, v]) => (
                   <li key={k} className="flex items-center gap-2 text-xs">
-                    <span className={v ? "text-emerald-600" : "text-slate-400"}>{v ? "Yes" : "No"}</span>
+                    <span className={v ? "text-emerald-600" : "text-slate-400"}>{typeof v === "number" ? (v > 0 ? `${v}` : "No") : v ? "Yes" : "No"}</span>
                     <span className="capitalize">{assetLabels[k as keyof typeof assetLabels]}</span>
                   </li>
                 ))}
@@ -1034,9 +1176,9 @@ function Wizard({
               ) : (
                 <>
                   <button onClick={importAnalysis} disabled={!analysis.ready || importing} className="studio-button bg-slate-950 text-white disabled:opacity-40">
-                    {importing ? "Importing…" : "Continue to Editor"}
+                    {importing ? "Importing…" : analysis.externalUrl ? "Import Website" : "Continue to Editor"}
                   </button>
-                  <button onClick={() => setMode("local-choice")} className="studio-button">
+                  <button onClick={() => setMode(analysis.externalUrl ? "external" : "local-choice")} className="studio-button">
                     Back
                   </button>
                 </>
