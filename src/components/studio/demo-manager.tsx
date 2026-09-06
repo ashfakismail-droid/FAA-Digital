@@ -255,37 +255,21 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     return { files, directories };
   };
 
-  const inspectDirectoryHandle = async (dir: LocalDirectoryHandle): Promise<Analysis> => {
-    const name = dir.name || "imported-site";
+  // Shared analysis for any local-site source. Both the File System Access
+  // API (showDirectoryPicker) and a regular <input webkitdirectory> file
+  // picker provide a list of relative paths plus a way to read index.html, so
+  // the same analyzer drives both.
+  const analyzeSource = async (input: {
+    name: string;
+    allPaths: string[];
+    readIndexHtml: () => Promise<string | undefined>;
+  }): Promise<Analysis> => {
+    const name = input.name || "imported-site";
     const slug = slugify(name);
-    const fileNames: string[] = [];
-    const dirNames: string[] = [];
+    const allPaths = input.allPaths;
 
-    // Walk the entire tree (not just the top level) so nested CSS/JS/images
-    // and fonts are detected in the Website Analysis checklist.
-    const walkAllPaths = async (handle: LocalDirectoryHandle, prefix = ""): Promise<string[]> => {
-      const paths: string[] = [];
-      try {
-        for await (const entry of handle.values()) {
-          const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
-          if (entry.kind === "file") paths.push(relative);
-          else paths.push(...(await walkAllPaths(entry as LocalDirectoryHandle, relative)));
-        }
-      } catch {
-        // ignore unreadable entries
-      }
-      return paths;
-    };
-    const allPaths = await walkAllPaths(dir);
-
-    try {
-      for await (const entry of dir.values()) {
-        if (entry.kind === "file") fileNames.push(entry.name);
-        else dirNames.push(entry.name);
-      }
-    } catch {
-      // ignore
-    }
+    const fileNames = allPaths.filter((p) => !p.includes("/"));
+    const dirNames = [...new Set(allPaths.filter((p) => p.includes("/")).map((p) => p.split("/")[0]))];
 
     const hasIndex = fileNames.includes("index.html");
     const hasPackageJson = fileNames.includes("package.json");
@@ -305,11 +289,9 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
 
     if (hasIndex) {
       try {
-        const fh = await dir.getFileHandle?.("index.html");
-        if (fh) {
-          const file = await fh.getFile();
-          const html = await file.text();
-          const t = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+        const html = await input.readIndexHtml();
+        if (html) {
+          const t = html.match(/<title[^>]*>([^<]+)<\\/title>/i);
           if (t) title = t[1].trim();
           const d = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
           if (d) description = d[1].trim();
@@ -330,9 +312,9 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       }
     }
 
-    const hasCss = allPaths.some((e) => /\.css$/i.test(e));
-    const hasJs = allPaths.some((e) => /\.(mjs|cjs|js)$/i.test(e));
-    const hasImages = allPaths.some((e) => /\.(png|jpe?g|gif|svg|webp|avif|ico)$/i.test(e));
+    const hasCss = allPaths.some((e) => /\\.css$/i.test(e));
+    const hasJs = allPaths.some((e) => /\\.(mjs|cjs|js)$/i.test(e));
+    const hasImages = allPaths.some((e) => /\\.(png|jpe?g|gif|svg|webp|avif|ico)$/i.test(e));
     const hasFavicon = allPaths.some((e) => /favicon/i.test(e));
     const hasThumbnail = hasImages;
 
@@ -365,6 +347,66 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       ready,
       message,
     };
+  };
+
+  // File System Access API path (Chromium browsers).
+  const inspectDirectoryHandle = async (dir: LocalDirectoryHandle): Promise<Analysis> => {
+    const walkAllPaths = async (handle: LocalDirectoryHandle, prefix = ""): Promise<string[]> => {
+      const paths: string[] = [];
+      try {
+        for await (const entry of handle.values()) {
+          const relative = prefix ? \`\${prefix}/\${entry.name}\` : entry.name;
+          if (entry.kind === "file") paths.push(relative);
+          else paths.push(...(await walkAllPaths(entry as LocalDirectoryHandle, relative)));
+        }
+      } catch {
+        // ignore unreadable entries
+      }
+      return paths;
+    };
+    const allPaths = await walkAllPaths(dir);
+    return analyzeSource({
+      name: dir.name || "imported-site",
+      allPaths,
+      readIndexHtml: async () => {
+        try {
+          const fh = await dir.getFileHandle?.("index.html");
+          if (!fh) return undefined;
+          const file = await fh.getFile();
+          return await file.text();
+        } catch {
+          return undefined;
+        }
+      },
+    });
+  };  // Regular file-input path (all browsers): <input type="file" webkitdirectory>.
+  const analyzeFileList = async (files: File[]): Promise<Analysis> => {
+    const allPaths = files.map((f) => f.webkitRelativePath || f.name);
+    const indexFile = files.find((f) => {
+      const p = (f.webkitRelativePath || f.name).replace(/\\\\/g, "/");
+      return p === "index.html" || p.endsWith("/index.html");
+    });
+    const name = indexFile
+      ? (indexFile.webkitRelativePath || indexFile.name).split("/").filter(Boolean).slice(0, -1).join("-") || "imported-site"
+      : "imported-site";
+    return analyzeSource({
+      name,
+      allPaths,
+      readIndexHtml: async () => (indexFile ? indexFile.text() : undefined),
+    });
+  };
+
+  const collectFileEntries = (files: File[]): { files: Array<{ path: string; file: File }>; directories: string[] } => {
+    const collected: Array<{ path: string; file: File }> = [];
+    const dirSet = new Set<string>();
+    for (const file of files) {
+      const relative = (file.webkitRelativePath || f.name).replace(/\\\\/g, "/");
+      if (!relative || relative.includes("\\0") || relative.startsWith("/")) continue;
+      collected.push({ path: relative, file });
+      const segments = relative.split("/");
+      for (let idx = 1; idx < segments.length; idx += 1) dirSet.add(segments.slice(0, idx).join("/"));
+    }
+    return { files: collected, directories: [...dirSet].sort() };
   };
 
   const selectFolder = (folder: Folder) => {
