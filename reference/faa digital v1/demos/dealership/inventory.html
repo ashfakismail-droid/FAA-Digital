@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory — Prestige Motors</title>
+  <meta name="description" content="Browse our full inventory of luxury and performance vehicles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="inventory" data-nav="solid">
+  <header id="site-nav"></header>
+
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)">
+        <a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Inventory</span>
+      </div>
+      <h1>Our Inventory</h1>
+      <p>Discover over a hundred hand-selected luxury and performance vehicles, each inspected to our exacting standard.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Filters -->
+      <div class="filters reveal">
+        <div class="filters__grid">
+          <div class="field">
+            <label for="fBrand">Brand</label>
+            <select id="fBrand"><option value="">All brands</option></select>
+          </div>
+          <div class="field">
+            <label for="fBody">Body Type</label>
+            <select id="fBody"><option value="">All types</option></select>
+          </div>
+          <div class="field">
+            <label for="fFuel">Fuel</label>
+            <select id="fFuel"><option value="">All fuel</option></select>
+          </div>
+          <div class="field">
+            <label for="fTrans">Transmission</label>
+            <select id="fTrans"><option value="">All</option></select>
+          </div>
+          <div class="field">
+            <label for="fYear">Year</label>
+            <select id="fYear"><option value="">All years</option></select>
+          </div>
+          <div class="field">
+            <label for="fSeats">Seats</label>
+            <select id="fSeats"><option value="">Any</option></select>
+          </div>
+          <div class="field">
+            <label for="fColor">Exterior Color</label>
+            <select id="fColor"><option value="">All colours</option></select>
+          </div>
+          <div class="field">
+            <label for="fAvail">Availability</label>
+            <select id="fAvail"><option value="">All</option></select>
+          </div>
+          <div class="field">
+            <label for="fPrice">Max Price</label>
+            <select id="fPrice">
+              <option value="">No limit</option>
+              <option value="50000">£50,000</option>
+              <option value="100000">£100,000</option>
+              <option value="200000">£200,000</option>
+              <option value="500000">£500,000</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fMileage">Max Mileage</label>
+            <select id="fMileage">
+              <option value="">Any</option>
+              <option value="1000">Under 1,000 mi</option>
+              <option value="10000">Under 10,000 mi</option>
+              <option value="30000">Under 30,000 mi</option>
+              <option value="60000">Under 60,000 mi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fHp">Min Horsepower</label>
+            <select id="fHp">
+              <option value="">Any</option>
+              <option value="300">300+ HP</option>
+              <option value="500">500+ HP</option>
+              <option value="600">600+ HP</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex between wrap" style="margin-top:18px;gap:12px">
+          <input type="search" id="fSearch" placeholder="Search by brand, model, or keyword…" style="flex:1;min-width:240px;padding:13px 16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);color:var(--text)">
+          <button class="btn btn--outline btn--sm" id="fReset">Reset Filters</button>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <span class="result-count" id="resultCount"></span>
+        <div class="flex" style="gap:16px;align-items:center;flex-wrap:wrap">
+          <select id="fSort" style="padding:11px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg);color:var(--text)">
+            <option value="newest">Newest</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="mileage">Mileage</option>
+            <option value="year">Year</option>
+            <option value="alpha">Alphabetical</option>
+          </select>
+          <div class="toggle-group" id="viewToggle">
+            <button data-view="grid" class="active">▦ Grid</button>
+            <button data-view="list">☰ List</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="grid grid-3" id="results"></div>
+      <div id="emptyState" class="compare-empty hidden">No vehicles match your filters. <a href="#" id="clearLink" class="gold">Clear filters</a></div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/inventory.js"></script>
+</body>
+</html>

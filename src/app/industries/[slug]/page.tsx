@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check, X } from "lucide-react";
 import { getIndustry, industries } from "@/config/industries";
-import { projects } from "@/config/projects";
+import { getDemosByIndustryAsProjects } from "@/config/demos";
 import { services } from "@/config/services";
 import { createMetadata } from "@/lib/seo";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
@@ -57,7 +57,7 @@ export default async function IndustryDetailPage({
   const industry = getIndustry(slug);
   if (!industry) notFound();
 
-  const relatedProjects = projects.filter((p) => p.industry === slug);
+  const relatedProjects = getDemosByIndustryAsProjects(slug);
   const recommended = (recommendedServices[slug] ?? [])
     .map((s) => services.find((svc) => svc.slug === s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -171,11 +171,14 @@ export default async function IndustryDetailPage({
             description="Real projects in your industry — with the results to show for them."
           />
           <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-            {relatedProjects.map((project, i) => (
-              <Reveal key={project.slug} delay={i * 0.08}>
-                <ProjectCard project={project} className="h-full" />
-              </Reveal>
-            ))}
+            {relatedProjects.map((project, i) => {
+              const isExternal = project.liveUrl?.startsWith("http");
+              return (
+                <Reveal key={project.slug} delay={i * 0.08}>
+                  <ProjectCard project={project} href={project.liveUrl ?? `/demos/${project.slug}`} external={isExternal} className="h-full" />
+                </Reveal>
+              );
+            })}
           </div>
         </Section>
       )}

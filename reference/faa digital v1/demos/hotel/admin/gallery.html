@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="panel" style="margin-bottom:22px;">
+          <div class="panel-head">
+            <div><h3>Upload Image</h3><div class="sub">Add to the gallery collection</div></div>
+          </div>
+          <div class="form-row" style="align-items:end;">
+            <div class="form-group" style="margin:0;">
+              <label>Title</label>
+              <input id="g-title" placeholder="e.g. Infinity Pool" />
+            </div>
+            <div class="form-group" style="margin:0;">
+              <label>Category</label>
+              <input id="g-cat" placeholder="Facilities, Interior, Nature, Dining, Rooms" />
+            </div>
+            <div class="form-group" style="margin:0; max-width:240px;">
+              <label>Upload</label>
+              <div class="upload-preview" id="g-upload" style="height:46px;">
+                <div class="hint" style="font-size:12px;">Choose file…</div>
+                <input type="file" id="g-file" accept="image/*" />
+              </div>
+            </div>
+            <button class="btn btn-gold" id="g-add">+ Add</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-toolbar">
+            <div class="search">
+              <span class="s-ico">🔍</span>
+              <input type="text" id="g-search" placeholder="Search gallery…" />
+            </div>
+            <select id="g-filter" style="max-width:180px;">
+              <option value="all">All Categories</option>
+            </select>
+          </div>
+          <table class="data">
+            <thead><tr><th>Preview</th><th data-sort="title">Title</th><th data-sort="category">Category</th><th>Actions</th></tr></thead>
+            <tbody id="g-tbody"></tbody>
+          </table>
+          <div class="pagination" id="g-pagination"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/gallery-admin.js"></script>
+</body>
+</html>

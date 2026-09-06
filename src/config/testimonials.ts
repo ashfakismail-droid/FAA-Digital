@@ -7,7 +7,6 @@ export const testimonials: Testimonial[] = [
     name: "Priya Raman",
     role: "Managing Director",
     company: "Aurelia Boutique Hotels",
-    project: "aurelia-hotels",
   },
   {
     quote:
@@ -15,7 +14,6 @@ export const testimonials: Testimonial[] = [
     name: "Arjun Mehta",
     role: "Owner & Head Chef",
     company: "Saffron & Co.",
-    project: "saffron-and-co",
   },
   {
     quote:
@@ -23,7 +21,6 @@ export const testimonials: Testimonial[] = [
     name: "Dr. Nandini Rao",
     role: "Founder",
     company: "DentCare Studio",
-    project: "dentcare-studio",
   },
   {
     quote:
@@ -31,7 +28,6 @@ export const testimonials: Testimonial[] = [
     name: "Vikram Shah",
     role: "Principal Broker",
     company: "Northbeam Realty",
-    project: "northbeam-realty",
   },
   {
     quote:
@@ -39,7 +35,6 @@ export const testimonials: Testimonial[] = [
     name: "Sara Thomas",
     role: "Head of E-Commerce",
     company: "Atlas Home & Living",
-    project: "atlas-retail",
   },
   {
     quote:
@@ -47,7 +42,6 @@ export const testimonials: Testimonial[] = [
     name: "Dr. Kavitha Iyer",
     role: "Medical Director",
     company: "Lumina Health",
-    project: "lumina-health",
   },
   {
     quote:
@@ -55,7 +49,6 @@ export const testimonials: Testimonial[] = [
     name: "Rohan Khanna",
     role: "Director, Business Development",
     company: "Vertex Builds",
-    project: "vertex-builds",
   },
   {
     quote:
@@ -63,6 +56,5 @@ export const testimonials: Testimonial[] = [
     name: "Ananya Deshpande",
     role: "Managing Partner",
     company: "Cobalt Legal LLP",
-    project: "cobalt-legal",
   },
 ];

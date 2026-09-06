@@ -23,7 +23,7 @@ export default function NotFound() {
             <Home className="h-4 w-4" />
             Back to home
           </ButtonLink>
-          <ButtonLink href="/portfolio" variant="outline" size="lg">
+          <ButtonLink href="/demos" variant="outline" size="lg">
             <Compass className="h-4 w-4" />
             Explore our work
           </ButtonLink>
@@ -31,7 +31,6 @@ export default function NotFound() {
         <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-muted">
           {[
             { label: "Services", href: "/services" },
-            { label: "Portfolio", href: "/portfolio" },
             { label: "Demos", href: "/demos" },
             { label: "Blog", href: "/blog" },
             { label: "Contact", href: "/contact" },

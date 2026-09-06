@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { projects } from "@/config/projects";
 import { services } from "@/config/services";
 import { industries } from "@/config/industries";
 import { blogPosts } from "@/config/blog";
+import { demos } from "@/config/demos";
 import { createMetadata } from "@/lib/seo";
 import { AuroraBackground } from "@/components/visuals/aurora";
 import { SectionTag } from "@/components/ui/section";
@@ -17,7 +17,6 @@ export const metadata: Metadata = createMetadata({
 
 const mainPages = [
   { label: "Home", href: "/" },
-  { label: "Portfolio", href: "/portfolio" },
   { label: "Demo Gallery", href: "/demos" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
@@ -54,8 +53,8 @@ export default function SitemapPage() {
       <div className="container-x grid gap-6 pb-24 md:grid-cols-2 lg:grid-cols-3">
         <SitemapColumn title="Main pages" links={mainPages} />
         <SitemapColumn
-          title="Case studies"
-          links={projects.map((p) => ({ label: p.title, href: `/portfolio/${p.slug}` }))}
+          title="Demos"
+          links={demos.map((d) => ({ label: d.title, href: `/demos/${d.slug}` }))}
         />
         <SitemapColumn
           title="Services"

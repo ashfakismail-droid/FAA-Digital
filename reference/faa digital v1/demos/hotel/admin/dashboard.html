@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="stat-grid" id="stat-cards"></div>
+
+        <div class="chart-grid">
+          <div class="panel">
+            <div class="panel-head">
+              <div><h3>Monthly Bookings</h3><div class="sub">Reservations per month</div></div>
+              <span class="badge badge-gold">2026</span>
+            </div>
+            <div class="chart-box"><canvas id="chart-bookings"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><h3>Occupancy</h3><div class="sub">Average rate</div></div></div>
+            <div class="chart-box sm"><canvas id="chart-occupancy"></canvas></div>
+          </div>
+        </div>
+
+        <div class="chart-grid">
+          <div class="panel">
+            <div class="panel-head"><div><h3>Revenue</h3><div class="sub">Monthly revenue (USD)</div></div></div>
+            <div class="chart-box"><canvas id="chart-revenue"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div><h3>Room Status</h3><div class="sub">Current distribution</div></div></div>
+            <div class="chart-box sm"><canvas id="chart-rooms"></canvas></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3>Recent Reservations</h3><div class="sub">Latest booking activity</div></div>
+            <a href="reservations.html" class="btn btn-outline btn-sm">View All</a>
+          </div>
+          <div class="table-wrap">
+            <table class="data">
+              <thead><tr><th>Booking ID</th><th>Guest</th><th>Room</th><th>Dates</th><th>Status</th><th>Total</th></tr></thead>
+              <tbody id="recent-reservations"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

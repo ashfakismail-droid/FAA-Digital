@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Grand Resort — Luxury Coastal Retreat</title>
+  <meta name="description" content="Aurora Grand Resort — where elegance meets the horizon. Luxury rooms, world-class dining, and unforgettable experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div data-header></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="eyebrow">Coastal Luxury Resort</span>
+      <h1>Where Elegance<br>Meets the Horizon</h1>
+      <p>Discover a sanctuary of refined comfort, world-class dining, and curated experiences along a private stretch of coastline.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn btn-gold">Book Your Stay</a>
+        <a href="rooms.html" class="btn btn-outline">Explore Rooms</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">6</div><div class="lbl">Room Types</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="lbl">Guest Rating</div></div>
+        <div class="stat"><div class="num">24/7</div><div class="lbl">Concierge</div></div>
+        <div class="stat"><div class="num">12</div><div class="lbl">Dining Awards</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container grid grid-2" style="align-items:center; gap:50px;">
+      <div class="reveal">
+        <span class="eyebrow">About Aurora</span>
+        <h2 class="section-title">A Timeless Escape by the Sea</h2>
+        <p class="card-text" style="margin-bottom:18px;">Perched along a private stretch of coastline, Aurora Grand Resort blends timeless luxury with modern comfort. Every detail is designed to soothe the soul — from the gentle sound of waves to the warm glow of golden hour on your private terrace.</p>
+        <p class="card-text" style="margin-bottom:24px;">Our team of dedicated hosts anticipates your every need, crafting experiences that turn a simple stay into a cherished memory.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <span class="badge badge-gold">Private Beach</span>
+          <span class="badge badge-gold">Michelin Dining</span>
+          <span class="badge badge-gold">Serenity Spa</span>
+          <span class="badge badge-gold">Infinity Pool</span>
+        </div>
+      </div>
+      <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:4/5;">
+        <img src="images/about.jpg" alt="Resort view" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOMS PREVIEW -->
+  <section class="section alt" id="rooms">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Accommodation</span>
+        <h2 class="section-title">Rooms & Suites</h2>
+        <p class="section-sub">Thoughtfully designed spaces where comfort and elegance converge.</p>
+      </div>
+      <div class="grid grid-3" id="rooms-preview"></div>
+      <div class="text-center" style="margin-top:40px;">
+        <a href="rooms.html" class="btn btn-outline">View All Rooms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES -->
+  <section class="section" id="amenities">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Experiences</span>
+        <h2 class="section-title">Resort Amenities</h2>
+        <p class="section-sub">Everything you need for a stay that feels effortless and extraordinary.</p>
+      </div>
+      <div class="grid grid-4" id="amenities-grid"></div>
+    </div>
+  </section>
+
+  <!-- RESTAURANT PREVIEW -->
+  <section class="section alt" id="dining">
+    <div class="container grid grid-2" style="align-items:center; gap:50px;">
+      <div class="reveal card-img" style="border-radius:var(--radius-lg); aspect-ratio:4/3;">
+        <img src="images/restaurant.jpg" alt="Restaurant" />
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Lumière Dining</span>
+        <h2 class="section-title">A Culinary Journey</h2>
+        <p class="card-text" style="margin-bottom:18px;">Our signature restaurant, Lumière, brings together seasonal, locally sourced ingredients and refined technique. From candle-lit terrace dinners to the chef's private table, every meal is designed to be remembered.</p>
+        <p class="card-text" style="margin-bottom:24px;">Led by two-Michelin-starred Chef Antoine Laurent, the menu evolves with the seasons and the sea.</p>
+        <div style="display:flex; gap:14px; flex-wrap:wrap;">
+          <a href="restaurant.html" class="btn btn-gold">Discover Dining</a>
+          <a href="menu.html" class="btn btn-outline">View Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Visual Story</span>
+        <h2 class="section-title">Moments at Aurora</h2>
+        <p class="section-sub">A glimpse into the spaces and experiences that define our resort.</p>
+      </div>
+      <div class="masonry" id="gallery-preview"></div>
+      <div class="text-center" style="margin-top:36px;">
+        <a href="gallery.html" class="btn btn-outline">Open Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section alt" id="reviews">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="eyebrow">Guest Love</span>
+        <h2 class="section-title">What Our Guests Say</h2>
+        <p class="section-sub">Real stories from travellers who made Aurora their escape.</p>
+      </div>
+      <div class="grid grid-3" id="reviews-preview"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container" style="max-width:820px;">
+      <div class="text-center reveal">
+        <span class="eyebrow">Good to Know</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="container">
+      <div class="newsletter reveal">
+        <span class="eyebrow">Stay in Touch</span>
+        <h2 class="section-title">Join the Aurora Circle</h2>
+        <p class="section-sub" style="margin:0 auto;">Receive exclusive offers, seasonal menus, and event invitations.</p>
+        <form data-newsletter>
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit" class="btn btn-gold">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Close">×</button>
+    <button class="lb-nav lb-prev" aria-label="Previous">‹</button>
+    <img src="" alt="" />
+    <button class="lb-nav lb-next" aria-label="Next">›</button>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

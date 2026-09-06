@@ -1,4 +1,4 @@
-import type { Demo } from "@/types";
+import type { Demo, Project } from "@/types";
 
 export const demos: Demo[] = [
   {
@@ -33,7 +33,9 @@ export const demos: Demo[] = [
     seoTitle: "LUXORA — Luxury Fashion & Lifestyle",
     seoDescription: "LUXORA — curated luxury fashion and lifestyle essentials.",
     popular: true,
-    featuredHero: true
+    featured: true,
+    featuredHero: true,
+    showcase: true
   },
   {
     slug: "bella-vista",
@@ -103,6 +105,7 @@ export const demos: Demo[] = [
     ],
     icon: "ShoppingBag",
     popular: false,
+    featured: true,
     status: "live",
     thumbnail: "/demos/luxora/images/misc/luxora-preview.jpg",
     createdAt: "2024-01-15",
@@ -123,7 +126,8 @@ export const demos: Demo[] = [
       folder: "luxora",
       detectedType: "html"
     },
-    featuredHero: false
+    featuredHero: false,
+    showcase: false
   },
   {
     slug: "grand-horizon-hotel",
@@ -166,7 +170,8 @@ export const demos: Demo[] = [
       folder: "grand-horizon-hotel",
       detectedType: "html"
     },
-    featuredHero: false
+    featuredHero: false,
+    showcase: false
   },
   {
     slug: "dealership",
@@ -210,7 +215,8 @@ export const demos: Demo[] = [
       detectedType: "html"
     },
     featuredHero: false,
-    popular: true
+    popular: true,
+    showcase: true
   },
   {
     slug: "gym",
@@ -296,7 +302,8 @@ export const demos: Demo[] = [
       detectedType: "html"
     },
     featuredHero: false,
-    popular: true
+    popular: true,
+    showcase: true
   },
   {
     slug: "pub",
@@ -339,7 +346,8 @@ export const demos: Demo[] = [
       detectedType: "html"
     },
     featuredHero: false,
-    thumbnail: "/demos/pub/assets/studio-thumbnail.png?v=1785422939417"
+    thumbnail: "/demos/pub/assets/studio-thumbnail.png?v=1785422939417",
+    showcase: true
   },
   {
     slug: "real-estate",
@@ -503,4 +511,96 @@ export function getDemosByVisibility(visibility: "public" | "private") {
 export function getAllCategories() {
   const categories = new Set(demos.map((d) => d.category));
   return Array.from(categories).sort();
+}
+
+export function getFeaturedDemosAsProjects(): Project[] {
+  return demos
+    .filter((d) => d.featured === true)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .map((d) => ({
+      slug: d.slug,
+      title: d.title,
+      category: d.category,
+      industry: d.industry ?? d.category,
+      year: new Date().getFullYear().toString(),
+      client: "FAA Digital",
+      tagline: d.description,
+      summary: d.description,
+      services: d.features.length > 0 ? d.features.slice(0, 3) : [d.category],
+      stack: d.technologies,
+      highlights: d.features,
+      metrics: [],
+      overview: d.description,
+      challenge: "",
+      solution: "",
+      features: d.features.map((f) => ({ title: f, description: "" })),
+      process: [],
+      palette: d.palette,
+      icon: d.icon,
+      featured: true,
+      liveUrl: d.source?.type === "external" ? d.source.url : `/demos/${d.slug}`,
+    }));
+}
+
+export function getFeaturedHeroDemos() {
+  return demos
+    .filter((d) => d.featuredHero === true)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+}
+
+export function getDemosByIndustryAsProjects(industrySlug: string): Project[] {
+  return demos
+    .filter((d) => (d.industry ?? d.category).toLowerCase() === industrySlug.toLowerCase())
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .map((d) => ({
+      slug: d.slug,
+      title: d.title,
+      category: d.category,
+      industry: d.industry ?? d.category,
+      year: new Date().getFullYear().toString(),
+      client: "FAA Digital",
+      tagline: d.description,
+      summary: d.description,
+      services: d.features.length > 0 ? d.features.slice(0, 3) : [d.category],
+      stack: d.technologies,
+      highlights: d.features,
+      metrics: [],
+      overview: d.description,
+      challenge: "",
+      solution: "",
+      features: d.features.map((f) => ({ title: f, description: "" })),
+      process: [],
+      palette: d.palette,
+      icon: d.icon,
+      liveUrl: d.source?.type === "external" ? d.source.url : `/demos/${d.slug}`,
+    }));
+}
+export function getShowcaseDemosAsProjects(): Project[] {
+  return demos
+    .filter((d) => d.showcase === true)
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .map((d) => ({
+      slug: d.slug,
+      title: d.title,
+      category: d.category,
+      industry: d.industry ?? d.category,
+      year: new Date().getFullYear().toString(),
+      client: "FAA Digital",
+      tagline: d.description,
+      summary: d.description,
+      services: d.features.length > 0 ? d.features.slice(0, 3) : [d.category],
+      stack: d.technologies,
+      highlights: d.features,
+      metrics: [],
+      overview: d.description,
+      challenge: "",
+      solution: "",
+      features: d.features.map((f) => ({ title: f, description: "" })),
+      process: [],
+      palette: d.palette,
+      icon: d.icon,
+      showcase: true,
+      liveUrl: d.source?.type === "external" ? d.source.url : `/demos/${d.slug}`,
+      thumbnail: d.thumbnail,
+    }));
 }

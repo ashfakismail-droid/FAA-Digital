@@ -1,10 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock3, GitCommit, GitBranch, Rocket, MonitorPlay, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, GitCommit, GitBranch, Rocket, MonitorPlay, Sparkles, LayoutGrid, ExternalLink } from "lucide-react";
 import { demos } from "@/config/demos";
 import { StudioStat } from "@/components/studio/stat";
+import { WebsiteMockup } from "@/components/visuals/website-mockup";
 
 export const metadata = { title: "Dashboard — FAA Digital Studio", robots: { index: false, follow: false } };
+
+const labels: Record<string, string> = { live: "Live", "coming-soon": "Coming soon", "in-progress": "In progress", archived: "Archived" };
 
 export default function StudioDashboard() {
   if (process.env.NODE_ENV !== "development") notFound();
@@ -12,6 +15,7 @@ export default function StudioDashboard() {
   const live = demos.filter((demo) => demo.status === "live").length;
   const working = demos.filter((demo) => demo.status === "in-progress").length;
   const featured = demos.filter((demo) => demo.popular).length;
+  const showcaseDemos = demos.filter((demo) => demo.showcase);
 
   return (
     <div className="mx-auto max-w-7xl">
@@ -38,6 +42,60 @@ export default function StudioDashboard() {
           <div className="mt-6 space-y-3">{[[GitCommit,"Save metadata","Write validated changes locally"],[GitBranch,"Commit & push","Review changes in Git"],[Rocket,"Netlify deploy","Publish the public catalogue"]].map(([Icon,title,body], index) => { const StepIcon = Icon as typeof GitCommit; return <div key={title as string} className="flex gap-3 rounded-xl bg-white/[0.07] p-3 dark:bg-slate-950/[0.06]"><div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xs font-bold dark:bg-slate-950/10">{index + 1}</div><div><p className="text-sm font-semibold">{title as string}</p><p className="mt-0.5 text-xs text-white/50 dark:text-slate-500">{body as string}</p></div><StepIcon className="ml-auto mt-1 h-4 w-4 opacity-40" /></div>; })}</div>
         </section>
       </div>
+
+      <section className="mt-8 rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-white/10 dark:bg-white/[0.03]">
+        <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4 dark:border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-violet-50 text-violet-600 dark:bg-violet-500/10 dark:text-violet-400">
+              <LayoutGrid className="h-4.5 w-4.5" />
+            </div>
+            <div>
+              <h2 className="font-display font-semibold">Main Menu Showcase</h2>
+              <p className="mt-0.5 text-xs text-slate-500">Demos selected for the future main-menu showcase ({showcaseDemos.length})</p>
+            </div>
+          </div>
+          <Link href="/studio/demos" className="text-xs font-semibold text-brand-600 dark:text-brand-400">Manage in Demo Manager</Link>
+        </div>
+
+        {showcaseDemos.length === 0 ? (
+          <div className="px-5 py-16 text-center">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 dark:bg-white/5">
+              <LayoutGrid className="h-6 w-6 text-slate-400" />
+            </div>
+            <p className="mt-4 font-display text-lg font-semibold text-slate-900 dark:text-white">No showcase demos yet</p>
+            <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">Open Demo Manager and enable <span className="font-medium text-slate-700 dark:text-slate-300">Main Menu Showcase</span> on any demo to add it here.</p>
+          </div>
+        ) : (
+          <div className="grid gap-5 p-5 sm:grid-cols-2 xl:grid-cols-4">
+            {showcaseDemos.sort((a, b) => (a.order ?? 0) - (b.order ?? 0)).map((demo) => {
+              const href = demo.source?.type === "external" ? demo.source.url : `/demos/${demo.source?.folder ?? demo.slug}`;
+              const isExternal = demo.source?.type === "external";
+              return (
+                <article key={demo.slug} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-card dark:border-white/10 dark:bg-white/[.03]">
+                  <div className="relative">
+                    <WebsiteMockup icon={demo.icon} palette={demo.palette} title={demo.title} category={demo.category} thumbnail={demo.thumbnail} className="aspect-[16/10]" />
+                    {demo.popular && (
+                      <span className="absolute left-3 top-3 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-amber-900">Featured</span>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <b className="text-sm">{demo.title}</b>
+                    <p className="mt-1 text-xs text-slate-500">{demo.industry ?? demo.category} · {labels[demo.status] ?? demo.status}</p>
+                    <div className="mt-3 flex gap-1.5">
+                      <a href={href} target="_blank" rel="noreferrer" className="studio-mini border">
+                        <ExternalLink className="h-3 w-3" /> Open
+                      </a>
+                      <Link href={`/studio/demos`} className="studio-mini border">
+                        Edit
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+      </section>
     </div>
   );
 }

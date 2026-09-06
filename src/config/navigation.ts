@@ -1,7 +1,6 @@
 import type { NavItem, NavGroup } from "@/types";
 
 export const primaryNav: (NavItem | NavGroup)[] = [
-  { label: "Portfolio", href: "/portfolio" },
   { label: "Demos", href: "/demos" },
   { label: "Services", href: "/services" },
   { label: "Industries", href: "/industries" },
@@ -18,7 +17,7 @@ export const footerNav = {
   company: [
     { label: "About", href: "/about" },
     { label: "Process", href: "/process" },
-    { label: "Portfolio", href: "/portfolio" },
+    { label: "Demos", href: "/demos" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],

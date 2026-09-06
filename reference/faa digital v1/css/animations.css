@@ -1,0 +1,48 @@
+/* =========================================================
+   FAA DIGITAL — ANIMATIONS (V1)
+   Scroll reveals, marquee scroll, pulse dot, accordion state
+   Subtle, premium motion only — performance first.
+   ========================================================= */
+
+/* Respect reduced motion preference first */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scroll reveal — elements start hidden, JS toggles .is-visible via IntersectionObserver */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children within a revealed grid for a subtle cascade */
+.services-grid [data-reveal],
+.portfolio-grid [data-reveal],
+.pricing-grid [data-reveal],
+.why-grid [data-reveal],
+.testimonials-grid [data-reveal],
+.process-list [data-reveal] {
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 rgba(125, 211, 252, 0.45); }
+  70% { box-shadow: 0 0 0 8px rgba(125, 211, 252, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(125, 211, 252, 0); }
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

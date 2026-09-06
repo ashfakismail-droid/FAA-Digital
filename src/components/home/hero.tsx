@@ -4,14 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { site } from "@/config/site";
-import { projects } from "@/config/projects";
+import { getFeaturedHeroDemos } from "@/config/demos";
 import { ButtonLink } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { AuroraBackground } from "@/components/visuals/aurora";
 import { WebsiteMockup } from "@/components/visuals/website-mockup";
 import { EASE_OUT } from "@/lib/motion";
 
-const showcaseProjects = projects.filter((p) => p.featured).slice(0, 3);
+const heroDemos = getFeaturedHeroDemos();
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -91,7 +91,7 @@ export function Hero() {
               </ButtonLink>
             </Magnetic>
             <Magnetic>
-              <ButtonLink href="/portfolio" variant="outline" size="lg" className="group">
+              <ButtonLink href="/demos" variant="outline" size="lg" className="group">
                 <Play className="h-4 w-4 fill-current" />
                 See our work
               </ButtonLink>
@@ -112,6 +112,7 @@ export function Hero() {
         </motion.div>
 
         {/* Floating project showcase */}
+        {heroDemos.length > 0 && (
         <motion.div
           style={{ y: yCards, opacity }}
           className="relative mx-auto mt-16 max-w-5xl sm:mt-20"
@@ -125,32 +126,39 @@ export function Hero() {
             {/* Center card */}
             <div className="relative z-20 mx-auto w-full max-w-2xl">
               <WebsiteMockup
-                icon={showcaseProjects[0].icon}
-                palette={showcaseProjects[0].palette}
-                title={showcaseProjects[0].title}
-                category={showcaseProjects[0].category}
+                icon={heroDemos[0].icon}
+                palette={heroDemos[0].palette}
+                title={heroDemos[0].title}
+                category={heroDemos[0].category}
+                thumbnail={heroDemos[0].thumbnail}
                 variant="hero"
                 className="aspect-[16/10] rounded-2xl shadow-lifted ring-1 ring-white/10"
               />
             </div>
 
             {/* Side cards */}
+            {heroDemos.length > 1 && (
             <div className="absolute -left-4 top-16 z-10 hidden w-72 -rotate-6 md:block lg:-left-12">
               <WebsiteMockup
-                icon={showcaseProjects[1].icon}
-                palette={showcaseProjects[1].palette}
-                title={showcaseProjects[1].title}
+                icon={heroDemos[1].icon}
+                palette={heroDemos[1].palette}
+                title={heroDemos[1].title}
+                thumbnail={heroDemos[1].thumbnail}
                 className="aspect-[16/10] animate-float rounded-xl opacity-90 shadow-card ring-1 ring-white/10"
               />
             </div>
+            )}
+            {heroDemos.length > 2 && (
             <div className="absolute -right-4 top-20 z-10 hidden w-72 rotate-6 md:block lg:-right-12">
               <WebsiteMockup
-                icon={showcaseProjects[2].icon}
-                palette={showcaseProjects[2].palette}
-                title={showcaseProjects[2].title}
+                icon={heroDemos[2].icon}
+                palette={heroDemos[2].palette}
+                title={heroDemos[2].title}
+                thumbnail={heroDemos[2].thumbnail}
                 className="aspect-[16/10] animate-float-slow rounded-xl opacity-90 shadow-card ring-1 ring-white/10"
               />
             </div>
+            )}
 
             {/* Floating badges */}
             <div className="absolute -right-2 top-4 z-30 hidden animate-float rounded-2xl border border-border bg-surface/90 px-4 py-3 shadow-card backdrop-blur-md [animation-delay:-2s] lg:block">
@@ -163,6 +171,7 @@ export function Hero() {
             </div>
           </motion.div>
         </motion.div>
+        )}
       </div>
     </section>
   );

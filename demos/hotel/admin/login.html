@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — Aurora Grand Resort</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="login-wrap">
+    <div class="login-hero">
+      <div class="brand">
+        <span class="logo-mark">A</span>
+        <span>Aurora<span style="color:var(--gold);"> Grand</span></span>
+      </div>
+      <div class="quote">
+        <h1>Welcome back,<br>Hotelier.</h1>
+        <p>Manage rooms, reservations, dining and guests from one elegant control center.</p>
+      </div>
+      <div style="color:var(--text-mute); font-size:13px;">© 2026 Aurora Grand Resort</div>
+    </div>
+
+    <div class="login-form-side">
+      <form class="login-card" id="login-form" novalidate>
+        <h2>Sign In</h2>
+        <p class="sub">Enter your credentials to access the dashboard.</p>
+        <div class="demo">Demo login — <b>admin</b> / <b>admin123</b> &nbsp;·&nbsp; <b>manager</b> / <b>manager123</b></div>
+
+        <div class="form-group">
+          <label>Username</label>
+          <input name="username" placeholder="admin" required />
+          <div class="field-error">Username is required.</div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input name="password" type="password" placeholder="••••••••" required />
+          <div class="field-error">Password is required.</div>
+        </div>
+        <div class="checkbox-row" style="margin-bottom:18px;">
+          <input type="checkbox" id="remember" name="remember" />
+          <label for="remember" style="margin:0;">Remember me</label>
+          <a href="#" style="margin-left:auto; color:var(--gold); font-size:13px;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-gold btn-block">Sign In</button>
+        <p style="text-align:center; margin-top:18px; font-size:13px; color:var(--text-mute);">
+          <a href="../index.html" style="color:var(--text-dim);">← Back to website</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

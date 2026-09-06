@@ -148,7 +148,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     let slug = `${demo.slug}-copy`;
     let n = 2;
     while (items.some((d) => d.slug === slug)) slug = `${demo.slug}-copy-${n++}`;
-    addDraft({ ...structuredClone(demo), slug, title: `${demo.title} Copy`, status: "in-progress", publishState: "draft", visibility: "private", popular: false, featuredHero: false });
+    addDraft({ ...structuredClone(demo), slug, title: `${demo.title} Copy`, status: "in-progress", publishState: "draft", visibility: "private", popular: false, featured: false, featuredHero: false, showcase: false });
   };
 
   const mutate = (slugs: string[], change: Partial<Demo>) => setItems((all) => all.map((d) => (slugs.includes(d.slug) ? { ...d, ...change } : d)));
@@ -420,7 +420,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
         <div>
           <p className="text-sm font-medium text-brand-600">Content workspace</p>
           <h1 className="mt-1 font-display text-3xl font-semibold">Demo Manager</h1>
-          <p className="mt-2 text-sm text-slate-500">A visual, metadata-driven portfolio workspace.</p>
+          <p className="mt-2 text-sm text-slate-500">A visual, metadata-driven demo workspace.</p>
         </div>
         <div className="flex gap-2">
           <button onClick={openWizard} className="studio-button">
@@ -879,7 +879,13 @@ function Editor({ demo, setDemo, cancel, save }: { demo: Demo; setDemo: (d: Demo
           <input type="checkbox" checked={!!demo.popular} onChange={(e) => patch({ popular: e.target.checked })} /> Featured
         </label>
         <label className="mt-2 flex items-center gap-2 text-sm font-medium">
+          <input type="checkbox" checked={!!demo.featured} onChange={(e) => patch({ featured: e.target.checked })} /> Featured Work
+        </label>
+        <label className="mt-2 flex items-center gap-2 text-sm font-medium">
           <input type="checkbox" checked={!!demo.featuredHero} onChange={(e) => patch({ featuredHero: e.target.checked })} /> Featured Hero
+        </label>
+        <label className="mt-2 flex items-center gap-2 text-sm font-medium">
+          <input type="checkbox" checked={!!demo.showcase} onChange={(e) => patch({ showcase: e.target.checked })} /> Main Menu Showcase
         </label>
 
         <div className="mt-6 flex gap-2">

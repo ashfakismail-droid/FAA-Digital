@@ -8,13 +8,18 @@ import { cn } from "@/lib/utils";
 export function ProjectCard({
   project,
   className,
+  href,
+  external,
 }: {
   project: Project;
   className?: string;
+  href?: string;
+  external?: boolean;
 }) {
   return (
     <Link
-      href={`/portfolio/${project.slug}`}
+      href={href ?? `/demos/${project.slug}`}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={cn(
         "group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-soft transition-all duration-500 ease-out-expo hover:-translate-y-1.5 hover:border-brand-500/30 hover:shadow-lifted",
         className
@@ -27,6 +32,7 @@ export function ProjectCard({
           palette={project.palette}
           title={project.title}
           category={project.category}
+          thumbnail={project.thumbnail}
           className="aspect-[16/10] transition-transform duration-700 ease-out-expo group-hover:scale-[1.04]"
         />
         {project.featured && (

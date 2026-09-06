@@ -35,3 +35,5 @@ next-env.d.ts
 
 # studio
 .studio-check.log
+dev-stdout.log
+dev-stderr.log

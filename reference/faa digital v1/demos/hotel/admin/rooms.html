@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="table-wrap">
+          <div class="table-toolbar">
+            <div class="search">
+              <span class="s-ico">🔍</span>
+              <input type="text" id="room-search" placeholder="Search rooms…" />
+            </div>
+            <select id="room-filter" style="max-width:180px;">
+              <option value="all">All Status</option>
+              <option value="available">Available</option>
+              <option value="booked">Booked</option>
+              <option value="maintenance">Maintenance</option>
+            </select>
+            <button class="btn btn-gold btn-sm" id="add-room-btn">+ Add Room</button>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th data-sort="name">Room</th>
+                <th data-sort="type">Type</th>
+                <th data-sort="price">Price</th>
+                <th>Capacity</th>
+                <th data-sort="status">Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="rooms-tbody"></tbody>
+          </table>
+          <div class="pagination" id="rooms-pagination"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Room modal -->
+  <div class="modal-overlay" id="room-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="room-modal-title">Add Room</h3>
+        <button class="modal-close" data-close-modal="room-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="room-form" novalidate>
+          <input type="hidden" name="id" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Room Name</label>
+              <input name="name" required /><div class="field-error">Required.</div>
+            </div>
+            <div class="form-group">
+              <label>Type</label>
+              <select name="type">
+                <option>Standard</option><option>Premium</option><option>Suite</option>
+                <option>Loft</option><option>Villa</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Price / night</label>
+              <input name="price" type="number" min="0" required /><div class="field-error">Required.</div>
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+              <select name="status">
+                <option value="available">Available</option>
+                <option value="booked">Booked</option>
+                <option value="maintenance">Maintenance</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Capacity</label>
+              <input name="capacity" type="number" min="1" value="2" />
+            </div>
+            <div class="form-group">
+              <label>Size (m²)</label>
+              <input name="size" type="number" min="0" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Beds</label>
+            <input name="beds" placeholder="e.g. 1 King" />
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Amenities (comma separated)</label>
+            <input name="amenities" placeholder="Wi-Fi, Mini Bar, Sea View" />
+          </div>
+          <div class="form-group">
+            <label>Image URL</label>
+            <input name="image" placeholder="images/rooms/..." />
+          </div>
+          <div class="checkbox-row" style="margin-bottom:18px;">
+            <input type="checkbox" id="room-featured" name="featured" />
+            <label for="room-featured" style="margin:0;">Featured on homepage</label>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Save Room</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/rooms-admin.js"></script>
+</body>
+</html>

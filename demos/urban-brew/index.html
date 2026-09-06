@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Brew Café — Craft Coffee, Fresh Bakery, Cozy Workspace</title>
+<meta name="description" content="Urban Brew Café — craft coffee, fresh bakery and a cozy workspace. Explore our menu, seasonal specials, and loyalty rewards.">
+<meta name="theme-color" content="#17110b">
+<link rel="icon" href="data:,">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="container nav__inner">
+    <a href="#home" class="nav__brand">Urban <span>Brew</span></a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#coffee">Coffee</a>
+      <a href="#menu">Menu</a>
+      <a href="#bakery">Bakery</a>
+      <a href="#specials">Specials</a>
+      <a href="#workspace">Workspace</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#location" class="btn btn--rust nav__cta">Find Us</a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="container hero__grid-inner">
+      <div>
+        <p class="hero__tagline reveal" data-reveal>Craft Coffee · Fresh Bakery · Cozy Workspace</p>
+        <h1 class="hero__title reveal" data-reveal>Your daily brew, made to slow you down.</h1>
+        <p class="hero__subtitle reveal" data-reveal>
+          Single-origin beans, house-baked pastries, and a room built for
+          lingering — whether you're here for one coffee or a full workday.
+        </p>
+        <div class="hero__actions reveal" data-reveal>
+          <a href="#menu" class="btn btn--rust">View Our Menu</a>
+          <a href="#location" class="btn btn--ghost">Visit Us Today</a>
+        </div>
+        <div class="hero__stats reveal" data-reveal>
+          <div><h3>15+</h3><p>Coffee Origins</p></div>
+          <div><h3>8am–9pm</h3><p>Open Daily</p></div>
+          <div><h3>4.8★</h3><p>Guest Rating</p></div>
+        </div>
+      </div>
+
+      <div class="hero__cup-wrap reveal" data-reveal aria-hidden="true">
+        <div class="steam steam--1"></div>
+        <div class="steam steam--2"></div>
+        <div class="steam steam--3"></div>
+        <div class="cup">
+          <div class="cup__saucer"></div>
+          <div class="cup__body"></div>
+          <div class="cup__handle"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__visual reveal" data-reveal aria-hidden="true"></div>
+        <div>
+          <span class="eyebrow reveal" data-reveal>Our Story</span>
+          <h2 class="section__title reveal" data-reveal>Roasted small-batch, served with intention.</h2>
+          <div class="about__body reveal" data-reveal>
+            <p>Urban Brew started as a single roaster cart at a weekend
+              market. Today it's a full café, but the philosophy hasn't
+              moved an inch: source honestly, roast in small batches, and
+              build a room people actually want to spend their afternoon in.</p>
+            <p>Every cup is pulled to order, every pastry is baked before
+              sunrise, and every table has room for a laptop, a notebook, or
+              just a good conversation. <strong>This is a café built for
+              staying, not just stopping by.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED COFFEE ============ -->
+  <section class="section section--alt" id="coffee">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Featured Coffee</span>
+      <h2 class="section__title reveal" data-reveal>This week's pour-over picks.</h2>
+      <p class="section__subtitle reveal" data-reveal>Rotating single-origin beans, roasted in-house.</p>
+
+      <div class="feature-grid stagger">
+        <article class="feature-card reveal" data-reveal>
+          <div class="feature-card__cover fc-1"><span class="feature-card__badge">Bestseller</span></div>
+          <div class="feature-card__info">
+            <h3>Caramel Latte</h3>
+            <p>Espresso, steamed milk, house caramel — smooth and balanced.</p>
+            <p class="feature-card__price">₹319</p>
+          </div>
+        </article>
+        <article class="feature-card reveal" data-reveal>
+          <div class="feature-card__cover fc-2"><span class="feature-card__badge">New</span></div>
+          <div class="feature-card__info">
+            <h3>Spanish Latte</h3>
+            <p>Espresso with condensed milk and steamed milk — rich and sweet.</p>
+            <p class="feature-card__price">₹339</p>
+          </div>
+        </article>
+        <article class="feature-card reveal" data-reveal>
+          <div class="feature-card__cover fc-3"><span class="feature-card__badge">Cold Brew</span></div>
+          <div class="feature-card__info">
+            <h3>Hazelnut Cold Brew</h3>
+            <p>18-hour steeped cold brew with house hazelnut syrup.</p>
+            <p class="feature-card__price">₹359</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COFFEE MENU ============ -->
+  <section class="section" id="menu">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Coffee Menu</span>
+      <h2 class="section__title reveal" data-reveal>Hot, cold, or somewhere in between.</h2>
+
+      <div class="menu-tabs reveal" data-reveal role="tablist" aria-label="Coffee menu categories">
+        <button class="menu-tab is-active" data-tab="hot" role="tab" aria-selected="true">Coffee</button>
+        <button class="menu-tab" data-tab="cold" role="tab" aria-selected="false">Cold Coffee</button>
+        <button class="menu-tab" data-tab="tea" role="tab" aria-selected="false">Tea</button>
+        <button class="menu-tab" data-tab="signature" role="tab" aria-selected="false">Signature Drinks</button>
+      </div>
+
+      <div class="menu-panel is-active" id="panel-hot" role="tabpanel">
+        <div class="menu-list">
+          <div class="menu-item"><p class="menu-item__name">Espresso</p><p class="menu-item__price">₹149</p></div>
+          <div class="menu-item"><p class="menu-item__name">Americano</p><p class="menu-item__price">₹179</p></div>
+          <div class="menu-item"><p class="menu-item__name">Cappuccino</p><p class="menu-item__price">₹249</p></div>
+          <div class="menu-item"><p class="menu-item__name">Latte</p><p class="menu-item__price">₹259</p></div>
+          <div class="menu-item"><p class="menu-item__name">Flat White</p><p class="menu-item__price">₹269</p></div>
+          <div class="menu-item"><p class="menu-item__name">Mocha</p><p class="menu-item__price">₹299</p></div>
+          <div class="menu-item"><p class="menu-item__name">Caramel Latte</p><p class="menu-item__price">₹319</p></div>
+          <div class="menu-item"><p class="menu-item__name">Vanilla Latte</p><p class="menu-item__price">₹319</p></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-cold" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item"><p class="menu-item__name">Cold Brew</p><p class="menu-item__price">₹279</p></div>
+          <div class="menu-item"><p class="menu-item__name">Iced Latte</p><p class="menu-item__price">₹299</p></div>
+          <div class="menu-item"><p class="menu-item__name">Iced Mocha</p><p class="menu-item__price">₹329</p></div>
+          <div class="menu-item"><p class="menu-item__name">Coffee Frappe</p><p class="menu-item__price">₹369</p></div>
+          <div class="menu-item"><p class="menu-item__name">Affogato</p><p class="menu-item__price">₹349</p></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-tea" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item"><p class="menu-item__name">Masala Chai</p><p class="menu-item__price">₹149</p></div>
+          <div class="menu-item"><p class="menu-item__name">Green Tea</p><p class="menu-item__price">₹179</p></div>
+          <div class="menu-item"><p class="menu-item__name">English Breakfast</p><p class="menu-item__price">₹199</p></div>
+          <div class="menu-item"><p class="menu-item__name">Chamomile Tea</p><p class="menu-item__price">₹229</p></div>
+        </div>
+      </div>
+
+      <div class="menu-panel" id="panel-signature" role="tabpanel" hidden>
+        <div class="menu-list">
+          <div class="menu-item"><p class="menu-item__name">Hazelnut Cold Brew</p><p class="menu-item__price">₹359</p></div>
+          <div class="menu-item"><p class="menu-item__name">Salted Caramel Latte</p><p class="menu-item__price">₹349</p></div>
+          <div class="menu-item"><p class="menu-item__name">Matcha Latte</p><p class="menu-item__price">₹329</p></div>
+          <div class="menu-item"><p class="menu-item__name">Spanish Latte</p><p class="menu-item__price">₹339</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAKERY ============ -->
+  <section class="section section--alt" id="bakery">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Bakery</span>
+      <h2 class="section__title reveal" data-reveal>Baked fresh, every morning.</h2>
+      <p class="section__subtitle reveal" data-reveal>Pair your coffee with something warm from the oven.</p>
+
+      <div class="bakery-grid stagger">
+        <div class="bakery-card reveal" data-reveal><div><h4>Butter Croissant</h4><p>Flaky, all-butter, classic</p></div><span class="bakery-card__price">₹179</span></div>
+        <div class="bakery-card reveal" data-reveal><div><h4>Chocolate Croissant</h4><p>Dark chocolate batons, laminated dough</p></div><span class="bakery-card__price">₹229</span></div>
+        <div class="bakery-card reveal" data-reveal><div><h4>Blueberry Muffin</h4><p>Bursting with fresh blueberries</p></div><span class="bakery-card__price">₹199</span></div>
+        <div class="bakery-card reveal" data-reveal><div><h4>Cheesecake</h4><p>Creamy New York-style slice</p></div><span class="bakery-card__price">₹299</span></div>
+        <div class="bakery-card reveal" data-reveal><div><h4>Chocolate Brownie</h4><p>Fudgy, dense, walnut topped</p></div><span class="bakery-card__price">₹249</span></div>
+        <div class="bakery-card reveal" data-reveal><div><h4>Cinnamon Roll</h4><p>Warm glaze, cinnamon swirl</p></div><span class="bakery-card__price">₹239</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEASONAL SPECIALS ============ -->
+  <section class="section" id="specials">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Seasonal Specials</span>
+      <h2 class="section__title reveal" data-reveal>Limited-time, while they last.</h2>
+
+      <div class="specials-banner reveal" data-reveal>
+        <div>
+          <h3 style="font-size:26px; margin-bottom:14px;">Monsoon Warmers Menu</h3>
+          <p style="color:var(--tan-dim); font-size:15px; max-width:420px;">
+            A short run of cozy, spice-forward drinks made for rainy
+            afternoons — available through the end of the season.
+          </p>
+        </div>
+        <div class="specials-list">
+          <div class="menu-item"><p class="menu-item__name">Spiced Chai Latte</p><p class="menu-item__price">₹289</p></div>
+          <div class="menu-item"><p class="menu-item__name">Cardamom Cold Brew</p><p class="menu-item__price">₹319</p></div>
+          <div class="menu-item"><p class="menu-item__name">Honey Ginger Warmer</p><p class="menu-item__price">₹269</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section section--alt" id="gallery">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Gallery</span>
+      <h2 class="section__title reveal" data-reveal>Inside Urban Brew.</h2>
+
+      <div class="gallery-grid stagger">
+        <div class="gallery-item gallery-item--tall ug1 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug2 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug3 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item gallery-item--tall ug4 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug5 reveal" data-reveal aria-hidden="true"></div>
+        <div class="gallery-item ug6 reveal" data-reveal aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Guest Reviews</span>
+      <h2 class="section__title reveal" data-reveal>What regulars say.</h2>
+
+      <div class="testimonial-grid stagger">
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"My go-to spot for remote work days. Wifi's solid, outlets everywhere, and the cold brew is the best in the area."</p>
+          <p class="testimonial-card__author">Arjun Mehta</p>
+          <p class="testimonial-card__role">Freelance Designer</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"The cinnamon roll alone is worth the trip. Staff remembers my order after two visits — that's rare."</p>
+          <p class="testimonial-card__author">Sneha Kulkarni</p>
+          <p class="testimonial-card__role">Regular Guest</p>
+        </article>
+        <article class="testimonial-card reveal" data-reveal>
+          <p class="testimonial-card__stars">★★★★★</p>
+          <p class="quote">"Genuinely great espresso. Rare to find a café this consistent on extraction, every single time."</p>
+          <p class="testimonial-card__author">Michael Braun</p>
+          <p class="testimonial-card__role">Coffee Enthusiast</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WORKSPACE FEATURES ============ -->
+  <section class="section section--alt" id="workspace">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Workspace Features</span>
+      <h2 class="section__title reveal" data-reveal>Built for a full day of work.</h2>
+
+      <div class="workspace-grid stagger">
+        <div class="workspace-item reveal" data-reveal>
+          <div class="workspace-item__icon">📶</div>
+          <h4>Fast Wifi</h4>
+          <p>Fibre broadband, no login walls</p>
+        </div>
+        <div class="workspace-item reveal" data-reveal>
+          <div class="workspace-item__icon">🔌</div>
+          <h4>Outlets Everywhere</h4>
+          <p>Power at every table</p>
+        </div>
+        <div class="workspace-item reveal" data-reveal>
+          <div class="workspace-item__icon">🔇</div>
+          <h4>Quiet Corners</h4>
+          <p>A hushed zone for focus work</p>
+        </div>
+        <div class="workspace-item reveal" data-reveal>
+          <div class="workspace-item__icon">🌤️</div>
+          <h4>Sunlit Seating</h4>
+          <p>Window bar seats all day long</p>
+        </div>
+      </div>
+
+      <div class="loyalty-card reveal" data-reveal style="margin-top:56px;">
+        <div>
+          <h3 style="font-size:24px; margin-bottom:12px;">Urban Brew Loyalty Card</h3>
+          <p style="color:var(--tan-dim); font-size:14.5px; max-width:380px;">Collect a stamp with every drink. Your 10th coffee is on the house — ask our barista to scan your card.</p>
+        </div>
+        <div class="loyalty-card__stamps" aria-label="7 of 10 stamps collected">
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp is-filled">☕</div>
+          <div class="stamp"></div>
+          <div class="stamp"></div>
+          <div class="stamp">🎁</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION & HOURS ============ -->
+  <section class="section" id="location">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Location &amp; Hours</span>
+      <h2 class="section__title reveal" data-reveal>Come say hi.</h2>
+
+      <div class="location-grid">
+        <div class="map-placeholder reveal" data-reveal>
+          <div class="map-placeholder__pin"><span>UB</span></div>
+          <p class="map-placeholder__label">45 Brigade Road, Bangalore — Google Maps embed goes here</p>
+        </div>
+        <div class="reveal" data-reveal>
+          <table class="hours-table">
+            <tr><td>Monday – Friday</td><td>8:00 AM – 9:00 PM</td></tr>
+            <tr><td>Saturday</td><td>8:00 AM – 10:00 PM</td></tr>
+            <tr><td>Sunday</td><td>9:00 AM – 8:00 PM</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="newsletter reveal" data-reveal style="margin-top:56px;">
+        <h3 style="font-size:22px;">Get first dibs on seasonal drops.</h3>
+        <p style="color:var(--tan-dim); font-size:14.5px; margin-top:8px;">One email a month. No spam, just new menu drops and events.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+          <label for="nl-email" class="visually-hidden" style="position:absolute; left:-9999px;">Email address</label>
+          <input type="email" id="nl-email" name="email" placeholder="you@email.com" required>
+          <button type="submit" class="btn btn--rust">Subscribe</button>
+        </form>
+        <p class="newsletter-note" id="newsletterNote" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--alt" id="contact">
+    <div class="container">
+      <span class="eyebrow reveal" data-reveal>Contact</span>
+      <h2 class="section__title reveal" data-reveal>Questions, catering, or feedback?</h2>
+
+      <div class="contact-grid">
+        <div class="reveal" data-reveal>
+          <p style="color:var(--tan-dim); font-size:16px; max-width:520px;">
+            Reach out for bulk orders, private bookings, or just to tell us
+            what you'd like to see on the menu next.
+          </p>
+        </div>
+        <aside class="contact-side reveal" data-reveal>
+          <div class="contact-side__block">
+            <h3>Phone</h3>
+            <a href="tel:+919812345678">+91 98123 45678</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Email</h3>
+            <a href="mailto:hello@urbanbrewcafe.com">hello@urbanbrewcafe.com</a>
+          </div>
+          <div class="contact-side__block">
+            <h3>Address</h3>
+            <p>45 Brigade Road, Bangalore 560025</p>
+          </div>
+          <div class="contact-side__block">
+            <h3>Follow along</h3>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      Urban <span>Brew</span>
+      <p>Craft coffee, fresh bakery, and a cozy workspace — open daily.</p>
+    </div>
+    <div class="footer__col">
+      <h4>Explore</h4>
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <div class="footer__col">
+      <h4>Visit</h4>
+      <a href="#workspace">Workspace</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="tel:+919812345678">+91 98123 45678</a>
+      <a href="mailto:hello@urbanbrewcafe.com">hello@urbanbrewcafe.com</a>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> Urban Brew Café. All rights reserved.</p>
+    <p>Demo site by <a href="../../index.html">FAA Digital</a></p>
+  </div>
+</footer>
+
+<a href="../../index.html" class="back-to-agency">← <span class="label">Back to FAA Digital</span></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>

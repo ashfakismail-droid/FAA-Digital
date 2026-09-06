@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="table-wrap">
+          <div class="table-toolbar">
+            <div class="search">
+              <span class="s-ico">🔍</span>
+              <input type="text" id="menu-search" placeholder="Search menu items…" />
+            </div>
+            <select id="menu-filter" style="max-width:180px;">
+              <option value="all">All Categories</option>
+              <option>Breakfast</option><option>Lunch</option><option>Dinner</option>
+              <option>Desserts</option><option>Coffee</option><option>Tea</option>
+              <option>Cocktails</option><option>Mocktails</option>
+            </select>
+            <button class="btn btn-gold btn-sm" id="add-menu-btn">+ Add Item</button>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th data-sort="category">Category</th>
+                <th data-sort="price">Price</th>
+                <th>Type</th>
+                <th>Flags</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="menu-tbody"></tbody>
+          </table>
+          <div class="pagination" id="menu-pagination"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Menu modal -->
+  <div class="modal-overlay" id="menu-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="menu-modal-title">Add Menu Item</h3>
+        <button class="modal-close" data-close-modal="menu-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="menu-form" novalidate>
+          <input type="hidden" name="id" />
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input name="name" required /><div class="field-error">Required.</div>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select name="category">
+                <option>Breakfast</option><option>Lunch</option><option>Dinner</option>
+                <option>Desserts</option><option>Coffee</option><option>Tea</option>
+                <option>Cocktails</option><option>Mocktails</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Price</label>
+              <input name="price" type="number" min="0" step="0.01" required /><div class="field-error">Required.</div>
+            </div>
+            <div class="form-group">
+              <label>Image URL</label>
+              <input name="image" placeholder="images/menu/..." />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Upload Image</label>
+            <div class="upload-preview" id="menu-upload-preview">
+              <div class="hint">Click to upload<br><small>or paste URL above</small></div>
+              <input type="file" id="menu-image-file" accept="image/*" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="checkbox-row"><input type="checkbox" id="m-veg" name="veg" /><label for="m-veg" style="margin:0;">Vegetarian</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="m-avail" name="available" checked /><label for="m-avail" style="margin:0;">Available</label></div>
+          </div>
+          <div class="form-row">
+            <div class="checkbox-row"><input type="checkbox" id="m-pop" name="popular" /><label for="m-pop" style="margin:0;">Popular</label></div>
+            <div class="checkbox-row"><input type="checkbox" id="m-spec" name="chefSpecial" /><label for="m-spec" style="margin:0;">Chef Special</label></div>
+          </div>
+          <button type="submit" class="btn btn-gold btn-block">Save Item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/menu-admin.js"></script>
+</body>
+</html>

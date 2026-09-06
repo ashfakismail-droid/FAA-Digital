@@ -59,6 +59,7 @@ export interface Project {
   icon: IconName;
   featured?: boolean;
   liveUrl?: string;
+  thumbnail?: string;
 }
 
 export interface Service {
@@ -154,7 +155,9 @@ export interface Demo {
   palette: [string, string];
   icon: IconName;
   popular?: boolean;
+  featured?: boolean;
   featuredHero?: boolean;
+  showcase?: boolean;
   status: DemoStatus;
   thumbnail?: string;
   industry?: string;

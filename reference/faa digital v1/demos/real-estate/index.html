@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="PrimeNest Realty — Discover premium homes, luxury villas, and verified property listings. Find your dream home with trusted agents and the best prices." />
+    <meta name="keywords" content="real estate, luxury homes, property for sale, villas, apartments, PrimeNest Realty, mortgage calculator" />
+    <meta name="author" content="PrimeNest Realty" />
+    <meta property="og:title" content="PrimeNest Realty — Find Your Dream Home" />
+    <meta property="og:description" content="Premium real estate agency with verified listings, trusted agents, and luxury properties." />
+    <meta property="og:type" content="website" />
+    <title>PrimeNest Realty — Find Your Dream Home</title>
+
+    <!-- Preconnect to image CDN for performance -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Elegant typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- ===================== LOADING ANIMATION ===================== -->
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader__inner">
+            <div class="loader__logo">PrimeNest</div>
+            <div class="loader__bar"><span></span></div>
+        </div>
+    </div>
+
+    <!-- ===================== HEADER / NAV ===================== -->
+    <header class="header" id="header">
+        <div class="container nav">
+            <a href="#hero" class="brand" aria-label="PrimeNest Realty home">
+                <span class="brand__mark">P</span>
+                <span class="brand__text">PrimeNest<span class="brand__sub">Realty</span></span>
+            </a>
+
+            <nav class="nav__links" id="navLinks" aria-label="Primary navigation">
+                <a href="#hero" class="nav__link active">Home</a>
+                <a href="#search" class="nav__link">Search</a>
+                <a href="#properties" class="nav__link">Properties</a>
+                <a href="#why" class="nav__link">Why Us</a>
+                <a href="#agents" class="nav__link">Agents</a>
+                <a href="#calculator" class="nav__link">Calculator</a>
+                <a href="#contact" class="nav__link">Contact</a>
+                <a href="#contact" class="btn btn--gold nav__cta">Get Started</a>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+        <div class="hero__overlay"></div>
+        <div class="container hero__content">
+            <p class="hero__eyebrow reveal">Premium Real Estate Agency</p>
+            <h1 class="hero__title reveal">Find Your <span class="accent">Dream Home</span></h1>
+            <p class="hero__desc reveal">Discover handpicked luxury residences, verified listings, and trusted agents dedicated to helping you find a place you'll love to call home.</p>
+            <div class="hero__actions reveal">
+                <a href="#search" class="btn btn--gold">Search Property</a>
+                <a href="#contact" class="btn btn--ghost">Contact Agent</a>
+            </div>
+        </div>
+
+        <a href="#search" class="scroll-indicator" aria-label="Scroll to search">
+            <span class="mouse"><span class="wheel"></span></span>
+            <span class="scroll-indicator__text">Scroll</span>
+        </a>
+    </section>
+
+    <!-- ===================== PROPERTY SEARCH ===================== -->
+    <section class="section search" id="search">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Find It Fast</span>
+                <h2 class="section__title">Search Properties</h2>
+                <p class="section__lead">Filter by location, type, price, and more to discover your perfect match.</p>
+            </div>
+
+            <form class="search-panel glass reveal" id="searchForm">
+                <div class="search-field">
+                    <label for="s-location">Location</label>
+                    <select id="s-location" name="location">
+                        <option value="">Any Location</option>
+                        <option>New York</option>
+                        <option>Los Angeles</option>
+                        <option>Miami</option>
+                        <option>Chicago</option>
+                        <option>San Francisco</option>
+                        <option>Boston</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <label for="s-type">Property Type</label>
+                    <select id="s-type" name="type">
+                        <option value="">All Types</option>
+                        <option>Apartment</option>
+                        <option>Villa</option>
+                        <option>Luxury Home</option>
+                        <option>Commercial</option>
+                        <option>Office Space</option>
+                        <option>Land</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <label for="s-price">Price Range</label>
+                    <select id="s-price" name="price">
+                        <option value="">Any Price</option>
+                        <option>Under $500k</option>
+                        <option>$500k – $1M</option>
+                        <option>$1M – $3M</option>
+                        <option>$3M – $5M</option>
+                        <option>$5M+</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <label for="s-beds">Bedrooms</label>
+                    <select id="s-beds" name="beds">
+                        <option value="">Any</option>
+                        <option>1+</option>
+                        <option>2+</option>
+                        <option>3+</option>
+                        <option>4+</option>
+                        <option>5+</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <label for="s-baths">Bathrooms</label>
+                    <select id="s-baths" name="baths">
+                        <option value="">Any</option>
+                        <option>1+</option>
+                        <option>2+</option>
+                        <option>3+</option>
+                        <option>4+</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn--gold search__btn">Search</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===================== FEATURED PROPERTIES ===================== -->
+    <section class="section properties" id="properties">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Handpicked</span>
+                <h2 class="section__title">Featured Properties</h2>
+                <p class="section__lead">Explore our curated selection of premium homes and investment opportunities.</p>
+            </div>
+
+            <div class="property-grid" id="propertyGrid">
+                <!-- Property cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WHY CHOOSE US ===================== -->
+    <section class="section why" id="why">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Why PrimeNest</span>
+                <h2 class="section__title">Why Choose PrimeNest</h2>
+                <p class="section__lead">A premium experience built on trust, transparency, and results.</p>
+            </div>
+
+            <div class="feature-grid">
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">✔</div>
+                    <h3>Verified Listings</h3>
+                    <p>Every property is thoroughly verified for authenticity, ownership, and accuracy.</p>
+                </article>
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">★</div>
+                    <h3>Trusted Agents</h3>
+                    <p>Work with licensed, experienced professionals who put your interests first.</p>
+                </article>
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">$</div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive market pricing and exclusive deals you won't find elsewhere.</p>
+                </article>
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">⚡</div>
+                    <h3>Fast Documentation</h3>
+                    <p>Streamlined paperwork and digital processes to close deals quickly.</p>
+                </article>
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">🔒</div>
+                    <h3>Secure Transactions</h3>
+                    <p>Bank-grade security and escrow protection for every transaction.</p>
+                </article>
+                <article class="feature-card glass reveal">
+                    <div class="feature-card__icon">☎</div>
+                    <h3>Premium Support</h3>
+                    <p>Dedicated 24/7 concierge support throughout your property journey.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PROPERTY CATEGORIES ===================== -->
+    <section class="section categories" id="categories">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Browse By</span>
+                <h2 class="section__title">Property Categories</h2>
+                <p class="section__lead">Find the right space for every lifestyle and investment goal.</p>
+            </div>
+
+            <div class="category-grid">
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Apartments</span>
+                    <span class="category-card__count">320 Listings</span>
+                </a>
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Villas</span>
+                    <span class="category-card__count">145 Listings</span>
+                </a>
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Luxury Homes</span>
+                    <span class="category-card__count">98 Listings</span>
+                </a>
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Commercial</span>
+                    <span class="category-card__count">76 Listings</span>
+                </a>
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Office Space</span>
+                    <span class="category-card__count">112 Listings</span>
+                </a>
+                <a href="#properties" class="category-card reveal" style="--img:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80')">
+                    <span class="category-card__label">Land</span>
+                    <span class="category-card__count">54 Listings</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MEET OUR AGENTS ===================== -->
+    <section class="section agents" id="agents">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Our Team</span>
+                <h2 class="section__title">Meet Our Agents</h2>
+                <p class="section__lead">Seasoned professionals ready to guide you home.</p>
+            </div>
+
+            <div class="agent-grid" id="agentGrid">
+                <!-- Agent cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== MORTGAGE CALCULATOR ===================== -->
+    <section class="section calculator" id="calculator">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Plan Ahead</span>
+                <h2 class="section__title">Mortgage Calculator</h2>
+                <p class="section__lead">Estimate your monthly payments and total costs instantly.</p>
+            </div>
+
+            <div class="calc glass reveal">
+                <form class="calc__form" id="calcForm">
+                    <div class="calc-field">
+                        <label for="c-price">Property Price ($)</label>
+                        <input type="number" id="c-price" value="750000" min="0" step="1000" />
+                    </div>
+                    <div class="calc-field">
+                        <label for="c-down">Down Payment ($)</label>
+                        <input type="number" id="c-down" value="150000" min="0" step="1000" />
+                    </div>
+                    <div class="calc-field">
+                        <label for="c-rate">Interest Rate (%)</label>
+                        <input type="number" id="c-rate" value="5.5" min="0" step="0.1" />
+                    </div>
+                    <div class="calc-field">
+                        <label for="c-term">Loan Term (Years)</label>
+                        <input type="number" id="c-term" value="30" min="1" step="1" />
+                    </div>
+                </form>
+
+                <div class="calc__results">
+                    <div class="calc-result">
+                        <span class="calc-result__label">Monthly Payment</span>
+                        <span class="calc-result__value" id="r-monthly">$0</span>
+                    </div>
+                    <div class="calc-result">
+                        <span class="calc-result__label">Total Interest</span>
+                        <span class="calc-result__value" id="r-interest">$0</span>
+                    </div>
+                    <div class="calc-result">
+                        <span class="calc-result__label">Total Amount</span>
+                        <span class="calc-result__value" id="r-total">$0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS ===================== -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Client Love</span>
+                <h2 class="section__title">Customer Testimonials</h2>
+                <p class="section__lead">Real stories from happy homeowners and investors.</p>
+            </div>
+
+            <div class="testimonial-grid" id="testimonialGrid">
+                <!-- Testimonial cards injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== STATISTICS ===================== -->
+    <section class="section stats" id="stats">
+        <div class="container stats__grid">
+            <div class="stat reveal">
+                <span class="stat__num" data-target="1500" data-suffix="+">0</span>
+                <span class="stat__label">Properties Sold</span>
+            </div>
+            <div class="stat reveal">
+                <span class="stat__num" data-target="350" data-suffix="+">0</span>
+                <span class="stat__label">Premium Listings</span>
+            </div>
+            <div class="stat reveal">
+                <span class="stat__num" data-target="100" data-suffix="+">0</span>
+                <span class="stat__label">Expert Agents</span>
+            </div>
+            <div class="stat reveal">
+                <span class="stat__num" data-target="5000" data-suffix="+">0</span>
+                <span class="stat__label">Happy Clients</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section faq" id="faq">
+        <div class="container">
+            <div class="section__head reveal">
+                <span class="section__eyebrow">Answers</span>
+                <h2 class="section__title">Frequently Asked Questions</h2>
+                <p class="section__lead">Everything you need to know before you begin.</p>
+            </div>
+
+            <div class="accordion" id="accordion">
+                <div class="accordion__item reveal">
+                    <button class="accordion__head" aria-expanded="false">
+                        <span>What is the home buying process?</span>
+                        <span class="accordion__icon">+</span>
+                    </button>
+                    <div class="accordion__body">
+                        <p>Our process is simple: consult with an agent, get pre-approved, browse verified listings, make an offer, complete inspection, and close with secure documentation.</p>
+                    </div>
+                </div>
+                <div class="accordion__item reveal">
+                    <button class="accordion__head" aria-expanded="false">
+                        <span>What loan options are available?</span>
+                        <span class="accordion__icon">+</span>
+                    </button>
+                    <div class="accordion__body">
+                        <p>We partner with leading lenders offering fixed-rate, adjustable-rate, FHA, VA, and jumbo loans. Use our mortgage calculator to estimate payments.</p>
+                    </div>
+                </div>
+                <div class="accordion__item reveal">
+                    <button class="accordion__head" aria-expanded="false">
+                        <span>How does property registration work?</span>
+                        <span class="accordion__icon">+</span>
+                    </button>
+                    <div class="accordion__body">
+                        <p>After closing, our legal team handles title transfer and government registration, ensuring your ownership is recorded securely and accurately.</p>
+                    </div>
+                </div>
+                <div class="accordion__item reveal">
+                    <button class="accordion__head" aria-expanded="false">
+                        <span>Which legal documents do I need?</span>
+                        <span class="accordion__icon">+</span>
+                    </button>
+                    <div class="accordion__body">
+                        <p>You'll need a valid ID, proof of income, pre-approval letter, purchase agreement, and title documents. Our agents guide you through each step.</p>
+                    </div>
+                </div>
+                <div class="accordion__item reveal">
+                    <button class="accordion__head" aria-expanded="false">
+                        <span>Do you offer property inspection?</span>
+                        <span class="accordion__icon">+</span>
+                    </button>
+                    <div class="accordion__body">
+                        <p>Yes. Every listing includes a professional inspection report covering structure, systems, and safety before any offer is finalized.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section contact" id="contact">
+        <div class="container contact__grid">
+            <div class="contact__info reveal">
+                <span class="section__eyebrow">Get In Touch</span>
+                <h2 class="section__title">Contact Us</h2>
+                <p class="section__lead">Our team is ready to help you find your next home.</p>
+
+                <ul class="contact__list">
+                    <li><span class="contact__icon">📍</span><div><strong>Address</strong><br>500 Park Avenue, Suite 1200, New York, NY 10022</div></li>
+                    <li><span class="contact__icon">📞</span><div><strong>Phone</strong><br>+1 (212) 555-0199</div></li>
+                    <li><span class="contact__icon">✉</span><div><strong>Email</strong><br>hello@primenestrealty.com</div></li>
+                    <li><span class="contact__icon">🕑</span><div><strong>Business Hours</strong><br>Mon – Fri: 9:00 AM – 7:00 PM<br>Sat – Sun: 10:00 AM – 4:00 PM</div></li>
+                </ul>
+
+                <div class="map-placeholder" aria-label="Google Maps placeholder">
+                    <span>🗺 Google Maps</span>
+                    <small>Interactive map embed placeholder</small>
+                </div>
+            </div>
+
+            <form class="contact__form glass reveal" id="contactForm" novalidate>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+                        <span class="form-error" data-for="name"></span>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+                        <span class="form-error" data-for="email"></span>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (212) 555-0000" />
+                    <span class="form-error" data-for="phone"></span>
+                </div>
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us what you're looking for..." required></textarea>
+                    <span class="form-error" data-for="message"></span>
+                </div>
+                <button type="submit" class="btn btn--gold">Send Message</button>
+                <p class="form-success" id="formSuccess" hidden>Thank you! Your message has been sent.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col footer__about">
+                <a href="#hero" class="brand brand--light">
+                    <span class="brand__mark">P</span>
+                    <span class="brand__text">PrimeNest<span class="brand__sub">Realty</span></span>
+                </a>
+                <p>Premium real estate services with verified listings, trusted agents, and a commitment to excellence.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">t</a>
+                    <a href="#" aria-label="Instagram">i</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+
+            <div class="footer__col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#agents">Agents</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a href="#categories">Apartments</a></li>
+                    <li><a href="#categories">Villas</a></li>
+                    <li><a href="#categories">Luxury Homes</a></li>
+                    <li><a href="#categories">Commercial</a></li>
+                    <li><a href="#categories">Land</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>500 Park Avenue, NY</li>
+                    <li>+1 (212) 555-0199</li>
+                    <li>hello@primenestrealty.com</li>
+                </ul>
+                <form class="newsletter" id="newsletterForm">
+                    <label for="newsletter">Subscribe to our newsletter</label>
+                    <div class="newsletter__row">
+                        <input type="email" id="newsletter" placeholder="Your email" required />
+                        <button type="submit" class="btn btn--gold">Join</button>
+                    </div>
+                    <p class="form-success" id="newsletterSuccess" hidden>Subscribed! Welcome aboard.</p>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <p>&copy; <span id="year"></span> PrimeNest Realty. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ===================== BACK TO TOP ===================== -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

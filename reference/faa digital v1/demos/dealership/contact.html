@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="contact" data-nav="solid">
+  <header id="site-nav"></header>
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)"><a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Contact</span></div>
+      <h1>Get in Touch</h1>
+      <p>Our concierge team responds within one business hour during opening times.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid" style="grid-template-columns:1.3fr 1fr;gap:40px;align-items:start">
+      <div class="card" style="padding:32px">
+        <h3 style="margin-top:0">Send an Enquiry</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field"><label for="cName">Name</label><input id="cName" required></div>
+            <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="cDept">Department</label>
+              <select id="cDept"><option>Sales</option><option>Finance</option><option>Service</option><option>Trade-In</option><option>Press</option></select>
+            </div>
+            <div class="field"><label for="cPhone">Phone</label><input id="cPhone" type="tel"></div>
+          </div>
+          <div class="field"><label for="cMsg">Message</label><textarea id="cMsg" required placeholder="How can we help?"></textarea></div>
+          <button class="btn btn--gold btn--block" type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <aside>
+        <div class="map-ph" style="height:240px;margin-bottom:20px">
+          <div class="map-pin"><div class="dot"></div><strong>Mayfair, London</strong></div>
+        </div>
+        <div class="card" style="padding:24px">
+          <h4 style="margin-top:0">Departments</h4>
+          <p class="muted" style="margin:0 0 4px"><strong>Sales</strong> — sales@prestigemotors.co.uk</p>
+          <p class="muted" style="margin:0 0 4px"><strong>Finance</strong> — finance@prestigemotors.co.uk</p>
+          <p class="muted" style="margin:0 0 4px"><strong>Service</strong> — service@prestigemotors.co.uk</p>
+          <p class="muted" style="margin:0 0 4px"><strong>Concierge</strong> — +44 20 7946 0991</p>
+        </div>
+        <div class="card section--alt" style="padding:24px;margin-top:16px">
+          <h4 style="margin-top:0">Opening Hours</h4>
+          <div class="flex between" style="padding:4px 0"><span class="muted">Mon – Fri</span><strong>09:00 – 19:00</strong></div>
+          <div class="flex between" style="padding:4px 0"><span class="muted">Saturday</span><strong>09:00 – 18:00</strong></div>
+          <div class="flex between" style="padding:4px 0"><span class="muted">Sunday</span><strong>11:00 – 17:00</strong></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>

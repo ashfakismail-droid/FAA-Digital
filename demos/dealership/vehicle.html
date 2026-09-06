@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Details — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="vehicle" data-nav="solid">
+  <header id="site-nav"></header>
+
+  <div class="container">
+    <div class="breadcrumb" id="breadcrumb"></div>
+  </div>
+
+  <section class="section" style="padding-top:0">
+    <div class="container grid" style="grid-template-columns: 1.5fr 1fr; gap:40px; align-items:start">
+      <!-- LEFT: gallery + specs -->
+      <div>
+        <div class="vdetail__gallery">
+          <div class="vdetail__main" id="mainImg"><img id="mainImgEl" src="" alt=""></div>
+          <div class="vdetail__thumbs" id="thumbs"></div>
+        </div>
+
+        <div class="section-head" style="text-align:left;margin:40px 0 20px">
+          <span class="eyebrow gold">Specifications</span>
+          <h2 style="font-size:1.8rem">Technical Detail</h2>
+        </div>
+        <table class="spec-table" id="specTable"></table>
+
+        <div class="section-head" style="text-align:left;margin:40px 0 20px">
+          <span class="eyebrow gold">Standard & Optional</span>
+          <h2 style="font-size:1.8rem">Features</h2>
+        </div>
+        <ul class="feature-list" id="featureList"></ul>
+
+        <div class="card" style="margin-top:40px;padding:28px">
+          <h3 style="margin-top:0">360° View</h3>
+          <div style="aspect-ratio:16/9;border-radius:var(--radius);background:radial-gradient(circle at 50% 40%,#2a2e35,#0a0b0d);display:grid;place-items:center;color:rgba(255,255,255,.6);text-align:center">
+            <div>
+              <div style="font-size:2.4rem">⟳</div>
+              <p style="margin:8px 0 0">Interactive 360° viewer<br><span class="muted" style="font-size:.85rem">Available in showroom</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: summary + price + actions -->
+      <aside>
+        <div id="summaryHead"></div>
+
+        <div class="price-box">
+          <div class="flex between" style="align-items:baseline">
+            <div class="price" id="priceBig"></div>
+            <span class="badge" id="availBadge"></span>
+          </div>
+          <div class="emi" id="emiLine" style="margin:6px 0 18px"></div>
+
+          <div class="action-stack">
+            <a class="btn btn--gold btn--block" id="bookBtn" href="test-drive.html">Book Test Drive</a>
+            <button class="btn btn--outline btn--block" id="financeBtn">Finance Calculator</button>
+            <div class="flex" style="gap:12px">
+              <button class="btn btn--outline" style="flex:1" id="saveBtn">♡ Save</button>
+              <button class="btn btn--outline" style="flex:1" id="compareBtn">⇄ Compare</button>
+            </div>
+            <button class="btn btn--outline btn--block" id="shareBtn">Share</button>
+            <button class="btn btn--outline btn--block" id="brochureBtn">⬇ Download Brochure</button>
+          </div>
+
+          <div class="card" style="margin-top:20px;padding:18px;background:var(--bg-alt)">
+            <h4 style="margin:0 0 8px;font-size:1rem">Dealer Contact</h4>
+            <p class="muted" style="margin:0;font-size:.9rem">Prestige Motors · Mayfair<br>+44 20 7946 0991<br>concierge@prestigemotors.co.uk</p>
+          </div>
+        </div>
+
+        <!-- Finance calculator -->
+        <div class="card" style="margin-top:24px;padding:24px" id="financeCalc">
+          <h3 style="margin-top:0">Finance Calculator</h3>
+          <div class="range-row">
+            <label>Deposit <span id="depVal"></span></label>
+            <input type="range" id="depRange" min="0" max="100" value="20" step="5">
+          </div>
+          <div class="range-row">
+            <label>Term (months) <span id="termVal"></span></label>
+            <input type="range" id="termRange" min="12" max="60" value="48" step="6">
+          </div>
+          <div class="range-row">
+            <label>Interest (APR) <span id="aprVal"></span></label>
+            <input type="range" id="aprRange" min="0" max="12" value="5.9" step="0.1">
+          </div>
+          <div style="background:var(--bg-alt);border-radius:var(--radius);padding:18px;text-align:center">
+            <div class="muted" style="font-size:.85rem">Estimated monthly</div>
+            <div class="price" id="monthlyOut" style="font-size:2rem"></div>
+            <div class="muted" style="font-size:.8rem" id="totalOut"></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Related -->
+    <div id="relatedWrap" style="margin-top:60px">
+      <div class="section-head" style="text-align:left;margin-bottom:24px">
+        <span class="eyebrow gold">You may also like</span>
+        <h2 style="font-size:1.8rem">Related Vehicles</h2>
+      </div>
+      <div class="grid grid-4" id="relatedGrid"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/vehicle.js"></script>
+</body>
+</html>

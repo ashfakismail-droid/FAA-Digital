@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="settings-grid">
+          <div class="settings-card">
+            <h3>Restaurant Information</h3>
+            <form id="rest-form">
+              <div class="form-group">
+                <label>Introduction</label>
+                <textarea name="intro"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Dining Experience</label>
+                <textarea name="diningExperience"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold">Save Information</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Chef Profile</h3>
+            <form id="chef-form">
+              <div class="form-group">
+                <label>Chef Name</label>
+                <input name="name" />
+              </div>
+              <div class="form-group">
+                <label>Bio</label>
+                <textarea name="bio"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Image URL</label>
+                <input name="image" />
+              </div>
+              <button type="submit" class="btn btn-gold">Save Chef</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Dining Timings</h3>
+            <form id="timings-form">
+              <div class="form-row">
+                <div class="form-group"><label>Breakfast</label><input name="breakfast" /></div>
+                <div class="form-group"><label>Lunch</label><input name="lunch" /></div>
+              </div>
+              <div class="form-group"><label>Dinner</label><input name="dinner" /></div>
+              <button type="submit" class="btn btn-gold">Save Timings</button>
+            </form>
+          </div>
+
+          <div class="settings-card">
+            <h3>Special Offers</h3>
+            <div id="offers-list" style="display:flex; flex-direction:column; gap:12px; margin-bottom:16px;"></div>
+            <div class="form-row">
+              <div class="form-group"><label>Title</label><input id="offer-title" placeholder="Offer title" /></div>
+              <div class="form-group"><label>Description</label><input id="offer-desc" placeholder="Short description" /></div>
+            </div>
+            <button class="btn btn-outline btn-sm" id="add-offer">+ Add Offer</button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/restaurant-admin.js"></script>
+</body>
+</html>

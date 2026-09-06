@@ -1,6 +1,5 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
-import { projects } from "@/config/projects";
 import { services } from "@/config/services";
 import { industries } from "@/config/industries";
 import { blogPosts } from "@/config/blog";
@@ -9,8 +8,7 @@ import { demos } from "@/config/demos";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { path: "", priority: 1, changeFrequency: "weekly" as const },
-    { path: "/portfolio", priority: 0.9, changeFrequency: "weekly" as const },
-    { path: "/demos", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/demos", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/services", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/industries", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/process", priority: 0.7, changeFrequency: "monthly" as const },
@@ -26,13 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: p.changeFrequency,
     priority: p.priority,
-  }));
-
-  const projectPages: MetadataRoute.Sitemap = projects.map((p) => ({
-    url: `${site.url}/portfolio/${p.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.8,
   }));
 
   const servicePages: MetadataRoute.Sitemap = services.map((s) => ({
@@ -63,5 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...projectPages, ...servicePages, ...industryPages, ...blogPages, ...demoPages];
+  return [...staticPages, ...servicePages, ...industryPages, ...blogPages, ...demoPages];
 }

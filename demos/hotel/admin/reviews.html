@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reviews — Aurora Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin">
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content">
+        <div class="table-wrap">
+          <div class="table-toolbar">
+            <div class="search">
+              <span class="s-ico">🔍</span>
+              <input type="text" id="rev-search" placeholder="Search reviews…" />
+            </div>
+            <select id="rev-filter" style="max-width:180px;">
+              <option value="all">All</option>
+              <option value="pending">Pending</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+            </select>
+          </div>
+          <table class="data">
+            <thead>
+              <tr>
+                <th data-sort="name">Guest</th>
+                <th>Room</th>
+                <th>Rating</th>
+                <th>Comment</th>
+                <th data-sort="status">Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="rev-tbody"></tbody>
+          </table>
+          <div class="pagination" id="rev-pagination"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/reviews-admin.js"></script>
+</body>
+</html>

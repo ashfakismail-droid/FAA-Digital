@@ -45,7 +45,7 @@ export function TestimonialCard({
         </div>
         {testimonial.project && (
           <Link
-            href={`/portfolio/${testimonial.project}`}
+            href={`/demos/${testimonial.project}`}
             className="ml-auto shrink-0 text-xs font-medium text-brand-600 hover:underline dark:text-brand-400"
           >
             View case

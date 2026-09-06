@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="icon" href="../assets/img/brands/prestige.svg">
+</head>
+<body data-page="admin-login" data-nav="solid">
+  <header id="site-nav"></header>
+  <section class="section" style="min-height:80vh;display:grid;place-items:center">
+    <div class="card" style="width:100%;max-width:420px;padding:40px">
+      <div class="text-center" style="margin-bottom:24px">
+        <div class="brand__mark" style="margin:0 auto 14px;width:54px;height:54px;font-size:1.6rem">P</div>
+        <h2 style="margin:0">Dealer Console</h2>
+        <p class="muted" style="font-size:.9rem">Sign in to manage inventory & requests</p>
+      </div>
+      <form id="loginForm">
+        <div class="field"><label for="u">Username</label><input id="u" value="admin" required></div>
+        <div class="field"><label for="p">Password</label><input id="p" type="password" value="prestige" required></div>
+        <button class="btn btn--gold btn--block" type="submit">Sign In</button>
+        <p class="form-note text-center" style="margin-top:14px">Demo credentials: <strong>admin</strong> / <strong>prestige</strong></p>
+      </form>
+    </div>
+  </section>
+  <footer id="site-footer"></footer>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/admin-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist — Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/brands/prestige.svg">
+</head>
+<body data-page="wishlist" data-nav="solid">
+  <header id="site-nav"></header>
+  <section class="page-head">
+    <div class="container">
+      <div class="breadcrumb" style="color:rgba(255,255,255,.6)"><a href="index.html" style="color:rgba(255,255,255,.6)">Home</a><span>/</span><span>Wishlist</span></div>
+      <h1>Your Saved Vehicles</h1>
+      <p>Vehicles you've saved for later. Your list is stored privately on this device.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div id="wishEmpty" class="compare-empty">
+        <div style="font-size:3rem;margin-bottom:12px">♡</div>
+        <p>No saved vehicles yet. Tap the heart on any vehicle to save it here.</p>
+        <a class="btn btn--gold" href="inventory.html">Browse Inventory</a>
+      </div>
+      <div class="grid grid-3" id="wishGrid"></div>
+    </div>
+  </section>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/data/vehicles.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/wishlist.js"></script>
+</body>
+</html>
