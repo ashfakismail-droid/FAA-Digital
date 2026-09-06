@@ -1,22 +1,25 @@
-import { readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/admin-auth";
 import { validateStudioDemos } from "@/lib/studio-domain";
+import { persistStudioDemos, revalidateDemoDrivenPaths } from "@/lib/demo-store";
 
+/**
+ * Studio metadata persistence.
+ * - Local development: writes src/config/demos.ts (existing Git workflow).
+ * - Production (authenticated admin only): persists to Netlify Blobs and
+ *   revalidates the public pages that render demo-driven content.
+ */
 export async function POST(request: Request) {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio persistence is disabled outside local development." }, { status: 404 });
+  const denied = await requireAdmin(request);
+  if (denied) return denied;
   try {
     const payload = await request.json();
     const result = validateStudioDemos(payload.demos);
     if (!result.valid) return NextResponse.json({ error: result.error }, { status: 400 });
-    const file = path.join(process.cwd(), "src", "config", "demos.ts");
-    const original = await readFile(file, "utf8");
-    const start = original.indexOf("export const demos: Demo[] = [");
-    const end = original.indexOf("];", start);
-    if (start < 0 || end < 0) return NextResponse.json({ error: "Metadata file structure is not recognized." }, { status: 500 });
-    const arrayText = JSON.stringify(result.demos, null, 2).replace(/"([\w]+)":/g, "$1:");
-    await writeFile(file, `${original.slice(0, start)}export const demos: Demo[] = ${arrayText};${original.slice(end + 2)}`, "utf8");
-    return NextResponse.json({ ok: true, savedAt: new Date().toISOString() });
+    const saved = await persistStudioDemos(result.demos);
+    if (!saved.ok) return NextResponse.json({ error: saved.error }, { status: 503 });
+    revalidateDemoDrivenPaths();
+    return NextResponse.json({ ok: true, savedAt: saved.savedAt, medium: saved.medium });
   } catch {
     return NextResponse.json({ error: "Unable to save demo metadata." }, { status: 500 });
   }

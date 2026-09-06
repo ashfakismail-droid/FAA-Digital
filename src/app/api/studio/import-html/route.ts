@@ -2,10 +2,13 @@ import { mkdir, writeFile, access, rename, rm } from "node:fs/promises";
 import { randomUUID } from "node:crypto";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/admin-auth";
 
 const exists = async (p: string) => access(p).then(() => true).catch(() => false);
 
 export async function POST(request: Request) {
+  const denied = await requireAdmin(request);
+  if (denied) return denied;
   if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio is disabled." }, { status: 404 });
   try {
     const form = await request.formData();

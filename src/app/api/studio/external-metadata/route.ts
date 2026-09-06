@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/admin-auth";
 
 function extractMeta(html: string, attr: string, value: string): string | undefined {
   const re = new RegExp(`<meta[^>]+${attr}=["']${value}["'][^>]*>`, "i");
@@ -22,6 +23,8 @@ function extractFavicon(html: string): string | undefined {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireAdmin(request);
+  if (denied) return denied;
   if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio is disabled." }, { status: 404 });
 
   try {

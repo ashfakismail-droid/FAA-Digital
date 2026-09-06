@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
-import { getShowcaseDemosAsProjects } from "@/config/demos";
 import { Section, SectionTag } from "@/components/ui/section";
 import { ButtonLink } from "@/components/ui/button";
 import { ProjectCard } from "@/components/shared/project-card";
 import { Reveal } from "@/components/motion/reveal";
+import { loadShowcaseDemosAsProjects } from "@/lib/demo-store";
 
-export function FeaturedWork() {
-  const featured = getShowcaseDemosAsProjects();
+export async function FeaturedWork() {
+  const featured = await loadShowcaseDemosAsProjects();
 
   return (
     <Section>

@@ -37,3 +37,6 @@ next-env.d.ts
 .studio-check.log
 dev-stdout.log
 dev-stderr.log
+dev-server-*.log
+build-output.log
+prod-server.log

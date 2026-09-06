@@ -172,7 +172,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     const data = await response.json();
     if (response.ok) {
       setSaved(items);
-      setNotice("Saved locally. Review and commit with Git.");
+      setNotice(data.medium === "store" ? "Saved to the production store. The live site updates within a minute." : "Saved locally. Review and commit with Git.");
     } else {
       setNotice(data.error);
     }

@@ -2,12 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Globe, ExternalLink } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { Menu, X, Globe, ExternalLink, LogOut } from "lucide-react";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function StudioHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter();
   const isDev = process.env.NODE_ENV === "development";
+
+  const signOut = async () => {
+    try {
+      await fetch("/api/admin/logout", { method: "POST" });
+    } finally {
+      router.replace("/studio/login");
+      router.refresh();
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-white/10 dark:bg-[#0d0e14]/90">
@@ -37,6 +48,15 @@ export function StudioHeader() {
             <span className="text-xs font-medium text-brand-600 dark:text-brand-400" title="Development Mode">
               DEV MODE
             </span>
+          )}
+          {!isDev && (
+            <button
+              type="button"
+              onClick={signOut}
+              className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white"
+            >
+              <LogOut className="h-4 w-4" /> Sign out
+            </button>
           )}
           <ThemeToggle />
           

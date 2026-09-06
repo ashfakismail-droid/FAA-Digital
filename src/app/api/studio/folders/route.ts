@@ -1,6 +1,7 @@
 import { readdir, access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/admin-auth";
 
 const exists = async (file: string) => access(file).then(() => true).catch(() => false);
 
@@ -53,8 +54,10 @@ async function scanFolder(full: string, folder: string) {
   };
 }
 
-export async function GET() {
-  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio is disabled." }, { status: 404 });
+export async function GET(request: Request) {
+  const denied = await requireAdmin(request);
+  if (denied) return denied;
+  if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Demo folder scanning is only available in local development." }, { status: 404 });
   const root = path.join(process.cwd(), "public", "demos");
   const entries = await readdir(root, { withFileTypes: true });
   const folders = await Promise.all(

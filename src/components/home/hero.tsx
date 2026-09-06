@@ -4,16 +4,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { site } from "@/config/site";
-import { getFeaturedHeroDemos } from "@/config/demos";
 import { ButtonLink } from "@/components/ui/button";
 import { Magnetic } from "@/components/motion/magnetic";
 import { AuroraBackground } from "@/components/visuals/aurora";
 import { WebsiteMockup } from "@/components/visuals/website-mockup";
 import { EASE_OUT } from "@/lib/motion";
+import type { Demo } from "@/types";
 
-const heroDemos = getFeaturedHeroDemos();
-
-export function Hero() {
+export function Hero({ heroDemos }: { heroDemos: Demo[] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,

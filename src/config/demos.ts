@@ -38,49 +38,6 @@ export const demos: Demo[] = [
     showcase: true
   },
   {
-    slug: "bella-vista",
-    title: "Bella Vista Ristorante",
-    category: "Restaurant",
-    description: "Authentic Italian Dining — warm, editorial restaurant template with immersive menus, table reservations, and private dining enquiries.",
-    features: [
-      "Online reservations",
-      "Menu showcase",
-      "Private dining",
-      "Events calendar"
-    ],
-    technologies: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Responsive Design"
-    ],
-    palette: [
-      "#0b0906",
-      "#C98A4B"
-    ],
-    icon: "UtensilsCrossed",
-    status: "live",
-    createdAt: "2024-02-10",
-    updatedAt: "2024-02-10",
-    tags: [
-      "restaurant",
-      "italian",
-      "hospitality"
-    ],
-    visibility: "public",
-    notes: "First restaurant demo, featured in case studies",
-    lastActivity: "2024-02-10",
-    order: 2,
-    industry: "Restaurant",
-    publishState: "published",
-    featuredHero: false,
-    source: {
-      type: "local",
-      folder: "bella-vista",
-      detectedType: "html"
-    }
-  },
-  {
     slug: "luxora",
     title: "Luxora",
     category: "E-Commerce",
@@ -118,7 +75,7 @@ export const demos: Demo[] = [
     visibility: "public",
     notes: "High-performing product showcase with advanced filtering",
     lastActivity: "2024-03-20",
-    order: 3,
+    order: 2,
     industry: "E-Commerce",
     publishState: "published",
     source: {
@@ -130,48 +87,39 @@ export const demos: Demo[] = [
     showcase: false
   },
   {
-    slug: "grand-horizon-hotel",
-    title: "Grand Horizon Hotel",
-    category: "Hotel & Resort",
-    description: "Luxury 5-star retreat with signature suites, fine dining, spa rituals, and breathtaking views.",
-    features: [
-      "Booking engine",
-      "Room galleries",
-      "Spa & dining",
-      "Guest experiences"
-    ],
+    slug: "wedding-wp",
+    title: "Camille &amp; Julian — June 5, 2027 · Lake Como",
+    category: "invitation",
+    industry: "invitation",
+    description: "Camille Moretti & Julian Hartwell are getting married at Villa Serenissima, Lake Como, on Saturday the fifth of June 2027. With love, we invite you. RSVP before the first of May.",
+    features: [],
     technologies: [
       "HTML",
       "CSS",
-      "JavaScript",
-      "Responsive Design"
+      "JavaScript"
     ],
     palette: [
-      "#0E1C22",
-      "#5FB3A8"
+      "#10131f",
+      "#5f5ce6"
     ],
-    icon: "Hotel",
+    icon: "Sparkles",
     status: "live",
-    thumbnail: "/demos/grand-horizon-hotel/images/hero/hero-suite.svg",
-    createdAt: "2024-01-25",
-    updatedAt: "2024-03-15",
-    tags: [
-      "hotel",
-      "luxury",
-      "resort"
-    ],
-    visibility: "public",
-    lastActivity: "2024-03-15",
-    order: 4,
-    industry: "Hotel & Resort",
     publishState: "published",
+    visibility: "public",
     source: {
       type: "local",
-      folder: "grand-horizon-hotel",
+      folder: "wedding-wp",
       detectedType: "html"
     },
-    featuredHero: false,
-    showcase: false
+    tags: [],
+    thumbnail: "/demos/wedding-wp/assets/studio-thumbnail.png?v=1788709693421",
+    logo: "assets/img/monogram.svg",
+    galleryImage: "assets/img/hero.jpg",
+    seoTitle: "Camille & Julian — June 5, 2027",
+    seoDescription: "The marriage of Camille Moretti & Julian Hartwell · Saturday the fifth of June, two thousand and twenty-seven · Villa Serenissima, Lake Como.",
+    order: 3,
+    popular: true,
+    showcase: true
   },
   {
     slug: "dealership",
@@ -206,7 +154,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-03-10",
-    order: 5,
+    order: 4,
     industry: "Car Dealership",
     publishState: "published",
     source: {
@@ -217,6 +165,93 @@ export const demos: Demo[] = [
     featuredHero: false,
     popular: true,
     showcase: true
+  },
+  {
+    slug: "grand-horizon-hotel",
+    title: "Grand Horizon Hotel",
+    category: "Hotel & Resort",
+    description: "Luxury 5-star retreat with signature suites, fine dining, spa rituals, and breathtaking views.",
+    features: [
+      "Booking engine",
+      "Room galleries",
+      "Spa & dining",
+      "Guest experiences"
+    ],
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design"
+    ],
+    palette: [
+      "#0E1C22",
+      "#5FB3A8"
+    ],
+    icon: "Hotel",
+    status: "live",
+    thumbnail: "/demos/grand-horizon-hotel/images/hero/hero-suite.svg",
+    createdAt: "2024-01-25",
+    updatedAt: "2024-03-15",
+    tags: [
+      "hotel",
+      "luxury",
+      "resort"
+    ],
+    visibility: "public",
+    lastActivity: "2024-03-15",
+    order: 5,
+    industry: "Hotel & Resort",
+    publishState: "published",
+    source: {
+      type: "local",
+      folder: "grand-horizon-hotel",
+      detectedType: "html"
+    },
+    featuredHero: false,
+    showcase: false
+  },
+  {
+    slug: "bella-vista",
+    title: "Bella Vista Ristorante",
+    category: "Restaurant",
+    description: "Authentic Italian Dining — warm, editorial restaurant template with immersive menus, table reservations, and private dining enquiries.",
+    features: [
+      "Online reservations",
+      "Menu showcase",
+      "Private dining",
+      "Events calendar"
+    ],
+    technologies: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive Design"
+    ],
+    palette: [
+      "#0b0906",
+      "#C98A4B"
+    ],
+    icon: "UtensilsCrossed",
+    status: "live",
+    createdAt: "2024-02-10",
+    updatedAt: "2024-02-10",
+    tags: [
+      "restaurant",
+      "italian",
+      "hospitality"
+    ],
+    visibility: "public",
+    notes: "First restaurant demo, featured in case studies",
+    lastActivity: "2024-02-10",
+    order: 6,
+    industry: "Restaurant",
+    publishState: "published",
+    featuredHero: false,
+    source: {
+      type: "local",
+      folder: "bella-vista",
+      detectedType: "html"
+    }
   },
   {
     slug: "gym",
@@ -250,7 +285,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-02-20",
-    order: 6,
+    order: 7,
     industry: "Gym & Fitness",
     publishState: "published",
     source: {
@@ -293,7 +328,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-03-05",
-    order: 7,
+    order: 8,
     industry: "Hotel & Resort",
     publishState: "published",
     source: {
@@ -337,7 +372,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-02-12",
-    order: 8,
+    order: 9,
     industry: "Bar & Lounge",
     publishState: "published",
     source: {
@@ -347,7 +382,7 @@ export const demos: Demo[] = [
     },
     featuredHero: false,
     thumbnail: "/demos/pub/assets/studio-thumbnail.png?v=1785422939417",
-    showcase: true
+    showcase: false
   },
   {
     slug: "real-estate",
@@ -382,7 +417,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-03-08",
-    order: 9,
+    order: 10,
     industry: "Real Estate",
     publishState: "published",
     source: {
@@ -424,7 +459,7 @@ export const demos: Demo[] = [
     ],
     visibility: "public",
     lastActivity: "2024-02-08",
-    order: 10,
+    order: 11,
     industry: "Café & Bakery",
     publishState: "published",
     source: {
@@ -460,7 +495,7 @@ export const demos: Demo[] = [
       detectedType: "html"
     },
     tags: [],
-    order: 11,
+    order: 12,
     featuredHero: false
   }
 ];
@@ -485,8 +520,8 @@ export function getLiveDemos() {
   return demos.filter((d) => d.status === "live");
 }
 
-export function getActiveDemos() {
-  return demos.filter((d) => d.status !== "archived" && d.visibility !== "private");
+export function getActiveDemos(source: Demo[] = demos) {
+  return source.filter((d) => d.status !== "archived" && d.visibility !== "private");
 }
 
 export function searchDemos(query: string) {
@@ -542,8 +577,8 @@ export function getFeaturedDemosAsProjects(): Project[] {
     }));
 }
 
-export function getFeaturedHeroDemos() {
-  return demos
+export function getFeaturedHeroDemos(source: Demo[] = demos) {
+  return source
     .filter((d) => d.featuredHero === true)
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 }
@@ -575,8 +610,8 @@ export function getDemosByIndustryAsProjects(industrySlug: string): Project[] {
       liveUrl: d.source?.type === "external" ? d.source.url : `/demos/${d.slug}`,
     }));
 }
-export function getShowcaseDemosAsProjects(): Project[] {
-  return demos
+export function getShowcaseDemosAsProjects(source: Demo[] = demos): Project[] {
+  return source
     .filter((d) => d.showcase === true)
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
     .map((d) => ({

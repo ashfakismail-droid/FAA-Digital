@@ -1,16 +1,18 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock3, GitCommit, GitBranch, Rocket, MonitorPlay, Sparkles, LayoutGrid, ExternalLink } from "lucide-react";
-import { demos } from "@/config/demos";
 import { StudioStat } from "@/components/studio/stat";
 import { WebsiteMockup } from "@/components/visuals/website-mockup";
+import { isStudioAuthed } from "@/lib/admin-auth";
+import { loadStudioDemos } from "@/lib/demo-store";
 
 export const metadata = { title: "Dashboard — FAA Digital Studio", robots: { index: false, follow: false } };
 
 const labels: Record<string, string> = { live: "Live", "coming-soon": "Coming soon", "in-progress": "In progress", archived: "Archived" };
 
-export default function StudioDashboard() {
-  if (process.env.NODE_ENV !== "development") notFound();
+export default async function StudioDashboard() {
+  if (!(await isStudioAuthed())) notFound();
+  const { demos } = await loadStudioDemos();
   const recent = [...demos].sort((a, b) => (b.updatedAt ?? "").localeCompare(a.updatedAt ?? "")).slice(0, 5);
   const live = demos.filter((demo) => demo.status === "live").length;
   const working = demos.filter((demo) => demo.status === "in-progress").length;
@@ -20,7 +22,7 @@ export default function StudioDashboard() {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-        <div><p className="text-sm font-medium text-brand-600 dark:text-brand-400">Local workspace</p><h1 className="mt-1 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Good evening, FAA Digital.</h1><p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Manage the demo catalogue and prepare changes for deployment.</p></div>
+        <div><p className="text-sm font-medium text-brand-600 dark:text-brand-400">Studio workspace</p><h1 className="mt-1 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Good evening, FAA Digital.</h1><p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Manage the demo catalogue and prepare changes for deployment.</p></div>
         <Link href="/studio/demos" className="inline-flex h-10 items-center justify-center gap-2 self-start rounded-xl bg-slate-950 px-4 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 dark:bg-white dark:text-slate-950">Open Demo Manager <ArrowRight className="h-4 w-4" /></Link>
       </div>
 
@@ -38,8 +40,8 @@ export default function StudioDashboard() {
         </section>
 
         <section className="rounded-2xl bg-slate-950 p-5 text-white shadow-lg dark:bg-white dark:text-slate-950">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50 dark:text-slate-500">Publishing workflow</p><h2 className="mt-2 font-display text-xl font-semibold">Local first. Git deployed.</h2><p className="mt-2 text-sm leading-relaxed text-white/60 dark:text-slate-500">Studio saves the canonical metadata file. Git remains the audit trail and Netlify remains the release mechanism.</p>
-          <div className="mt-6 space-y-3">{[[GitCommit,"Save metadata","Write validated changes locally"],[GitBranch,"Commit & push","Review changes in Git"],[Rocket,"Netlify deploy","Publish the public catalogue"]].map(([Icon,title,body], index) => { const StepIcon = Icon as typeof GitCommit; return <div key={title as string} className="flex gap-3 rounded-xl bg-white/[0.07] p-3 dark:bg-slate-950/[0.06]"><div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xs font-bold dark:bg-slate-950/10">{index + 1}</div><div><p className="text-sm font-semibold">{title as string}</p><p className="mt-0.5 text-xs text-white/50 dark:text-slate-500">{body as string}</p></div><StepIcon className="ml-auto mt-1 h-4 w-4 opacity-40" /></div>; })}</div>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/50 dark:text-slate-500">Publishing workflow</p><h2 className="mt-2 font-display text-xl font-semibold">Local first. Git deployed.</h2><p className="mt-2 text-sm leading-relaxed text-white/60 dark:text-slate-500">Local development saves the canonical metadata file; production saves go to the persistent store and the live site refreshes automatically.</p>
+          <div className="mt-6 space-y-3">{[[GitCommit,"Save metadata","Validate and save changes"],[GitBranch,"Commit & push","Review changes in Git"],[Rocket,"Netlify deploy","Publish the public catalogue"]].map(([Icon,title,body], index) => { const StepIcon = Icon as typeof GitCommit; return <div key={title as string} className="flex gap-3 rounded-xl bg-white/[0.07] p-3 dark:bg-slate-950/[0.06]"><div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xs font-bold dark:bg-slate-950/10">{index + 1}</div><div><p className="text-sm font-semibold">{title as string}</p><p className="mt-0.5 text-xs text-white/50 dark:text-slate-500">{body as string}</p></div><StepIcon className="ml-auto mt-1 h-4 w-4 opacity-40" /></div>; })}</div>
         </section>
       </div>
 

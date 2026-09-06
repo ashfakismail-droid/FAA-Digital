@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { getActiveDemos } from "@/config/demos";
 import { createMetadata } from "@/lib/seo";
 import { AuroraBackground } from "@/components/visuals/aurora";
 import { SectionTag } from "@/components/ui/section";
@@ -7,6 +6,9 @@ import { DemoGallery } from "@/components/demos/demo-gallery";
 import { CtaSection } from "@/components/shared/cta-section";
 import { Reveal } from "@/components/motion/reveal";
 import { StudioEntry } from "@/components/demos/studio-entry";
+import { loadActiveDemos } from "@/lib/demo-store";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = createMetadata({
   title: "Live Demo Websites — Industry Templates Gallery",
@@ -15,8 +17,8 @@ export const metadata: Metadata = createMetadata({
   path: "/demos",
 });
 
-export default function DemosPage() {
-  const demos = getActiveDemos();
+export default async function DemosPage() {
+  const demos = await loadActiveDemos();
   return (
     <>
       <section className="relative overflow-hidden pb-16 pt-36 sm:pt-44">

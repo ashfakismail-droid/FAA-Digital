@@ -57,3 +57,31 @@ replacing the `<div class="portfolio-card__cover">` with an `<img>` tag.
   elements.
 - Semantic HTML (`<header>`, `<main>`, `<section>`, `<footer>`) and
   `aria-*` attributes are used throughout for screen readers.
+
+## Production Studio (Admin) — Next.js site
+
+The Studio (`/studio`) manages the demo catalogue and the Main Menu Showcase
+that drives the homepage cards. In production it is a secured admin area:
+
+**Setup (one time, on Netlify)**
+
+1. Set environment variables (Site configuration → Environment variables,
+   or in `.env.local` for local production-mode testing):
+   - `ADMIN_USERNAME` — your admin username
+   - `ADMIN_PASSWORD` — a strong password
+   - `ADMIN_SESSION_SECRET` — long random string (see `.env.example`)
+2. Deploy. Netlify Blobs is enabled automatically and stores the production
+   metadata, so Studio changes persist across refreshes, logins, different
+   devices and redeployments.
+
+**How it works**
+
+- Gear entry point on `/demos` and `/studio` → sign-in page
+  (`/studio/login`) → HMAC-signed HttpOnly session cookie (7 days).
+- All `/api/studio/*` endpoints and `/studio` pages are guarded by
+  middleware + per-route auth checks (dev keeps the local no-auth flow).
+- Saves in production go to Netlify Blobs (`faa-studio-metadata`) and
+  revalidate `/`, `/demos` and the Studio pages, so the public homepage
+  reflects Showcase/Featured Hero changes for everyone within a minute.
+- Local development (`npm run dev`) is unchanged: saves write to
+  `src/config/demos.ts` (Git remains the audit trail).

@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Settings2 } from "lucide-react";
 
 export function StudioEntry() {
-  if (process.env.NODE_ENV !== "development") return null;
-
   return (
     <div className="flex justify-center pb-8 pt-2">
       <Link

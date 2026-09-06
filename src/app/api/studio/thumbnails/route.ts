@@ -4,6 +4,7 @@ import { mkdir, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { isIP } from "node:net";
 import path from "node:path";
 import { NextResponse } from "next/server";
+import { requireAdmin } from "@/lib/admin-auth";
 
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 const UPLOAD_BASENAME = "studio-thumbnail";
@@ -154,6 +155,8 @@ async function uploadThumbnail(form: FormData) {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireAdmin(request);
+  if (denied) return denied;
   if (process.env.NODE_ENV !== "development") return NextResponse.json({ error: "Studio is disabled." }, { status: 404 });
 
   try {
