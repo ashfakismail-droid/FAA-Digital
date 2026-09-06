@@ -291,7 +291,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       try {
         const html = await input.readIndexHtml();
         if (html) {
-          const t = html.match(/<title[^>]*>([^<]+)<\\/title>/i);
+          const t = html.match(/<title[^>]*>([^<]+)<\/title>/i);
           if (t) title = t[1].trim();
           const d = html.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)["']/i);
           if (d) description = d[1].trim();
@@ -355,7 +355,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
       const paths: string[] = [];
       try {
         for await (const entry of handle.values()) {
-          const relative = prefix ? \`\${prefix}/\${entry.name}\` : entry.name;
+          const relative = prefix ? `${prefix}/${entry.name}` : entry.name;
           if (entry.kind === "file") paths.push(relative);
           else paths.push(...(await walkAllPaths(entry as LocalDirectoryHandle, relative)));
         }
@@ -400,7 +400,7 @@ export function DemoManager({ initialDemos }: { initialDemos: Demo[] }) {
     const collected: Array<{ path: string; file: File }> = [];
     const dirSet = new Set<string>();
     for (const file of files) {
-      const relative = (file.webkitRelativePath || f.name).replace(/\\\\/g, "/");
+      const relative = (file.webkitRelativePath || file.name).replace(/\\\\/g, "/");
       if (!relative || relative.includes("\\0") || relative.startsWith("/")) continue;
       collected.push({ path: relative, file });
       const segments = relative.split("/");
