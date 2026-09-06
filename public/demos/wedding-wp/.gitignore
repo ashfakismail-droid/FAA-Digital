@@ -1,0 +1,5 @@
+# build-time artifacts
+assets/candidates/
+photos-*.txt
+*.log
+node_modules/
