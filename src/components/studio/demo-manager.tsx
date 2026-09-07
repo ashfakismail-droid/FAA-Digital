@@ -1122,21 +1122,13 @@ function Wizard({
         )}
 
         {mode === "local-choice" && (
-          <div className="mt-6 space-y-2">
-            {process.env.NODE_ENV === "development" ? (
-              <div className="grid gap-3 sm:grid-cols-2">
-                <button onClick={startLocalScan} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
-                  <Plus className="mb-4 text-brand-600" /> Scan Project Folder
-                </button>
-                <button onClick={startLocalPicker} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
-                  <Upload className="mb-4 text-brand-600" /> Choose Folder From Computer
-                </button>
-              </div>
-            ) : (
-              <p className="rounded-xl border border-slate-200 p-4 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
-                Local folder scanning is a development-environment feature. Use <b>Link External Website</b> or <b>Duplicate Existing Demo</b> to add demos on this deployment.
-              </p>
-            )}
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <button onClick={startLocalScan} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
+              <Plus className="mb-4 text-brand-600" /> Scan Project Folder
+            </button>
+            <button onClick={startLocalPicker} className="rounded-2xl border p-5 text-left text-sm font-semibold hover:border-brand-500 dark:border-white/10">
+              <Upload className="mb-4 text-brand-600" /> Choose Folder From Computer
+            </button>
           </div>
         )}
 
